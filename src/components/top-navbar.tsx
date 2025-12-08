@@ -9,6 +9,8 @@ import {
   NavbarLabel,
 } from '@/components/navbar'
 import { Logo } from '@/app/logo'
+import { Link } from '@/components/link'
+import { Button } from '@/components/button'
 
 // ANCHOR links
 const menuItems = [
@@ -19,7 +21,6 @@ const menuItems = [
   { label: 'Contact', href: '#contact' },
 ]
 
-import { Button } from '@/components/button'
 
 export function TopNavbar() {
   return (
@@ -31,9 +32,9 @@ export function TopNavbar() {
         <Navbar>
           {/* LEFT: Logo */}
           <NavbarSection>
-            <NavbarItem href="/">
+            <Link href="/">
               <Logo className="h-8" />
-            </NavbarItem>
+            </Link>
           </NavbarSection>
 
           <NavbarSpacer />
