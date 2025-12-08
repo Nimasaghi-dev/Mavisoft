@@ -21,11 +21,6 @@ const HeroSection = () => {
           <button
             type="button"
             className="mt-6 inline-flex text-sm sm:text-base font-medium text-red-400 hover:text-red-300"
-            onClick={() => {
-              //scroll to Spectra section
-              const el = document.querySelector('#spectra')
-              if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
-            }}
           >
             Explore Spectra
           </button>
