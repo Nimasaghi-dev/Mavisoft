@@ -1,3 +1,4 @@
+// Assembled navbar (uses ui/navbar.tsx)
 'use client'
 
 import {
@@ -8,11 +9,21 @@ import {
   NavbarLabel,
 } from '@/components/navbar'
 import { Logo } from '@/app/logo'
+
+// ANCHOR links
+const menuItems = [
+  { label: 'Vision', href: '#vision' },
+  { label: 'Spectra', href: '#spectra' },
+  { label: 'Solutions', href: '#solutions' },
+  { label: 'People', href: '#people' },
+  { label: 'Contact', href: '#contact' },
+]
+
 import { Button } from '@/components/button'
 
 export function TopNavbar() {
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 border-b border-white/10 bg-zinc-950/80 backdrop-blur-md">
+    <header className="animate-fadeSlide fixed top-0 left-0 right-0 z-50 border-b border-white/10 bg-zinc-950/80 backdrop-blur-md">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <Navbar>
           {/* LEFT: Logo */}
@@ -25,23 +36,13 @@ export function TopNavbar() {
           <NavbarSpacer />
 
           {/* CENTER: Menu Items */}
-          <NavbarSection className="hidden md:flex">
-            <NavbarItem href="/vision">
-              <NavbarLabel>Vision</NavbarLabel>
-            </NavbarItem>
-            <NavbarItem href="/spectra">
-              <NavbarLabel>Spectra</NavbarLabel>
-            </NavbarItem>
-            <NavbarItem href="/solutions">
-              <NavbarLabel>Solutions</NavbarLabel>
-            </NavbarItem>
-            <NavbarItem href="/people">
-              <NavbarLabel>People</NavbarLabel>
-            </NavbarItem>
-            <NavbarItem href="/contact">
-              <NavbarLabel>Contact</NavbarLabel>
-            </NavbarItem>
-          </NavbarSection>
+            <NavbarSection className='hidden md:flex'>
+                {menuItems.map((item) => (
+                    <NavbarItem key={item.href} href={item.href}>
+                        <NavbarLabel>{item.label}</NavbarLabel>
+                    </NavbarItem>
+                ))}
+            </NavbarSection>
 
           <NavbarSpacer />
 
