@@ -3,36 +3,33 @@
 import clsx from 'clsx'
 
 const HeroSection = () => {
-
   return (
     <section
       className={clsx(
-        'relative min-h-screen pt-40 px-4 sm:px-6 lg:px-8',
-        'flex justify-center',
+        'relative min-h-screen',
+        'flex items-center pb-30 pr-102' 
       )}
     >
-      {/* Full-bleed background image */}
-
-      {/* Content */}
-      <div className="max-w-3xl text-center text-white">
-
-        {/* Main heading – typical hero sizes */}
-        <h1 className="mt-4 text-2xl sm:text-4xl lg:text-4xl font-semibold tracking-tight">
-          We Build Systems That Understand The World
-        </h1>
-
-        {/* Subheading / body text */}
-        <p className="mt-6 text-base sm:text-lg text-zinc-100/80">
-          Our state-of-the-art operating system unifies perception and action across the physical domain.
-        </p>
-
-        {/* Red clickable text (Explore Spectra)*/}
-        <button
-          type="button"
-          className="mt-4 flex flex-start text-sm sm:text-base font-medium text-red-400 hover:text-red-300"
-        >
-          Explore Spectra
-        </button>
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="max-w-3xl text-left text-white">
+          <h1 className="mt-4 text-3xl sm:text-5xl lg:text-4xl font-semibold tracking-tight">
+            We Build Systems That Understand The World
+          </h1>
+          <p className="mt-6 text-base sm:text-lg lg:text-xl text-zinc-100/80">
+            Our state-of-the-art operating system unifies perception and action across the physical domain.
+          </p>
+          <button
+            type="button"
+            className="mt-6 inline-flex text-sm sm:text-base font-medium text-red-400 hover:text-red-300"
+            onClick={() => {
+              //scroll to Spectra section
+              const el = document.querySelector('#spectra')
+              if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+            }}
+          >
+            Explore Spectra
+          </button>
+        </div>
       </div>
     </section>
   )
