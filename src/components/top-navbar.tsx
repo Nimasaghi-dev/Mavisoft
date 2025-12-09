@@ -1,16 +1,10 @@
 // Assembled navbar (uses ui/navbar.tsx)
 'use client'
 
-import {
-  Navbar,
-  NavbarSection,
-  NavbarSpacer,
-  NavbarItem,
-  NavbarLabel,
-} from '@/components/navbar'
 import { Logo } from '@/app/logo'
-import { Link } from '@/components/link'
 import { Button } from '@/components/button'
+import { Link } from '@/components/link'
+import { Navbar, NavbarItem, NavbarLabel, NavbarSection, NavbarSpacer } from '@/components/navbar'
 
 // ANCHOR links
 const menuItems = [
@@ -23,9 +17,7 @@ const menuItems = [
 
 export function TopNavbar() {
   return (
-    <header 
-      className="animate-fadeSlide 
-      fixed top-0 left-0 right-0 z-50 bg-zinc-950/80 backdrop-blur-md">
+    <header className="animate-fadeSlide fixed top-0 right-0 left-0 z-50 bg-zinc-950/80 backdrop-blur-md">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <Navbar>
           {/* LEFT: Logo */}
@@ -38,9 +30,14 @@ export function TopNavbar() {
           <NavbarSpacer />
 
           {/* CENTER: Menu Items */}
-<NavbarSection className="hidden md:flex">
+          <NavbarSection className="hidden items-center gap-1 md:flex">
             {menuItems.map((item) => (
-              <NavbarItem key={item.href} href={item.href}>
+              <NavbarItem
+                key={item.href}
+                href={item.href}
+                className="group relative !rounded-lg !px-3 !py-2 !font-medium !text-cyan-300 !transition-all !duration-300 after:absolute after:right-3 after:bottom-1 after:left-3 after:h-px after:scale-x-0 after:bg-cyan-400 after:opacity-0 after:transition-all after:duration-300 hover:!bg-transparent hover:!text-cyan-100 hover:!shadow-none hover:after:scale-x-100 hover:after:opacity-100"
+                
+              >
                 <NavbarLabel>{item.label}</NavbarLabel>
               </NavbarItem>
             ))}
@@ -50,10 +47,18 @@ export function TopNavbar() {
 
           {/* RIGHT: Buttons */}
           <NavbarSection>
-            <Button href="/login" outline>
+            <Button
+              className="group !rounded-lg !border !border-cyan-500/30 !px-4 !py-2.5 !text-sm !font-medium !text-cyan-300 !shadow-sm !shadow-cyan-500/10 !transition-all !duration-300 hover:!border-cyan-400 hover:!bg-cyan-500/10 hover:!text-cyan-100 hover:!shadow-md hover:!shadow-cyan-500/20"
+              href="/login"
+              outline
+            >
               Login
             </Button>
-            <Button href="/request-access">
+            <Button
+              className="group !rounded-lg !border !border-cyan-500/30 !px-4 !py-2.5 !text-sm !font-medium !text-cyan-300 !shadow-sm !shadow-cyan-500/10 !transition-all !duration-300 hover:!border-cyan-400 hover:!bg-cyan-500/10 hover:!text-cyan-100 hover:!shadow-md hover:!shadow-cyan-500/20"
+              href="/request-access"
+              outline
+            >
               Request Access
             </Button>
           </NavbarSection>
