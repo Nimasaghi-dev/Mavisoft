@@ -13,7 +13,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className="scroll-smooth bg-zinc-950 text-white">
       <body className="min-h-screen">
         <div className="absolute inset-0 -z-10">
-        <div className="h-full w-full bg-[url('/1_Globe_Image.jpg')] bg-cover bg-center" />
+        <div className="h-full w-full bg-[url('/1_Globe_Image.jpg')] mt-10 bg-cover bg-center" />
         </div>
         <TopNavbar/>
         <main className='pt-16'>{children}</main>
