@@ -7,7 +7,8 @@ const HeroSection = () => {
     <section
       className={clsx(
         'relative min-h-screen',
-        'flex items-center pb-30 pr-102' 
+        'flex items-center pb-30 pr-102',
+        'animate-fadeSlide'
       )}
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
