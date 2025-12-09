@@ -20,7 +20,7 @@ const HeroSection = () => {
           </p>
           <button
             type="button"
-            className="mt-6 inline-flex text-sm sm:text-base font-medium text-red-400 hover:text-red-300"
+            className="mt-6 cursor-pointer inline-flex text-sm sm:text-base font-medium text-red-400 hover:text-red-300"
           >
             Explore Spectra
           </button>
