@@ -1,7 +1,13 @@
 import HeroSection from "@/sections/hero"
+import VisionSection from "@/sections/vision"
 
 const page = () => {
-  return <HeroSection />
+  return (
+  <>
+    <HeroSection />
+    <VisionSection/>
+  </>
+)
 }
 
 export default page
