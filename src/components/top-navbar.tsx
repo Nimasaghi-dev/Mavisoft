@@ -8,11 +8,11 @@ import { Navbar, NavbarItem, NavbarLabel, NavbarSection, NavbarSpacer } from '@/
 
 // ANCHOR links
 const menuItems = [
-  { label: 'Vision', href: '#vision' },
-  { label: 'Spectra', href: '#spectra' },
-  { label: 'Solutions', href: '#solutions' },
-  { label: 'People', href: '#people' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'VISION', href: '#vision' },
+  { label: 'SPECTRA', href: '#spectra' },
+  { label: 'SOLUTIONS', href: '#solutions' },
+  { label: 'PEOPLE', href: '#people' },
+  { label: 'CONTACT', href: '#contact' },
 ]
 
 export function TopNavbar() {
