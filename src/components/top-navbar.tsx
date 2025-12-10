@@ -48,14 +48,14 @@ export function TopNavbar() {
           {/* RIGHT: Buttons */}
           <NavbarSection>
             <Button
-              className="group !rounded-lg !border !border-cyan-500/30 !px-4 !py-2.5 !text-sm !font-medium !text-cyan-300 !shadow-sm !shadow-cyan-500/10 !transition-all !duration-300 hover:!border-cyan-400 hover:!bg-cyan-500/10 hover:!text-cyan-100 hover:!shadow-md hover:!shadow-cyan-500/20"
+              className="group !rounded-lg !border !border-cyan-500/30 !px-4 !py-2.5 !text-sm !font-medium !text-cyan-100 !shadow-sm !shadow-cyan-500/10 !transition-all !duration-300 hover:!border-cyan-200 hover:!bg-cyan-500/10 hover:!text-cyan-100 hover:!shadow-md hover:!shadow-cyan-500/20"
               href="/login"
               outline
             >
               Login
             </Button>
             <Button
-              className="group !rounded-lg !border !border-cyan-500/30 !px-4 !py-2.5 !text-sm !font-medium !text-cyan-300 !shadow-sm !shadow-cyan-500/10 !transition-all !duration-300 hover:!border-cyan-400 hover:!bg-cyan-500/10 hover:!text-cyan-100 hover:!shadow-md hover:!shadow-cyan-500/20"
+              className="group !rounded-lg !border !border-cyan-500/30 !px-4 !py-2.5 !text-sm !font-medium !text-cyan-100 !shadow-sm !shadow-cyan-500/10 !transition-all !duration-300 hover:!border-cyan-200 hover:!bg-cyan-500/10 hover:!text-cyan-100 hover:!shadow-md hover:!shadow-cyan-500/20"
               href="/request-access"
               outline
             >
