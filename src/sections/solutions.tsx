@@ -14,8 +14,8 @@ export function SolutionSection() {
     },
     {
       number: 2,
-      title: 'Connect your',
-      highlight: 'feeds',
+      title: 'Apply the AI models',
+      highlight: 'you need',
       items: [
         'Use the cameras you already have',
         'Add drones or handheld photos when needed',
@@ -24,8 +24,8 @@ export function SolutionSection() {
     },
     {
       number: 3,
-      title: 'Connect your',
-      highlight: 'feeds',
+      title: 'See everything in',
+      highlight: 'XR',
       items: [
         'Use the cameras you already have',
         'Add drones or handheld photos when needed',
@@ -34,8 +34,8 @@ export function SolutionSection() {
     },
     {
       number: 4,
-      title: 'Connect your',
-      highlight: 'feeds',
+      title: 'Automate with',
+      highlight: 'workflows',
       items: [
         'Use the cameras you already have',
         'Add drones or handheld photos when needed',
@@ -44,8 +44,8 @@ export function SolutionSection() {
     },
     {
       number: 5,
-      title: 'Connect your',
-      highlight: 'feeds',
+      title: 'trigger actions',
+      highlight: 'instantly',
       items: [
         'Use the cameras you already have',
         'Add drones or handheld photos when needed',
@@ -55,7 +55,7 @@ export function SolutionSection() {
   ]
 
   return (
-    <section id="spectra" className="scroll-mt-20 bg-zinc-900/50 px-4 py-24">
+    <section id="solutions" className="scroll-mt-20 bg-zinc-900/50 px-4 py-24">
       <div className="mx-auto max-w-7xl">
         <h2 className="text-3xl font-bold sm:text-4xl">The way it works is simple</h2>
         <h3 className="mt-2 text-zinc-400">From raw images to intelligent actions</h3>
