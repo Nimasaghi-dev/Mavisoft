@@ -57,7 +57,7 @@ const VisionSection = () => {
   ]
 
   return (
-    <section id="vision" className="scroll-mt-24">
+    <section id="vision" className="scroll-mt-26 ">
       {/* Very dark background - near black (#0a0a0a / gray-950) */}
       <div className="bg-black py-20 sm:py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -72,7 +72,7 @@ const VisionSection = () => {
           </div>
 
           {/* Cards Grid - Smaller cards with reduced padding */}
-          <div className="mt-14 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-14 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {cards.map((card, index) => (
               <div
                 key={index}
@@ -87,7 +87,7 @@ const VisionSection = () => {
                   </div>
 
                   {/* Title - Positioned toward center */}
-                  <h3 className="flex-1 text-center text-lg  text-white">
+                  <h3 className="flex-1 text-center text-xl  text-white">
                     {card.title}
                   </h3>
 

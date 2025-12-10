@@ -1,4 +1,5 @@
 import HeroSection from "@/sections/hero"
+import { SpectraSection } from "@/sections/spectra"
 import VisionSection from "@/sections/vision"
 
 const page = () => {
@@ -6,6 +7,7 @@ const page = () => {
   <>
     <HeroSection />
     <VisionSection/>
+    <SpectraSection/>
   </>
 )
 }
