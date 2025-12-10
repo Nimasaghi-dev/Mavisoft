@@ -64,7 +64,7 @@ const VisionSection = () => {
           {/* Header - Left Aligned */}
           <div className="max-w-2xl">
             <h2 className="text-4xl tracking-tight text-pretty text-white sm:text-5xl">
-              The World Is Complex, Dynamic, Interdepended.
+              The World Is <span className='bg-gradient-to-r from-cyan-100 to-cyan-500 text-transparent bg-clip-text'>Complex, Dynamic, Interdepended.</span>
             </h2>
             <p className="mt-6 text-lg/8 text-gray-400">
               We build general-purpose perception that binds reality into structure and meaning.
