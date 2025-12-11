@@ -67,8 +67,7 @@ export function SolutionSection() {
     >
       <div className="py-16 md:py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          {/* Header */}
-          <div className="text-center max-w-2xl mx-auto">
+          <div className="mx-auto max-w-2xl text-center">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold">
               The way it works is simple
             </h2>
@@ -76,8 +75,6 @@ export function SolutionSection() {
               From raw images to intelligent actions
             </p>
           </div>
-
-          {/* Cards */}
           <div className="mt-12 md:mt-16 flex flex-col gap-6">
             {cards.map((card, index) => {
               const isOdd = index % 2 === 1
@@ -85,44 +82,68 @@ export function SolutionSection() {
               return (
                 <div
                   key={card.number}
-                  className="flex flex-col lg:flex-row items-center gap-8 rounded-xl border border-zinc-700/40 bg-zinc-900/60 backdrop-blur-sm p-6 lg:p-8 transition-colors hover:border-cyan-500/30"
+                  className="rounded-xl border border-zinc-700/40 bg-zinc-900/40 backdrop-blur-[2px] p-6 lg:p-10 transition-colors hover:border-cyan-500/30"
                 >
-                  {/* Image */}
                   <div
-                    className={`w-full lg:w-80 shrink-0 ${
-                      isOdd ? 'lg:order-2' : 'lg:order-1'
-                    }`}
+                    className="
+                      grid
+                      grid-cols-1
+                      lg:grid-cols-2
+                      gap-8
+                      lg:gap-16
+                      items-center
+                    "
                   >
-                    <div className="relative h-48 sm:h-56 lg:h-52">
-                      <Image
-                        alt={card.title}
-                        src={card.image}
-                        fill
-                        className="object-contain"
-                        priority={index < 2}
-                      />
-                    </div>
-                  </div>
-
-                  {/* Text */}
-                  <div
-                    className={`flex-1 ${
-                      isOdd ? 'lg:order-1 lg:text-right' : 'lg:order-2'
-                    }`}
-                  >
-                    <h3 className="text-xl sm:text-2xl font-medium text-white">
-                      {card.number}. {card.title}{' '}
-                      <span className="text-cyan-400">{card.highlight}</span>
-                    </h3>
-                    <ul
-                      className={`mt-4 space-y-2 text-sm sm:text-base text-gray-400 ${
-                        isOdd ? 'lg:ml-auto' : ''
-                      } max-w-md`}
+                    <div
+                      className={`
+                        w-full
+                        flex
+                        items-center
+                        justify-center
+                        ${isOdd ? 'lg:order-2' : 'lg:order-1'}
+                      `}
                     >
-                      {card.items.map((item, idx) => (
-                        <li key={idx}>• {item}</li>
-                      ))}
-                    </ul>
+                      <div className="relative h-48 sm:h-56 lg:h-56 w-full max-w-sm">
+                        <Image
+                          alt={card.title}
+                          src={card.image}
+                          fill
+                          className="object-contain"
+                          priority={index < 2}
+                        />
+                      </div>
+                    </div>
+                    <div
+                      className={`
+                        w-full
+                        flex
+                        items-center
+                        justify-center
+                        ${isOdd ? 'lg:order-1' : 'lg:order-2'}
+                      `}
+                    >
+                      <div className="max-w-md text-center lg:text-left">
+                        <h3 className="text-xl sm:text-2xl font-medium text-white">
+                          {card.number}. {card.title}{' '}
+                          <span className="text-cyan-400">{card.highlight}</span>
+                        </h3>
+                        <ul className="mt-4 space-y-2 text-sm sm:text-base text-gray-400">
+                          {card.items.map((item, idx) => (
+                            <li
+                              key={idx}
+                              className="
+                                flex
+                                items-start
+                                gap-2
+                              "
+                            >
+                              <span className="mt-0.5 shrink-0 text-cyan-500">•</span>
+                              <span>{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
                   </div>
                 </div>
               )

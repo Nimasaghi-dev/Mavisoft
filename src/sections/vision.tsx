@@ -60,7 +60,6 @@ const VisionSection = () => {
     <section id="vision" className="scroll-mt-20 bg-black">
       <div className="py-16 md:py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          {/* Header */}
           <div className="max-w-2xl">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl tracking-tight text-white">
               The World Is{' '}
@@ -72,15 +71,12 @@ const VisionSection = () => {
               We build general-purpose perception that binds reality into structure and meaning.
             </p>
           </div>
-
-          {/* Cards Grid */}
           <div className="mt-12 md:mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {cards.map((card, index) => (
               <div
                 key={index}
                 className="group border border-gray-800 bg-gray-900/50 p-6 transition-all duration-300 hover:border-gray-700 hover:bg-gray-900/80"
               >
-                {/* Card Header */}
                 <div className="flex items-center gap-4">
                   <div className="flex-shrink-0">
                     <img src={card.logo} alt="" className="h-8 w-auto dark:hidden" />
@@ -88,16 +84,12 @@ const VisionSection = () => {
                   </div>
                   <h3 className="text-lg font-medium text-white">{card.title}</h3>
                 </div>
-
-                {/* Card Content */}
                 <p className="mt-4 text-sm leading-relaxed text-gray-400">
                   {card.description}
                 </p>
               </div>
             ))}
           </div>
-
-          {/* Partner Logos */}
           <div className="mt-16 border-t border-gray-800 pt-12">
             <p className="text-xs font-medium tracking-wider text-gray-500 uppercase">
               Trusted by

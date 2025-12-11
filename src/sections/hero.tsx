@@ -2,17 +2,15 @@
 
 const HeroSection = () => {
   return (
-    <section
-      className="relative flex min-h-screen items-center bg-cover bg-center bg-no-repeat"
-      style={{ backgroundImage: "url('/1_Globe_Image.jpg')" }}
-    >
-      {/* Dark overlay for text readability */}
-      <div className="absolute inset-0 bg-black/40" />
-
-      {/* Content */}
+    <section className="relative flex min-h-screen items-center overflow-hidden">
+      <div
+        className="absolute inset-0 top-16 bg-cover bg-top bg-no-repeat"
+        style={{ backgroundImage: "url('/1_Globe_Image.jpg')" }}
+      />
+      <div className="absolute inset-0 bg-gradient-to-b from-zinc-950/80 via-zinc-950/40 to-zinc-950/60" />
       <div className="relative z-10 mx-auto w-full max-w-7xl px-6 lg:px-8">
-        <div className="max-w-2xl">
-          <h1 className="text-3xl leading-tight font-semibold tracking-tight sm:text-4xl lg:text-5xl">
+        <div className="max-w-4xl">
+          <h1 className="text-2xl leading-tight font-semibold tracking-tight sm:text-3xl md:text-4xl lg:text-5xl lg:whitespace-nowrap xl:text-[3.5rem]">
             We Build Systems That Understand The World
           </h1>
           <p className="mt-6 max-w-xl text-base text-zinc-200/90 sm:text-lg">

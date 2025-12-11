@@ -4,8 +4,8 @@ import type { Metadata } from 'next'
 import { TopNavbar } from '@/components/top-navbar'
 
 export const metadata: Metadata = {
-  title: 'YourCompany',
-  description: 'YourCompany – short tagline here',
+  title: 'Mavisoft',
+  description: 'Mavisoft – Software Company ',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

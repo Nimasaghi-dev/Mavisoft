@@ -20,16 +20,12 @@ export function TopNavbar() {
     <header className="animate-fadeSlide fixed top-0 right-0 left-0 z-50 bg-transparent backdrop-blur-md">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <Navbar>
-          {/* LEFT: Logo */}
           <NavbarSection>
             <Link href="/">
               <Logo className="h-8" />
             </Link>
           </NavbarSection>
-
           <NavbarSpacer />
-
-          {/* CENTER: Menu Items */}
           <NavbarSection className="hidden items-center gap-1 md:flex">
             {menuItems.map((item) => (
               <NavbarItem
@@ -42,10 +38,7 @@ export function TopNavbar() {
               </NavbarItem>
             ))}
           </NavbarSection>
-
           <NavbarSpacer />
-
-          {/* RIGHT: Buttons */}
           <NavbarSection>
             <Button
               className="group !rounded-lg !border !border-cyan-500/30 !px-4 !py-2.5 !text-sm !font-medium !text-cyan-100 !shadow-sm !shadow-cyan-500/10 !transition-all !duration-300 hover:!border-cyan-200 hover:!bg-cyan-500/10 hover:!text-cyan-100 hover:!shadow-md hover:!shadow-cyan-500/20"
