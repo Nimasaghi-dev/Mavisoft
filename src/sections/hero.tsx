@@ -75,39 +75,6 @@ const HeroSection = () => {
               "
             >
               →
-              <span className="
-                absolute
-                top-1/2
-                -left-1
-                w-1
-                h-1
-                rounded-full
-                bg-cyan-400/0
-                group-hover:bg-cyan-400
-                group-hover:animate-[trail_0.7s_ease-out_forwards]
-              "></span>
-              <span className="
-                absolute
-                top-1/2
-                -left-2
-                w-0.5
-                h-0.5
-                rounded-full
-                bg-cyan-400/0
-                group-hover:bg-cyan-400
-                group-hover:animate-[trail_0.7s_0.1s_ease-out_forwards]
-              "></span>
-              <span className="
-                absolute
-                top-1/2
-                -left-3
-                w-0.5
-                h-0.5
-                rounded-full
-                bg-cyan-400/0
-                group-hover:bg-cyan-400
-                group-hover:animate-[trail_0.7s_0.2s_ease-out_forwards]
-              "></span>
             </span>
           </a>
         </div>
