@@ -95,21 +95,24 @@ const VisionSection = () => {
               Trusted by
             </p>
             <div className="mt-6 flex flex-wrap items-center gap-x-8 gap-y-4">
-              {partnerLogos.map((logo) => (
-                <div key={logo.name}>
-                  <img
-                    alt={logo.name}
-                    src={logo.light}
-                    className="h-8 w-auto object-contain opacity-50 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0 dark:hidden"
-                  />
-                  <img
-                    alt={logo.name}
-                    src={logo.dark}
-                    className="hidden h-8 w-auto object-contain opacity-50 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0 dark:block"
-                  />
-                </div>
-              ))}
-            </div>
+  {partnerLogos.map((logo) => (
+    <div 
+      key={logo.name} 
+      className="transform transition-all duration-300 hover:scale-125 hover:drop-shadow-lg"
+    >
+      <img
+        alt={logo.name}
+        src={logo.light}
+        className="h-8 w-auto object-contain opacity-50 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0 dark:hidden"
+      />
+      <img
+        alt={logo.name}
+        src={logo.dark}
+        className="hidden h-8 w-auto object-contain opacity-50 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0 dark:block"
+      />
+    </div>
+  ))}
+</div>
           </div>
         </div>
       </div>
