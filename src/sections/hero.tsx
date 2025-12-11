@@ -17,12 +17,80 @@ const HeroSection = () => {
             Our state-of-the-art operating system unifies perception and action across the physical domain.
           </p>
           <a
-            href="#spectra"
-            className="mt-8 inline-flex items-center gap-2 text-sm font-medium text-cyan-400 transition-colors hover:text-cyan-300 sm:text-base"
-          >
-            Explore Spectra
-            <span aria-hidden="true">→</span>
-          </a>
+  href="#spectra"
+  className="
+    group
+    mt-8 
+    inline-flex 
+    items-center 
+    gap-2 
+    text-sm 
+    font-medium 
+    text-cyan-400 
+    transition-all 
+    duration-700 
+    ease-out
+    hover:text-cyan-100 
+    hover:gap-4
+    sm:text-base
+    relative
+    overflow-visible
+  "
+>
+  <span className="transition-all duration-500 group-hover:translate-x-1">
+    Explore Spectra
+  </span>
+  <span 
+    aria-hidden="true"
+    className="
+      relative
+      inline-block
+      transition-all
+      duration-700
+      ease-out
+      group-hover:translate-x-4
+      group-hover:scale-140
+      group-hover:text-cyan-200
+      group-hover:drop-shadow-[0_0_15px_rgba(34,211,238,0.7)]
+    "
+  >
+    →
+    {/* Trail effect dots */}
+    <span className="
+      absolute
+      top-1/2
+      -left-1
+      w-1
+      h-1
+      rounded-full
+      bg-cyan-400/0
+      group-hover:bg-cyan-400
+      group-hover:animate-[trail_0.7s_ease-out_forwards]
+    "></span>
+    <span className="
+      absolute
+      top-1/2
+      -left-2
+      w-0.5
+      h-0.5
+      rounded-full
+      bg-cyan-400/0
+      group-hover:bg-cyan-400
+      group-hover:animate-[trail_0.7s_0.1s_ease-out_forwards]
+    "></span>
+    <span className="
+      absolute
+      top-1/2
+      -left-3
+      w-0.5
+      h-0.5
+      rounded-full
+      bg-cyan-400/0
+      group-hover:bg-cyan-400
+      group-hover:animate-[trail_0.7s_0.2s_ease-out_forwards]
+    "></span>
+  </span>
+</a>
         </div>
       </div>
     </section>
