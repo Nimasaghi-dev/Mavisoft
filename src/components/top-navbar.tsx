@@ -11,7 +11,7 @@ const menuItems = [
   { label: 'VISION', href: '#vision' },
   { label: 'SPECTRA', href: '#spectra' },
   { label: 'SOLUTIONS', href: '#solutions' },
-  { label: 'PEOPLE', href: '#people' },
+  { label: 'INDUSTRIES', href: '#industries' },
   { label: 'CONTACT', href: '#contact' },
 ]
 
