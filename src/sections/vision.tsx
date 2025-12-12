@@ -63,7 +63,7 @@ const VisionSection = () => {
           <div className="max-w-2xl">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl tracking-tight text-white">
               The World Is{' '}
-              <span className="bg-gradient-to-r from-cyan-100 to-cyan-500 text-transparent bg-clip-text">
+              <span className="bg-linear-to-r from-cyan-100 to-cyan-500 text-transparent bg-clip-text">
                 Complex, Dynamic, Interdepended.
               </span>
             </h2>
@@ -78,7 +78,7 @@ const VisionSection = () => {
                 className="group border border-gray-800 bg-gray-900/50 p-6 transition-all duration-300 hover:border-gray-700 hover:bg-gray-900/80"
               >
                 <div className="flex items-center gap-4">
-                  <div className="flex-shrink-0">
+                  <div className="shrink-0">
                     <img src={card.logo} alt="" className="h-8 w-auto dark:hidden" />
                     <img src={card.logoDark} alt="" className="hidden h-8 w-auto dark:block" />
                   </div>

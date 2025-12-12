@@ -6,7 +6,7 @@ export function SpectraSection() {
     <section id="spectra" className="scroll-mt-20 bg-zinc-900/50">
       <div className="py-16 md:py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <h2 className="max-w-4xl text-3xl font-bold sm:text-4xl lg:text-5xl">
+          <h2 className="max-w-4xl text-3xl sm:text-4xl lg:text-5xl">
             Introducing{' '}
             <span className="inline-flex items-center align-baseline">
               <SpectraLogo className='h-[1em] w-auto '/>
@@ -23,7 +23,7 @@ export function SpectraSection() {
             </p>
             <a
               href="#contact"
-              className="inline-flex shrink-0 items-center justify-center !rounded-lg !border !border-cyan-500/30 !px-4 !py-2.5 !text-sm !font-medium !text-cyan-100 !shadow-sm !shadow-cyan-500/10 !transition-all !duration-300 hover:!border-cyan-200 hover:!bg-cyan-500/10 hover:!text-cyan-100 hover:!shadow-md hover:!shadow-cyan-500/20"
+              className="inline-flex shrink-0 items-center justify-center rounded-lg! border! border-cyan-500/30! px-4! py-2.5! text-sm! font-medium! text-cyan-100! shadow-sm! shadow-cyan-500/10! transition-all! duration-300! hover:border-cyan-200! hover:bg-cyan-500/10! hover:text-cyan-100! hover:shadow-md! hover:shadow-cyan-500/20!"
             >
               Book A Demo
             </a>

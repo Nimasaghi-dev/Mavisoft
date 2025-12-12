@@ -59,6 +59,14 @@ export function SolutionSection() {
     },
   ]
 
+  const miniCards = [
+    { id: 'a', title: '...', image: '/...', body: '...' },
+    { id: 'b', title: '...', image: '/...', body: '...' },
+    { id: 'c', title: '...', image: '/...', body: '...' },
+    { id: 'd', title: '...', image: '/...', body: '...' },
+  ]
+
+
   return (
     <section
       id="solutions"
@@ -103,6 +111,7 @@ export function SolutionSection() {
                     </div>
                   </div>
                 </div>
+                
               )
             })}
           </div>
