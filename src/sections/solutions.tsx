@@ -68,8 +68,8 @@ export function SolutionSection() {
       <div className="py-16 md:py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-bold sm:text-4xl lg:text-5xl">The way it works is simple</h2>
-            <p className="mt-4 text-base text-gray-400">From raw images to intelligent actions</p>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl">The way it works is simple</h2>
+            <p className="mt-4 text-lg text-gray-400">From raw images to intelligent actions</p>
           </div>
           <div className="mt-12 flex flex-col gap-6 md:mt-16">
             {cards.map((card, index) => {
