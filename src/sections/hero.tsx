@@ -1,5 +1,6 @@
 'use client'
 
+import { SpectraLogo } from '@/components/SpectraLogo'
 import { useEffect, useState } from 'react'
 
 const HeroSection = () => {
@@ -40,7 +41,10 @@ const HeroSection = () => {
             href="#spectra"
             className="group /* Changed from cyan-400 to red-400 */ /* Changed from cyan-100 to red-200 */ relative mt-8 inline-flex items-center gap-2 overflow-visible text-sm font-medium text-red-400 transition-all duration-700 ease-out hover:gap-4 hover:text-red-200 sm:text-base"
           >
-            <span className="text-lg transition-all duration-500 group-hover:translate-x-1">Explore Spectra</span>
+            <span className="inline-flex items-center gap-2 text-lg transition-all duration-500 group-hover:translate-x-1">
+              Explore
+              <SpectraLogo className="h-[0.9em] w-auto text-3xl" />
+            </span>
             <span
               aria-hidden="true"
               className="/* Changed from cyan-200 to red-200 */ /* Changed to red */ relative inline-block transition-all duration-700 ease-out group-hover:translate-x-4 group-hover:scale-140 group-hover:text-red-200 group-hover:drop-shadow-[0_0_15px_rgba(239,68,68,0.7)]"
