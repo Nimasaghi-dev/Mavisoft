@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import { SpectraLogo } from '@/components/SpectraLogo'
 
 export function SpectraSection() {
   return (
@@ -7,7 +8,9 @@ export function SpectraSection() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <h2 className="max-w-4xl text-3xl font-bold sm:text-4xl lg:text-5xl">
             Introducing{' '}
-            <span className="bg-gradient-to-r from-cyan-300 to-cyan-700 bg-clip-text text-transparent">SPECTRA</span>{' '}
+            <span className="inline-flex items-center align-baseline">
+              <SpectraLogo className='h-[1em] w-auto '/>
+            </span>{' '}
             our cognitive framework. Modular, Spatial, Extensible.
           </h2>
           <div className="relative mt-12 h-[250px] w-full sm:h-[350px] md:mt-16 md:h-[450px] lg:h-[500px]">
