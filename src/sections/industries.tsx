@@ -38,7 +38,7 @@ export default function IndustriesSection() {
       className="scroll-mt-20 py-16 md:py-24"
     >
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        {/* Header - aligned with cards */}
+        {/* Header */}
         <div className="mb-12 md:mb-16">
           <h2 className="text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
             Industries We Serve
@@ -57,7 +57,7 @@ export default function IndustriesSection() {
               className="
                 group 
                 relative 
-                min-h-[320px] 
+                min-h-80 
                 overflow-hidden 
                 rounded-xl 
                 border border-white/10 
@@ -66,7 +66,7 @@ export default function IndustriesSection() {
                 hover:border-cyan-500/30 
                 hover:shadow-xl hover:shadow-cyan-900/20
                 sm:min-h-[280px]
-                lg:min-h-[300px]
+                lg:min-h-[450px]
               "
             >
               {/* Background image */}
@@ -80,10 +80,9 @@ export default function IndustriesSection() {
                 />
               </div>
 
-              {/* Text content with semi-transparent background */}
-              <div className="relative z-10 flex h-full flex-col justify-end p-6">
-                {/* Text backdrop for better readability */}
-                <div className="rounded-lg bg-black/40 p-4 backdrop-blur-[2px]">
+              {/* Text content */}
+              <div className="relative z-10 flex h-full flex-col justify-end">
+                <div className=" bg-black/40 p-4 backdrop-blur-xs">
                   <h3 className="text-lg font-bold text-white sm:text-xl">
                     {ic.title}
                   </h3>
