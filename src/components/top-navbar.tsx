@@ -28,9 +28,14 @@ export function TopNavbar() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <Navbar>
           <NavbarSection>
-            <Link href="/">
+            <button
+              type="button"
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              className="cursor-pointer"
+              aria-label="Scroll to top"
+            >
               <Logo className="h-8" />
-            </Link>
+            </button>
           </NavbarSection>
           
           <NavbarSpacer />
