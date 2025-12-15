@@ -24,7 +24,7 @@ export function TopNavbar() {
   const closeMenu = () => setIsOpen(false)
 
   return (
-    <header className="animate-fadeSlide fixed top-0 right-0 left-0 z-50 bg-zinc-950/80 backdrop-blur-md">
+    <header className="animate-fadeSlide fixed top-0 right-0 left-0 z-50 bg-transparent-md backdrop-blur-md">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <Navbar>
           <NavbarSection>
@@ -147,14 +147,14 @@ export function TopNavbar() {
                   <a
                     href="/login"
                     onClick={closeMenu}
-                    className="flex items-center justify-center rounded-lg border border-cyan-500/30 px-4 py-2.5 text-sm font-medium text-cyan-100 transition-colors hover:bg-cyan-500/10"
+                    className="flex items-center justify-center rounded-lg border border-cyan-200/30 px-4 py-2.5 text-sm font-medium text-cyan-100 transition-colors hover:bg-cyan-200/10"
                   >
                     Login
                   </a>
                   <a
                     href="/request-access"
                     onClick={closeMenu}
-                    className="flex items-center justify-center rounded-lg bg-cyan-500 px-4 py-2.5 text-sm font-semibold text-zinc-950 transition-colors hover:bg-cyan-400"
+                    className="flex items-center justify-center rounded-lg bg-cyan-300 px-4 py-2.5 text-sm font-semibold text-zinc-950 transition-colors hover:bg-cyan-400"
                   >
                     Request Access
                   </a>
