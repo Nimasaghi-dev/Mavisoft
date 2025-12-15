@@ -5,6 +5,8 @@ import { Logo } from '@/app/logo'
 import { Button } from '@/components/button'
 import { Link } from '@/components/link'
 import { Navbar, NavbarItem, NavbarLabel, NavbarSection, NavbarSpacer } from '@/components/navbar'
+import { motion, AnimatePresence } from 'motion/react'
+import { useState } from 'react'
 
 // ANCHOR links
 const menuItems = [
@@ -16,8 +18,13 @@ const menuItems = [
 ]
 
 export function TopNavbar() {
+
+  const [isOpen, setIsOpen] = useState(false)
+  const toggleMenu = () => setIsOpen(!isOpen)
+  const closeMenu = () => setIsOpen(false)
+
   return (
-    <header className="animate-fadeSlide fixed top-0 right-0 left-0 z-50 bg-transparent backdrop-blur-md">
+    <header className="animate-fadeSlide fixed top-0 right-0 left-0 z-50 bg-zinc-950/80 backdrop-blur-md">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <Navbar>
           <NavbarSection>
@@ -28,13 +35,13 @@ export function TopNavbar() {
           <NavbarSpacer />
           <NavbarSection className="hidden items-center gap-1 md:flex">
             {menuItems.map((item) => (
-              <NavbarItem
+              <a
                 key={item.href}
                 href={item.href}
                 className="group relative px-3! py-2! font-medium! transition-all! duration-300! after:absolute after:right-3 after:bottom-1 after:left-3 after:h-px after:scale-x-0 after:bg-cyan-200 after:opacity-0 after:transition-all after:duration-300 hover:bg-transparent! hover:text-cyan-100! hover:shadow-none! hover:after:scale-x-100 hover:after:opacity-100"
               >
-                <NavbarLabel>{item.label}</NavbarLabel>
-              </NavbarItem>
+                <a>{item.label}</a>
+              </a>
             ))}
           </NavbarSection>
           <NavbarSpacer />
