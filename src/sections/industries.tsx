@@ -160,11 +160,9 @@ export default function IndustriesSection() {
               absolute left-4 top-1/2 z-20 -translate-y-1/2 
               rounded-full p-3 sm:p-4
               
-              /* Transparent with very slight tint */
               bg-white/5
               backdrop-blur-sm
               
-              /* The border and shadows do the heavy lifting */
               border border-white/10
               shadow-[inset_0_1px_0_rgba(255,255,255,0.3),0_8px_24px_rgba(0,0,0,0.25)]
               
@@ -185,11 +183,9 @@ export default function IndustriesSection() {
               absolute right-4 top-1/2 z-20 -translate-y-1/2 
               rounded-full p-3 sm:p-4
               
-              /* Transparent glass */
               bg-white/5
               backdrop-blur-sm
               
-              /* Border and shadows define the glass shape */
               border border-white/10
               shadow-[inset_0_1px_0_rgba(255,255,255,0.3),0_8px_24px_rgba(0,0,0,0.25)]
               
