@@ -1,3 +1,4 @@
+import { FooterSection } from "@/sections/footer"
 import HeroSection from "@/sections/hero"
 import IndustriesSection from "@/sections/industries"
 import { SolutionSection } from "@/sections/solutions"
@@ -12,6 +13,7 @@ const page = () => {
     <SpectraSection/>
     <SolutionSection/>
     <IndustriesSection/>
+    <FooterSection />
   </>
 )
 }

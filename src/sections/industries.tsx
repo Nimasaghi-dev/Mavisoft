@@ -203,38 +203,38 @@ export default function IndustriesSection() {
 
           {/* Dot Indicators */}
           <div className="mt-6 flex justify-center gap-3">
-  {industryCards.map((_, index) => (
-    <button
-      key={index}
-      onClick={() => goToSlide(index)}
-      className={`
-        h-3 rounded-full 
-        transition-all duration-300
-        border
-        ${
-          index === currentIndex 
-            ? `
-                w-8 
-                bg-white/15
-                backdrop-blur-sm
-                border-white/50
-                shadow-[inset_0_1px_0_rgba(255,255,255,0.5),0_6px_20px_rgba(255,255,255,0.25)]
-              ` 
-            : `
-                w-3 
-                bg-white/5
-                backdrop-blur-sm
-                border-white/20
-                shadow-[inset_0_1px_0_rgba(255,255,255,0.2)]
-                hover:bg-white/10
-                hover:border-white/40
-              `
-        }
-      `}
-      aria-label={`Go to slide ${index + 1}`}
-    />
-  ))}
-</div>
+            {industryCards.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => goToSlide(index)}
+                className={`
+                  h-3 rounded-full 
+                  transition-all duration-300
+                  border
+                  ${
+                    index === currentIndex 
+                      ? `
+                          w-8 
+                          bg-white/15
+                          backdrop-blur-sm
+                          border-white/50
+                          shadow-[inset_0_1px_0_rgba(255,255,255,0.5),0_6px_20px_rgba(255,255,255,0.25)]
+                        ` 
+                      : `
+                          w-3 
+                          bg-white/5
+                          backdrop-blur-sm
+                          border-white/20
+                          shadow-[inset_0_1px_0_rgba(255,255,255,0.2)]
+                          hover:bg-white/10
+                          hover:border-white/40
+                        `
+                  }
+                `}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>
