@@ -1,4 +1,15 @@
+'use client'
+
 import Image from 'next/image'
+import { motion } from 'framer-motion'
+import {
+  fadeUpVariants,
+  staggerContainerVariants,
+  staggerChildVariants,
+  scaleFadeVariants,
+  viewportOptions,
+  createDelayedFadeUp,
+} from '@/lib/animations'
 
 export function SolutionSection() {
   const cards = [
@@ -90,33 +101,28 @@ export function SolutionSection() {
     },
   ]
 
-  // Glassmorphism classes - reusable
-  const glassCard = `
-    rounded-xl 
-    border border-white/10 
-    bg-zinc-900/40 
-    backdrop-blur-sm
-    shadow-lg shadow-black/20
-    transition-all duration-300 ease-out
-    hover:bg-zinc-800/50
-    hover:border-cyan-500/30
-    hover:shadow-lg hover:shadow-cyan-900/20
-  `
-
   return (
     <section
       id="solutions"
       className="scroll-mt-20 bg-cover bg-center bg-no-repeat"
-      style={{ backgroundImage: "url('/Night_SkyArtboard 3.png')", 
-                backgroundAttachment: 'fixed'
+      style={{
+        backgroundImage: "url('/Night_SkyArtboard 3.png')",
+        backgroundAttachment: 'fixed',
       }}
     >
       <div className="py-16 md:py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center">
+          {/* Section Header */}
+          <motion.div
+            className="mx-auto max-w-2xl text-center"
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportOptions}
+            variants={fadeUpVariants}
+          >
             <h2 className="text-3xl sm:text-4xl lg:text-5xl">The way it works is simple</h2>
             <p className="mt-4 text-lg text-gray-400">From raw images to intelligent actions</p>
-          </div>
+          </motion.div>
 
           {/* Main Cards */}
           <div className="mt-12 flex flex-col gap-6 md:mt-16">
@@ -124,28 +130,43 @@ export function SolutionSection() {
               const isOdd = index % 2 === 1
 
               return (
-                <div
+                <motion.div
                   key={card.number}
-                  className={`rounded-xl border border-white/10 bg-zinc-900/30 p-6 shadow-lg shadow-black/20 backdrop-blur-sm transition-all duration-300 ease-out hover:scale-[1.02] hover:border-cyan-500/30 hover:bg-zinc-800/40 hover:shadow-xl hover:shadow-cyan-900/20 lg:p-10`}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={viewportOptions}
+                  variants={scaleFadeVariants}
+                  className="rounded-xl border border-white/10 bg-zinc-900/30 p-6 shadow-lg shadow-black/20 backdrop-blur-sm transition-all duration-500 ease-out hover:scale-[1.02] hover:border-white/30 hover:bg-zinc-800/40 hover:shadow-lg hover:shadow-white/20 lg:p-10"
                 >
                   <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-16">
                     {/* Image */}
-                    <div className={`flex w-full items-center justify-center ${isOdd ? 'lg:order-2' : 'lg:order-1'}`}>
+                    <div
+                      className={`flex w-full items-center justify-center ${isOdd ? 'lg:order-2' : 'lg:order-1'}`}
+                    >
                       <div className="relative h-48 w-full max-w-sm sm:h-56 lg:h-56">
-                        <Image alt={card.title} src={card.image} fill className="object-contain" priority={index < 2} />
+                        <Image
+                          alt={card.title}
+                          src={card.image}
+                          fill
+                          className="object-contain"
+                          priority={index < 2}
+                        />
                       </div>
                     </div>
 
                     {/* Text */}
-                    <div className={`flex w-full items-center justify-center ${isOdd ? 'lg:order-1' : 'lg:order-2'}`}>
+                    <div
+                      className={`flex w-full items-center justify-center ${isOdd ? 'lg:order-1' : 'lg:order-2'}`}
+                    >
                       <div className="max-w-md text-center lg:text-left">
                         <h3 className="text-xl font-medium text-white sm:text-2xl">
-                          {card.number}. {card.title} <span className="text-cyan-400">{card.highlight}</span>
+                          {card.number}. {card.title}{' '}
+                          <span className="text-red-700">{card.highlight}</span>
                         </h3>
                         <ul className="mt-4 space-y-2 text-sm text-gray-400 sm:text-base">
                           {card.items.map((item, idx) => (
                             <li key={idx} className="flex items-start gap-2">
-                              <span className="mt-0.5 shrink-0 text-cyan-500">•</span>
+                              <span className="mt-0.5 shrink-0 text-red-500">•</span>
                               <span>{item}</span>
                             </li>
                           ))}
@@ -153,28 +174,50 @@ export function SolutionSection() {
                       </div>
                     </div>
                   </div>
-                </div>
+                </motion.div>
               )
             })}
           </div>
 
           {/* Middle Section */}
-          <div className="mx-auto mt-16 text-center">
-            <h2 className="pt-24 text-2xl text-white sm:text-4xl">If It Can Be Seen, It Can Be Solved.</h2>
-            <div className="mt-16 text-left">
-              <h2 className="mt-2 text-xl text-zinc-300 sm:text-2xl">Proven Use-Cases</h2>
-              <h3 className="mt-1 text-lg text-zinc-400">
-                Proof without case-study fatigue. Domains change. The framework endures.
-              </h3>
-            </div>
-          </div>
+          <motion.div
+            className="mx-auto mt-16 text-center"
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportOptions}
+            variants={fadeUpVariants}
+          >
+            <h2 className="pt-24 text-2xl text-white sm:text-4xl">
+              If It Can Be Seen, It Can Be Solved.
+            </h2>
+          </motion.div>
+
+          <motion.div
+            className="mt-16 text-left"
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportOptions}
+            variants={createDelayedFadeUp(0.1)}
+          >
+            <h2 className="mt-2 text-xl text-zinc-300 sm:text-2xl">Proven Use-Cases</h2>
+            <h3 className="mt-1 text-lg text-zinc-400">
+              Proof without case-study fatigue. Domains change. The framework endures.
+            </h3>
+          </motion.div>
 
           {/* Mini Cards */}
-          <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2">
+          <motion.div
+            className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2"
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportOptions}
+            variants={staggerContainerVariants}
+          >
             {miniCards.map((c) => (
-              <div
+              <motion.div
                 key={c.id}
-                className="group relative min-h-[360px] overflow-hidden rounded-xl border border-white/10 shadow-lg shadow-black/20 transition-all duration-300 ease-out hover:border-cyan-500/30 hover:shadow-xl hover:shadow-cyan-900/20 sm:min-h-[300px]"
+                variants={staggerChildVariants}
+                className="group relative min-h-[360px] overflow-hidden rounded-xl border border-white/10 shadow-lg shadow-black/20 transition-all duration-300 ease-out hover:border-red-200/30 hover:shadow-lg hover:shadow-white/20 sm:min-h-[300px]"
               >
                 {/* Background image - no blur */}
                 <div className="pointer-events-none absolute inset-0">
@@ -196,9 +239,9 @@ export function SolutionSection() {
                   <p className="mt-2 text-base font-medium text-white/90 drop-shadow-md">{c.body}</p>
                   <p className="mt-1 text-sm font-medium text-zinc-300">{c.subline}</p>
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

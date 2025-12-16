@@ -3,6 +3,12 @@
 import Image from 'next/image'
 import { useState, useEffect, useCallback } from 'react'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
+import { motion } from 'framer-motion'
+import {
+  fadeUpVariants,
+  viewportOptions,
+  createDelayedFadeUp,
+} from '@/lib/animations'
 
 export default function IndustriesSection() {
   const [currentIndex, setCurrentIndex] = useState(0)
@@ -63,38 +69,41 @@ export default function IndustriesSection() {
   }, [isAutoPlaying, nextSlide])
 
   return (
-    <section
-      id="industries"
-      className="scroll-mt-20 py-16 md:py-24"
-    >
+    <section id="industries" className="scroll-mt-20 py-16 md:py-24">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mb-12 md:mb-16">
-          <h2 className="text-3xl text-white sm:text-4xl lg:text-5xl">
-            Industries We Serve
-          </h2>
+        {/* Section Header */}
+        <motion.div
+          className="mb-12 md:mb-16"
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOptions}
+          variants={fadeUpVariants}
+        >
+          <h2 className="text-3xl text-white sm:text-4xl lg:text-5xl">Industries We Serve</h2>
           <p className="mt-4 max-w-2xl text-base text-gray-400 sm:text-lg">
-            Mavisoft has a long standing history in various industries in the industrial sector. 
+            Mavisoft has a long standing history in various industries in the industrial sector.
             Our solutions are built to the highest standard to serve your needs.
           </p>
-        </div>
+        </motion.div>
 
         {/* Carousel Container */}
-        <div 
+        <motion.div
           className="relative"
           onMouseEnter={() => setIsAutoPlaying(false)}
           onMouseLeave={() => setIsAutoPlaying(true)}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOptions}
+          variants={createDelayedFadeUp(0.15)}
         >
           {/* Main Carousel */}
           <div className="overflow-hidden rounded-xl">
-            <div 
+            <div
               className="flex transition-transform duration-500 ease-out"
               style={{ transform: `translateX(-${currentIndex * 100}%)` }}
             >
               {industryCards.map((ic) => (
-                <div
-                  key={ic.id}
-                  className="w-full shrink-0"
-                >
+                <div key={ic.id} className="w-full shrink-0">
                   <div
                     className="
                       relative 
@@ -127,16 +136,14 @@ export default function IndustriesSection() {
                         <h3 className="text-2xl font-bold text-white sm:text-3xl lg:text-4xl">
                           {ic.title}
                         </h3>
-                        <p className="mt-3 max-w-xl text-base text-white/90 sm:text-lg">
-                          {ic.body}
-                        </p>
-                        
+                        <p className="mt-3 max-w-xl text-base text-white/90 sm:text-lg">{ic.body}</p>
+
                         {/* Subline list */}
                         {ic.subline.filter(Boolean).length > 0 && (
                           <ul className="mt-4 flex flex-wrap gap-3 sm:gap-4">
                             {ic.subline.filter(Boolean).map((item, idx) => (
-                              <li 
-                                key={idx} 
+                              <li
+                                key={idx}
                                 className="flex items-center gap-2 rounded-full bg-white/10 px-3 py-1.5 text-sm text-zinc-200 backdrop-blur-sm sm:px-4 sm:py-2 sm:text-base"
                               >
                                 <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-cyan-300" />
@@ -212,14 +219,14 @@ export default function IndustriesSection() {
                   transition-all duration-300
                   border
                   ${
-                    index === currentIndex 
+                    index === currentIndex
                       ? `
                           w-8 
                           bg-white/15
                           backdrop-blur-sm
                           border-white/50
                           shadow-[inset_0_1px_0_rgba(255,255,255,0.5),0_6px_20px_rgba(255,255,255,0.25)]
-                        ` 
+                        `
                       : `
                           w-3 
                           bg-white/5
@@ -235,7 +242,7 @@ export default function IndustriesSection() {
               />
             ))}
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   )

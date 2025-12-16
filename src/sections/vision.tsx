@@ -1,3 +1,14 @@
+'use client'
+
+import { motion } from 'framer-motion'
+import {
+  fadeUpVariants,
+  staggerContainerVariants,
+  staggerChildVariants,
+  viewportOptions,
+  createDelayedFadeUp,
+} from '@/lib/animations'
+
 const VisionSection = () => {
   const cards = [
     {
@@ -60,7 +71,14 @@ const VisionSection = () => {
     <section id="vision" className="scroll-mt-20 bg-black">
       <div className="py-16 md:py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="max-w-2xl">
+          {/* Header */}
+          <motion.div
+            className="max-w-2xl"
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportOptions}
+            variants={fadeUpVariants}
+          >
             <h2 className="text-3xl sm:text-4xl lg:text-5xl tracking-tight text-white">
               The World Is{' '}
               <span className="bg-linear-to-r from-cyan-100 to-cyan-500 text-transparent bg-clip-text">
@@ -70,11 +88,20 @@ const VisionSection = () => {
             <p className="mt-6 text-base sm:text-lg text-gray-400">
               We build general-purpose perception that binds reality into structure and meaning.
             </p>
-          </div>
-          <div className="mt-12 md:mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          </motion.div>
+
+          {/* Cards Grid */}
+          <motion.div
+            className="mt-12 md:mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportOptions}
+            variants={staggerContainerVariants}
+          >
             {cards.map((card, index) => (
-              <div
+              <motion.div
                 key={index}
+                variants={staggerChildVariants}
                 className="group border border-gray-800 bg-gray-900/50 p-6 transition-all duration-300 hover:border-gray-700 hover:bg-gray-900/80"
               >
                 <div className="flex items-center gap-4">
@@ -84,36 +111,47 @@ const VisionSection = () => {
                   </div>
                   <h3 className="text-lg font-medium text-white">{card.title}</h3>
                 </div>
-                <p className="mt-4 text-sm leading-relaxed text-gray-400">
-                  {card.description}
-                </p>
-              </div>
+                <p className="mt-4 text-sm leading-relaxed text-gray-400">{card.description}</p>
+              </motion.div>
             ))}
-          </div>
-          <div className="mt-16 border-t border-gray-800 pt-12">
-            <p className="text-xs font-medium tracking-wider text-gray-500 uppercase">
-              Trusted by
-            </p>
-            <div className="mt-6 flex flex-wrap items-center gap-x-8 gap-y-4">
-  {partnerLogos.map((logo) => (
-    <div 
-      key={logo.name} 
-      className="transform transition-all duration-300 hover:scale-125 hover:drop-shadow-lg"
-    >
-      <img
-        alt={logo.name}
-        src={logo.light}
-        className="h-8 w-auto object-contain opacity-50 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0 dark:hidden"
-      />
-      <img
-        alt={logo.name}
-        src={logo.dark}
-        className="hidden h-8 w-auto object-contain opacity-50 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0 dark:block"
-      />
-    </div>
-  ))}
-</div>
-          </div>
+          </motion.div>
+
+          {/* Partner Logos */}
+          <motion.div
+            className="mt-16 border-t border-gray-800 pt-12"
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportOptions}
+            variants={createDelayedFadeUp(0.2)}
+          >
+            <p className="text-xs font-medium tracking-wider text-gray-500 uppercase">Trusted by</p>
+            <motion.div
+              className="mt-6 flex flex-wrap items-center gap-x-8 gap-y-4"
+              initial="hidden"
+              whileInView="visible"
+              viewport={viewportOptions}
+              variants={staggerContainerVariants}
+            >
+              {partnerLogos.map((logo) => (
+                <motion.div
+                  key={logo.name}
+                  variants={staggerChildVariants}
+                  className="transform transition-all duration-300 hover:scale-125 hover:drop-shadow-lg"
+                >
+                  <img
+                    alt={logo.name}
+                    src={logo.light}
+                    className="h-8 w-auto object-contain opacity-50 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0 dark:hidden"
+                  />
+                  <img
+                    alt={logo.name}
+                    src={logo.dark}
+                    className="hidden h-8 w-auto object-contain opacity-50 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0 dark:block"
+                  />
+                </motion.div>
+              ))}
+            </motion.div>
+          </motion.div>
         </div>
       </div>
     </section>

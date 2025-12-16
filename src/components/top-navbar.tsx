@@ -4,7 +4,6 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'motion/react'
 import { Logo } from '@/app/logo'
 import { Button } from '@/components/button'
-import { Link } from '@/components/link'
 import { Navbar, NavbarSection, NavbarSpacer } from '@/components/navbar'
 
 // ANCHOR links
@@ -71,7 +70,7 @@ export function TopNavbar() {
             </Button>
           </NavbarSection>
 
-          {/* NEW: Hamburger Button (Mobile Only)         */}
+          {/* Hamburger Button (Mobile Only) */}
           <button
             onClick={toggleMenu}
             className="relative z-50 flex h-10 w-10 items-center justify-center rounded-lg text-white transition-colors hover:bg-white/10 md:hidden"
@@ -131,7 +130,7 @@ export function TopNavbar() {
                       key={item.href}
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: index * 0.05 }}
+                      transition={{ delay: index * 0.07 }}
                     >
                       <a
                         href={item.href}
