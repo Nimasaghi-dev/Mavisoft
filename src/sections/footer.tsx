@@ -39,19 +39,23 @@ function LegalModal({
 
           {/* Modal */}
           <motion.div
-            className="fixed top-1/2 left-1/2 z-50 w-[90%] max-w-2xl -translate-x-1/2 -translate-y-1/2 rounded-xl border border-white/10 bg-zinc-950 p-6 shadow-2xl"
+            className="fixed top-1/2 left-1/2 z-50 w-[95%] max-w-5xl max-h-[75vh] -translate-x-1/2 -translate-y-1/2 rounded-xl border border-white/10 bg-zinc-950 p-8 shadow-2xl"
             initial={{ opacity: 0, scale: 0.96, y: 10 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.96, y: 10 }}
             transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
           >
+            
             <div className="flex items-center justify-between border-b border-white/10 pb-3">
               <h3 className="text-lg font-semibold text-white">{title}</h3>
-              <button onClick={onClose} className="rounded-md px-2 py-1 text-zinc-400 transition hover:text-white">
+              <button
+                onClick={onClose}
+                aria-label="Close"
+                className="rounded-md px-2 py-1 text-zinc-400 transition hover:text-white"
+              >
                 ✕
               </button>
             </div>
-
             <div className="mt-4 max-h-[60vh] overflow-y-auto text-sm leading-relaxed text-zinc-400">{children}</div>
           </motion.div>
         </>
@@ -124,6 +128,69 @@ export function FooterSection() {
           <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
         </svg>
       ),
+    },
+  ]
+
+  const teamMembers = [
+    {
+      name: 'Ava Chen',
+      title: 'CEO',
+      image: '/team/ava.jpg',
+      linkedin: 'https://www.linkedin.com/in/ava-chen/',
+    },
+    {
+      name: 'Noah Williams',
+      title: 'CTO',
+      image: '/team/noah.jpg',
+      linkedin: 'https://www.linkedin.com/in/noah-williams/',
+    },
+    {
+      name: 'Mila Patel',
+      title: 'Head of Product',
+      image: '/team/mila.jpg',
+      linkedin: 'https://www.linkedin.com/in/mila-patel/',
+    },
+    {
+      name: 'Liam Johnson',
+      title: 'Lead Frontend Engineer',
+      image: '/team/liam.jpg',
+      linkedin: 'https://www.linkedin.com/in/liam-johnson/',
+    },
+    {
+      name: 'Sofia Garcia',
+      title: 'Backend Engineer',
+      image: '/team/sofia.jpg',
+      linkedin: 'https://www.linkedin.com/in/sofia-garcia/',
+    },
+    {
+      name: 'Ethan Brown',
+      title: 'ML Engineer',
+      image: '/team/ethan.jpg',
+      linkedin: 'https://www.linkedin.com/in/ethan-brown/',
+    },
+    {
+      name: 'Emma Wilson',
+      title: 'UX Designer',
+      image: '/team/emma.jpg',
+      linkedin: 'https://www.linkedin.com/in/emma-wilson/',
+    },
+    {
+      name: 'Oliver Davis',
+      title: 'DevOps Engineer',
+      image: '/team/oliver.jpg',
+      linkedin: 'https://www.linkedin.com/in/oliver-davis/',
+    },
+    {
+      name: 'Isabella Martin',
+      title: 'Data Analyst',
+      image: '/team/isabella.jpg',
+      linkedin: 'https://www.linkedin.com/in/isabella-martin/',
+    },
+    {
+      name: 'Lucas Anderson',
+      title: 'Account Executive',
+      image: '/team/lucas.jpg',
+      linkedin: 'https://www.linkedin.com/in/lucas-anderson/',
     },
   ]
 
@@ -418,7 +485,7 @@ export function FooterSection() {
           </motion.div>
         </div>
       </div>
-      
+
       <LegalModal open={aboutModal === 'about'} onClose={() => setAboutModal(null)} title="About">
         <p>
           Mavisoft builds modern software systems for real-world operations—combining strong UX, reliable
@@ -434,16 +501,46 @@ export function FooterSection() {
       </LegalModal>
 
       <LegalModal open={aboutModal === 'team'} onClose={() => setAboutModal(null)} title="Team">
-        <p>
-          We are a cross-functional team of engineers and product builders focused on clarity, performance, and
-          shipping.
-        </p>
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+          {teamMembers.map((m) => (
+            <div
+              key={m.linkedin}
+              className="flex items-center justify-between rounded-lg border border-white/10 bg-zinc-900/30 p-3"
+            >
+              <div className="flex items-center gap-3">
+                <img
+                  src={m.image}
+                  alt={`${m.name} profile`}
+                  className="h-12 w-12 rounded-full object-cover ring-1 ring-white/10"
+                  loading="lazy"
+                />
+                <div>
+                  <div className="text-sm font-medium text-white">{m.name}</div>
+                  <div className="text-xs text-zinc-400">{m.title}</div>
+                </div>
+              </div>
+
+              <a
+                href={m.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`${m.name} on LinkedIn`}
+                className="rounded-md p-2 text-zinc-400 transition-colors hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white/20"
+              >
+                {/* LinkedIn icon */}
+                <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                </svg>
+              </a>
+            </div>
+          ))}
+        </div>
       </LegalModal>
 
       <LegalModal open={privacyOpen} onClose={() => setPrivacyOpen(false)} title="Privacy Policy">
         <p>
-          We respect your privacy. We only collect information necessary to provide and improve our services.
-          We do not sell personal data.
+          We respect your privacy. We only collect information necessary to provide and improve our services. We do not
+          sell personal data.
         </p>
         <p className="mt-3">
           Data may include usage analytics, device/browser information, and contact details you submit via forms.
