@@ -133,58 +133,58 @@ export function FooterSection() {
 
   const teamMembers = [
     {
-      name: 'Ava Chen',
-      title: 'CEO',
-      image: '/team/ava.jpg',
+      name: 'Theodor (Teddy) Preststulen ',
+      title: 'Founder & CEO',
+      image: '/teams/1592906031138.jpg',
       linkedin: 'https://www.linkedin.com/in/ava-chen/',
     },
     {
-      name: 'Noah Williams',
-      title: 'CTO',
-      image: '/team/noah.jpg',
-      linkedin: 'https://www.linkedin.com/in/noah-williams/',
+      name: 'Mitch Klaver',
+      title: 'AI Engineer',
+      image: '/teams/1691754918920.jpg',
+      linkedin: 'https://www.linkedin.com/in/mitch-klaver-311451189/',
     },
     {
-      name: 'Mila Patel',
-      title: 'Head of Product',
-      image: '/team/mila.jpg',
-      linkedin: 'https://www.linkedin.com/in/mila-patel/',
-    },
-    {
-      name: 'Liam Johnson',
+      name: 'Taufik Hidayat',
       title: 'Lead Frontend Engineer',
-      image: '/team/liam.jpg',
-      linkedin: 'https://www.linkedin.com/in/liam-johnson/',
+      image: '/teams/1707418920597.jpg',
+      linkedin: 'https://www.linkedin.com/in/t-hidayat/',
     },
     {
-      name: 'Sofia Garcia',
-      title: 'Backend Engineer',
-      image: '/team/sofia.jpg',
-      linkedin: 'https://www.linkedin.com/in/sofia-garcia/',
+      name: 'Ahmed Hanif',
+      title: 'Software Engineer (Geo) | 3D Geoinformation Science',
+      image: '/teams/1759222839812.jpg',
+      linkedin: 'https://www.linkedin.com/in/ahmadhanif946/',
     },
     {
-      name: 'Ethan Brown',
-      title: 'ML Engineer',
-      image: '/team/ethan.jpg',
-      linkedin: 'https://www.linkedin.com/in/ethan-brown/',
+      name: 'Erdal Polat',
+      title: 'CFO',
+      image: '/teams/1517741748614.jpg',
+      linkedin: 'https://www.linkedin.com/in/erdalpolat/',
     },
     {
-      name: 'Emma Wilson',
-      title: 'UX Designer',
-      image: '/team/emma.jpg',
-      linkedin: 'https://www.linkedin.com/in/emma-wilson/',
+      name: 'Hemalatha Kanakarajan',
+      title: 'AI Engineer',
+      image: '/teams/',
+      linkedin: 'https://www.linkedin.com/in/hemalatha-kanakarajan-50377583/',
     },
     {
-      name: 'Oliver Davis',
-      title: 'DevOps Engineer',
-      image: '/team/oliver.jpg',
-      linkedin: 'https://www.linkedin.com/in/oliver-davis/',
+      name: 'Bruno Balbi',
+      title: 'Sales Expert',
+      image: '/teams/1764848011396.jpg',
+      linkedin: 'https://www.linkedin.com/in/bbalbi/',
     },
     {
-      name: 'Isabella Martin',
-      title: 'Data Analyst',
-      image: '/team/isabella.jpg',
-      linkedin: 'https://www.linkedin.com/in/isabella-martin/',
+      name: 'Adelin Bîrzan',
+      title: 'AI developer',
+      image: '/teams/1727908272466.jpg',
+      linkedin: 'https://www.linkedin.com/in/adelin-b%C3%AErzan-337905309/',
+    },
+    {
+      name: 'Nima Saghi',
+      title: 'Frontend Developer',
+      image: '/teams/1747405448311.jpg',
+      linkedin: 'https://www.linkedin.com/in/nima-saghi-web-developer/',
     },
     {
       name: 'Lucas Anderson',
@@ -488,15 +488,24 @@ export function FooterSection() {
 
       <LegalModal open={aboutModal === 'about'} onClose={() => setAboutModal(null)} title="About">
         <p>
-          Mavisoft builds modern software systems for real-world operations—combining strong UX, reliable
-          infrastructure, and practical AI where it creates measurable value.
+          We are a privately owned Artificial Intelligence (AI) research startup focusing on automating the visual surveying process of industrial assets.
+
+          Based out of the Innovation Dock in Rotterdam, we are a team of professionals passionate about deep learning, striving to offer the most cutting-edge Machine Vision Software for industrial applications.
+
+          Our technology is designed to detect anomalies, damages and defects in concrete, metal, steel and composite materials. With our AI-based products, we are able to localise and categorise damages based on their severity, size and location.
         </p>
       </LegalModal>
 
       <LegalModal open={aboutModal === 'mission'} onClose={() => setAboutModal(null)} title="Mission">
         <p>
-          Our mission is to deliver high-trust systems that help teams understand complex environments and act
-          decisively.
+          At Mavisoft, 
+          we aim to revolutionise industrial asset inspection and management using cutting-edge AI vision technologies, photogrammetry, 
+          and a comprehensive end-to-end service platform. 
+          We empower organisations worldwide by enhancing their industrial assets’ safety, 
+          reliability, and sustainability. 
+          With our innovative solutions, including early damage detection, 
+          optimised resource utilisation, and data-driven decision-making, 
+          we strive to extend the lifespan of industrial assets.
         </p>
       </LegalModal>
 
