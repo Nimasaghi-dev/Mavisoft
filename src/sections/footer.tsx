@@ -11,6 +11,13 @@ import {
   createDelayedFadeUp,
 } from '@/lib/animations'
 
+import {
+  MapPinIcon,
+  PhoneIcon,
+  EnvelopeIcon,
+} from '@heroicons/react/24/outline'
+
+
 export function FooterSection() {
   const [formData, setFormData] = useState({
     name: '',
@@ -161,13 +168,55 @@ export function FooterSection() {
                 viewport={viewportOptions}
                 variants={createDelayedFadeUp(0.2)}
               >
-                <a href="/" className="inline-block">
+                <a
+                  href="#top"
+                  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                  className="inline-block"
+                  aria-label="Back to top"
+                >
                   <Logo className="h-8 w-auto" />
                 </a>
-                <p className="mt-4 max-w-xs text-sm text-zinc-400">
-                  Building systems that understand the world. Unifying perception and action across
-                  the physical domain.
-                </p>
+
+                <ul className="mt-6 space-y-4 text-sm">
+                  {/* Address */}
+                  <li>
+                    <a
+                      href="https://www.google.com/maps/search/?api=1&query=Veerhaven+14+3016+CJ+Rotterdam"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group flex max-w-xs items-start gap-3 text-zinc-400 transition-colors duration-300 hover:text-white"
+                    >
+                      <MapPinIcon className="mt-0.5 h-5 w-5 flex-shrink-0 text-zinc-500 transition-colors duration-300 group-hover:text-white" />
+                      <span className="leading-relaxed">
+                        Veerhaven 14<br />
+                        3016 CJ Rotterdam<br />
+                        Netherlands
+                      </span>
+                    </a>
+                  </li>
+
+                  {/* Phone */}
+                  <li>
+                    <a
+                      href="tel:+31646563735"
+                      className="group flex items-center gap-3 text-zinc-400 transition-colors duration-300 hover:text-white"
+                    >
+                      <PhoneIcon className="h-5 w-5 text-zinc-500 transition-colors duration-300 group-hover:text-white" />
+                      <span>+31 (0) 6 46 56 37 35</span>
+                    </a>
+                  </li>
+
+                  {/* Email */}
+                  <li>
+                    <a
+                      href="mailto:sales@mavisoft.com"
+                      className="group flex items-center gap-3 text-zinc-400 transition-colors duration-300 hover:text-white"
+                    >
+                      <EnvelopeIcon className="h-5 w-5 text-zinc-500 transition-colors duration-300 group-hover:text-white" />
+                      <span>sales@mavisoft.com</span>
+                    </a>
+                  </li>
+                </ul>
               </motion.div>
             </div>
 

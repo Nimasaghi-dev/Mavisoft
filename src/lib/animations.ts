@@ -30,28 +30,20 @@
 import { Variants, Transition, UseInViewOptions } from 'framer-motion'
 
 // CORE ANIMATION CONFIGURATION
-/**
- * Standard transition used across all animations
- * The custom easing creates a smooth deceleration that feels natural
- */
+{/**Standard transition used across all animations-The custom easing creates a smooth deceleration that feels natural*/}
 export const standardTransition: Transition = {
   duration: 0.6,
-  ease: [0.25, 0.1, 0.25, 1], // Custom cubic-bezier for smooth deceleration
+  ease: [0.25, 0.1, 0.25, 1], 
 }
 
-/**
- * Standard viewport options for scroll-triggered animations
- */
+{/** Standard viewport options for scroll-triggered animations */}
 export const viewportOptions: UseInViewOptions = {
-  once: false, // Animate every time element enters viewport
-  amount: 0.2, // Trigger when 20% of element is visible
+  once: false,
+  amount: 0.2,
 }
 
 // ANIMATION VARIANTS
-/**
- * Primary fade-up animation variant
- * Use for: headings, paragraphs, standalone elements
- */
+{/** Primary fade-up animation variant - Use for: headings, paragraphs, standalone elements */}
 export const fadeUpVariants: Variants = {
   hidden: {
     opacity: 0,
@@ -64,10 +56,7 @@ export const fadeUpVariants: Variants = {
   },
 }
 
-/**
- * Container variant with staggered children
- * Use for: grids, lists, card containers
- */
+{/** Container variant with staggered children-Use for: grids, lists, card containers */}
 export const staggerContainerVariants: Variants = {
   hidden: {
     opacity: 1,
@@ -81,10 +70,7 @@ export const staggerContainerVariants: Variants = {
   },
 }
 
-/**
- * Child variant for staggered animations
- * Use with: staggerContainerVariants as parent
- */
+{/** Child variant for staggered animations-Use with: staggerContainerVariants as parent */}
 export const staggerChildVariants: Variants = {
   hidden: {
     opacity: 0,
@@ -97,10 +83,7 @@ export const staggerChildVariants: Variants = {
   },
 }
 
-/**
- * Scale fade variant for cards and interactive elements
- * Use for: cards that should have a subtle scale effect
- */
+{/** Scale fade variant for cards and interactive elements-Use for: cards that should have a subtle scale effect */}
 export const scaleFadeVariants: Variants = {
   hidden: {
     opacity: 0,
@@ -161,6 +144,7 @@ export const createStaggerContainer = (
  * Standard motion props for animated sections
  * Apply directly to motion.div or motion.section
  */
+
 export const sectionMotionProps = {
   initial: 'hidden' as const,
   whileInView: 'visible' as const,
