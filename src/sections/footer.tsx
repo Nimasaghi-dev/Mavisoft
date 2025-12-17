@@ -79,6 +79,11 @@ export function FooterSection() {
   type AboutModal = 'mission' | 'team' | null | 'about'
   const [aboutModal, setAboutModal] = useState<AboutModal>(null)
 
+  const [pressOpen, setPressOpen] = useState(false)
+  const [pressDetailOpen, setPressDetailOpen] = useState(false)
+  const [selectedPress, setSelectedPress] = useState<PressItem | null>(null)
+
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
@@ -101,10 +106,19 @@ export function FooterSection() {
     }))
   }
 
+  function openPressDetail(item: PressItem) {
+  setSelectedPress(item)
+  setPressDetailOpen(true)
+  }
+
+  function closePressDetail() {
+    setPressDetailOpen(false)
+    setSelectedPress(null)
+  }
+
   const companyLinks = [
     { label: 'Careers', href: '#careers' },
     { label: 'Blog', href: '#blog' },
-    { label: 'Press', href: '#press' },
   ]
 
   const productLinks = [
@@ -187,6 +201,86 @@ export function FooterSection() {
     },
   ]
 
+  type PressItem = {
+    id: string
+    title: string
+    date: string
+    image: string
+    excerpt: string
+    content: {
+      h2?: string
+      h3?: string
+      h4?: string
+      paragraphs: string[]
+    }[]
+  }
+
+const pressItems: PressItem[] = [
+  {
+    id: 'seed-round',
+    title: 'Mavisoft raises seed round',
+    date: '2023-April-17',
+    image: '/press/download1.jpg',
+    excerpt: 'Short 1–2 line summary about the announcement.',
+    content: [
+      {
+        h2: 'Overview',
+        paragraphs: [
+          'Longer description paragraph 1...',
+          'Longer description paragraph 2...',
+        ],
+      },
+      {
+        h3: 'What this enables',
+        h4: 'Product roadmap',
+        paragraphs: ['More details...', 'More details...'],
+      },
+    ],
+  },
+  {
+    id: 'maritime-inspection',
+    title: 'Spectra® featured in maritime inspection',
+    date: '2025-11-21',
+    image: '/press/press-2.jpg',
+    excerpt: 'Short 1–2 line summary about the story.',
+    content: [
+      { h2: 'Highlights', paragraphs: ['Add full story text here...'] },
+    ],
+  },
+  {
+    id: 'airport-pilot',
+    title: 'Airport safety pilot goes live',
+    date: '2025-10-10',
+    image: '/press/press-3.jpg',
+    excerpt: 'Short 1–2 line summary about the update.',
+    content: [
+      { h2: 'Pilot scope', paragraphs: ['Add full story text here...'] },
+    ],
+  },
+  {
+    id: 'partnership',
+    title: 'New partnership announcement',
+    date: '2025-09-02',
+    image: '/press/press-4.jpg',
+    excerpt: 'Short 1–2 line summary about the partnership.',
+    content: [
+      { h2: 'Partnership details', paragraphs: ['Add full story text here...'] },
+    ],
+  },
+  {
+    id: 'event',
+    title: 'Mavisoft at industry event',
+    date: '2025-08-18',
+    image: '/press/press-5.jpg',
+    excerpt: 'Short 1–2 line summary about the event.',
+    content: [
+      { h2: 'Event recap', paragraphs: ['Add full story text here...'] },
+    ],
+  },
+]
+
+
+
   return (
     <footer id="contact" className="scroll-mt-20 border-t border-white/10 bg-zinc-950">
       <div className="py-16 md:py-24">
@@ -243,7 +337,18 @@ export function FooterSection() {
                           {link.label}
                         </a>
                       </li>
+                      
                     ))}
+                    <li>
+                      <button
+                        type="button"
+                        onClick={() => setPressOpen(true)}
+                        className="text-sm text-zinc-400 transition-colors hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white/20"
+                        aria-haspopup="dialog"
+                      >
+                        Press
+                      </button>
+                    </li>
                   </ul>
                 </motion.div>
 
@@ -513,7 +618,7 @@ export function FooterSection() {
         </p>
       </LegalModal>
 
-      <LegalModal open={aboutModal === 'team'} onClose={() => setAboutModal(null)} title="Team">
+      <LegalModal open={aboutModal === 'team'} onClose={() => setAboutModal(null)} title="Team Members">
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           {teamMembers.map((m) => (
             <div
@@ -549,6 +654,88 @@ export function FooterSection() {
           ))}
         </div>
       </LegalModal>
+
+      <LegalModal open={pressOpen} onClose={() => setPressOpen(false)} title="Our Latest News">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+          {pressItems.map((item) => (
+            <div
+              key={item.id}
+              className="overflow-hidden rounded-xl border border-white/10 bg-zinc-900/30"
+            >
+              <div className="aspect-video w-full overflow-hidden">
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="h-full w-full object-cover"
+                  loading="lazy"
+                />
+              </div>
+
+              <div className="space-y-2 p-4">
+                <div className="text-sm font-medium text-white">{item.title}</div>
+                <p className="text-sm text-zinc-400">{item.excerpt}</p>
+
+                <button
+                  type="button"
+                  onClick={() => openPressDetail(item)}
+                  className="inline-flex items-center justify-center rounded-lg border border-white/10 px-3 py-2 text-sm text-zinc-200 transition hover:bg-white/5 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white/20"
+                >
+                  Read more
+                </button>
+
+              </div>
+            </div>
+          ))}
+        </div>
+      </LegalModal>
+
+      <LegalModal open={pressDetailOpen} onClose={closePressDetail} title="Press">
+  {selectedPress && (
+    <article className="space-y-5">
+      <div className="overflow-hidden rounded-2xl border border-white/10 bg-zinc-900/30">
+        <div className="aspect-video w-full">
+          <img
+            src={selectedPress.image}
+            alt={selectedPress.title}
+            className="h-full w-full object-cover"
+          />
+        </div>
+      </div>
+
+      <header className="space-y-1">
+        <h1 className="text-2xl font-semibold tracking-tight text-white">
+          {selectedPress.title}
+        </h1>
+        <time dateTime={selectedPress.date} className="text-sm text-zinc-400">
+          {new Date(selectedPress.date).toLocaleDateString('en-NL', {
+            year: 'numeric',
+            month: 'long',
+            day: '2-digit',
+          })}
+        </time>
+      </header>
+
+      <div className="space-y-6">
+        {selectedPress.content.map((block, idx) => (
+          <section key={idx} className="space-y-2">
+            {block.h2 && <h2 className="text-lg font-semibold text-white">{block.h2}</h2>}
+            {block.h3 && <h3 className="text-base font-semibold text-zinc-100">{block.h3}</h3>}
+            {block.h4 && <h4 className="text-sm font-semibold text-zinc-200">{block.h4}</h4>}
+
+            <div className="space-y-3">
+              {block.paragraphs.map((p, pIdx) => (
+                <p key={pIdx} className="text-sm leading-6 text-zinc-300">
+                  {p}
+                </p>
+              ))}
+            </div>
+          </section>
+        ))}
+      </div>
+    </article>
+  )}
+</LegalModal>
+
 
       <LegalModal open={privacyOpen} onClose={() => setPrivacyOpen(false)} title="Privacy Policy">
         <p>
