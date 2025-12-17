@@ -39,13 +39,12 @@ function LegalModal({
 
           {/* Modal */}
           <motion.div
-            className="fixed top-1/2 left-1/2 z-50 w-[95%] max-w-5xl max-h-[75vh] -translate-x-1/2 -translate-y-1/2 rounded-xl border border-white/10 bg-zinc-950 p-8 shadow-2xl"
+            className="fixed top-1/2 left-1/2 z-50 w-[95%] max-w-3xl -translate-x-1/2 -translate-y-1/2 rounded-xl border border-white/10 bg-zinc-950 p-8 shadow-2xl flex flex-col"
             initial={{ opacity: 0, scale: 0.96, y: 10 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.96, y: 10 }}
-            transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
           >
-            
             <div className="flex items-center justify-between border-b border-white/10 pb-3">
               <h3 className="text-lg font-semibold text-white">{title}</h3>
               <button
@@ -56,7 +55,9 @@ function LegalModal({
                 ✕
               </button>
             </div>
-            <div className="mt-4 max-h-[60vh] overflow-y-auto text-sm leading-relaxed text-zinc-400">{children}</div>
+            <div className="mt-4 flex-1 overflow-y-auto text-sm leading-relaxed text-zinc-400">
+              {children}
+            </div>
           </motion.div>
         </>
       )}

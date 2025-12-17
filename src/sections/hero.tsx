@@ -2,7 +2,7 @@
 
 import { SpectraLogo } from '@/components/SpectraLogo'
 import { useEffect, useState } from 'react'
-import { motion } from 'framer-motion'
+import { motion, Variants } from 'framer-motion'
 import { standardTransition } from '@/lib/animations'
 
 const HeroSection = () => {
@@ -23,8 +23,8 @@ const HeroSection = () => {
     return () => clearInterval(timer)
   }, [])
 
-  // Hero-specific variants (slightly longer duration for initial load)
-  const heroContentVariants = {
+  // Hero content variants - properly typed
+  const heroContentVariants: Variants = {
     hidden: {
       opacity: 0,
       y: 24,
@@ -39,24 +39,50 @@ const HeroSection = () => {
     },
   }
 
-  const heroStaggerContainer = {
+  const heroStaggerContainer: Variants = {
     hidden: { opacity: 1 },
     visible: {
       opacity: 1,
       transition: {
         staggerChildren: 0.15,
-        delayChildren: 0.3, // Wait for page load
+        delayChildren: 0.3,
+      },
+    },
+  }
+
+  //cinematic reveal
+  const backgroundRevealVariants: Variants = {
+    hidden: {
+      opacity: 0,
+      scale: 1.1,
+      filter: 'blur(4px)',
+    },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      filter: 'blur(0px)',
+      transition: {
+        duration: 1.6,
+        ease: [0.25, 0.1, 0.25, 1],
       },
     },
   }
 
   return (
     <section className="relative flex min-h-screen items-center overflow-hidden">
-      <div
+      {/* Background Image with Cinematic Reveal */}
+      <motion.div
         className="absolute inset-0 top-16 bg-cover bg-top bg-no-repeat"
         style={{ backgroundImage: "url('/1_Globe_Image.jpg')" }}
+        initial="hidden"
+        animate="visible"
+        variants={backgroundRevealVariants}
       />
-      <div className="absolute inset-0 bg-linear-to-b from-zinc-950/80 via-zinc-950/40 to-zinc-950/60" />
+
+      {/* Gradient Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-zinc-950/80 via-zinc-950/40 to-zinc-950/60" />
+
+      {/* Content */}
       <motion.div
         className="relative z-10 mx-auto w-full max-w-7xl px-6 lg:px-8"
         initial="hidden"
