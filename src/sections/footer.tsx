@@ -1,21 +1,17 @@
 'use client'
 
-import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
 import { Logo } from '@/app/logo'
 import {
-  fadeUpVariants,
-  staggerContainerVariants,
-  staggerChildVariants,
-  viewportOptions,
   createDelayedFadeUp,
+  fadeUpVariants,
+  staggerChildVariants,
+  staggerContainerVariants,
+  viewportOptions,
 } from '@/lib/animations'
+import { AnimatePresence, motion } from 'framer-motion'
+import { useState } from 'react'
 
-import {
-  MapPinIcon,
-  PhoneIcon,
-  EnvelopeIcon,
-} from '@heroicons/react/24/outline'
+import { EnvelopeIcon, MapPinIcon, PhoneIcon } from '@heroicons/react/24/outline'
 
 function LegalModal({
   open,
@@ -43,7 +39,7 @@ function LegalModal({
 
           {/* Modal */}
           <motion.div
-            className="fixed left-1/2 top-1/2 z-50 w-[90%] max-w-2xl -translate-x-1/2 -translate-y-1/2 rounded-xl border border-white/10 bg-zinc-950 p-6 shadow-2xl"
+            className="fixed top-1/2 left-1/2 z-50 w-[90%] max-w-2xl -translate-x-1/2 -translate-y-1/2 rounded-xl border border-white/10 bg-zinc-950 p-6 shadow-2xl"
             initial={{ opacity: 0, scale: 0.96, y: 10 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.96, y: 10 }}
@@ -51,24 +47,18 @@ function LegalModal({
           >
             <div className="flex items-center justify-between border-b border-white/10 pb-3">
               <h3 className="text-lg font-semibold text-white">{title}</h3>
-              <button
-                onClick={onClose}
-                className="rounded-md px-2 py-1 text-zinc-400 transition hover:text-white"
-              >
+              <button onClick={onClose} className="rounded-md px-2 py-1 text-zinc-400 transition hover:text-white">
                 ✕
               </button>
             </div>
 
-            <div className="mt-4 max-h-[60vh] overflow-y-auto text-sm leading-relaxed text-zinc-400">
-              {children}
-            </div>
+            <div className="mt-4 max-h-[60vh] overflow-y-auto text-sm leading-relaxed text-zinc-400">{children}</div>
           </motion.div>
         </>
       )}
     </AnimatePresence>
   )
 }
-
 
 export function FooterSection() {
   const [formData, setFormData] = useState({
@@ -82,6 +72,15 @@ export function FooterSection() {
   const [privacyOpen, setPrivacyOpen] = useState(false)
   const [termsOpen, setTermsOpen] = useState(false)
 
+  type AboutModal = 'mission' | 'team' | null | 'about'
+  const [aboutMenuOpen, setAboutMenuOpen] = useState(false)
+  const [aboutModal, setAboutModal] = useState<AboutModal>(null)
+
+  const openAboutModal = (which: Exclude<AboutModal, null>) => {
+    setAboutModal(which)
+    setAboutMenuOpen(false)
+  }
+  const closeAboutModal = () => setAboutModal(null)
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -106,7 +105,6 @@ export function FooterSection() {
   }
 
   const companyLinks = [
-    { label: 'About', href: '#vision' },
     { label: 'Careers', href: '#careers' },
     { label: 'Blog', href: '#blog' },
     { label: 'Press', href: '#press' },
@@ -146,14 +144,42 @@ export function FooterSection() {
               >
                 {/* Company Links */}
                 <motion.div variants={staggerChildVariants}>
-                  <h3 className="text-sm uppercase tracking-wider text-white">Company</h3>
-                  <ul className="mt-4 space-y-3">
+                  <h3 className="text-sm tracking-wider text-white uppercase">Company</h3>
+                  <ul className="mt-4 space-y-2">
+                    <li className="group">
+                      <button
+                        type="button"
+                        onClick={() => setAboutModal('about')}
+                        className="inline-flex w-full items-center text-left text-sm text-zinc-400 transition-colors hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white/20"
+                        aria-haspopup="dialog"
+                      >
+                        About
+                      </button>
+
+                      <div className="mt-1.5 ml-3 max-h-0 overflow-hidden opacity-0 transition-all duration-200 ease-out group-focus-within:max-h-24 group-focus-within:opacity-100 group-hover:max-h-24 group-hover:opacity-100">
+                        <div className="space-y-1.5 border-l border-white/10 pl-3">
+                          <button
+                            type="button"
+                            onClick={() => setAboutModal('mission')}
+                            className="block w-full text-left text-sm text-zinc-400 transition-colors hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white/20"
+                          >
+                            Mission
+                          </button>
+
+                          <button
+                            type="button"
+                            onClick={() => setAboutModal('team')}
+                            className="block w-full text-left text-sm text-zinc-400 transition-colors hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white/20"
+                          >
+                            Team
+                          </button>
+                        </div>
+                      </div>
+                    </li>
+
                     {companyLinks.map((link) => (
                       <li key={link.label}>
-                        <a
-                          href={link.href}
-                          className="text-sm text-zinc-400 transition-colors hover:text-white"
-                        >
+                        <a href={link.href} className="text-sm text-zinc-400 transition-colors hover:text-white">
                           {link.label}
                         </a>
                       </li>
@@ -163,14 +189,11 @@ export function FooterSection() {
 
                 {/* Product Links */}
                 <motion.div variants={staggerChildVariants}>
-                  <h3 className="text-sm uppercase tracking-wider text-white">Product</h3>
+                  <h3 className="text-sm tracking-wider text-white uppercase">Product</h3>
                   <ul className="mt-4 space-y-3">
                     {productLinks.map((link) => (
                       <li key={link.label}>
-                        <a
-                          href={link.href}
-                          className="text-sm text-zinc-400 transition-colors hover:text-white"
-                        >
+                        <a href={link.href} className="text-sm text-zinc-400 transition-colors hover:text-white">
                           {link.label}
                         </a>
                       </li>
@@ -180,7 +203,7 @@ export function FooterSection() {
 
                 {/* Social Links */}
                 <motion.div className="col-span-2 sm:col-span-2" variants={staggerChildVariants}>
-                  <h3 className="text-sm uppercase tracking-wider text-white">Connect</h3>
+                  <h3 className="text-sm tracking-wider text-white uppercase">Connect</h3>
                   <div className="mt-4 flex flex-wrap gap-4">
                     {socialLinks.map((link) => (
                       <a
@@ -224,10 +247,12 @@ export function FooterSection() {
                       rel="noopener noreferrer"
                       className="group flex max-w-xs items-start gap-3 text-zinc-400 transition-colors duration-300 hover:text-white"
                     >
-                      <MapPinIcon className="mt-0.5 h-5 w-5 flex-shrink-0 text-zinc-500 transition-colors duration-300 group-hover:text-white" />
+                      <MapPinIcon className="mt-0.5 h-5 w-5 shrink-0 text-zinc-500 transition-colors duration-300 group-hover:text-white" />
                       <span className="leading-relaxed">
-                        Veerhaven 14<br />
-                        3016 CJ Rotterdam<br />
+                        Veerhaven 14
+                        <br />
+                        3016 CJ Rotterdam
+                        <br />
                         Netherlands
                       </span>
                     </a>
@@ -268,9 +293,7 @@ export function FooterSection() {
             >
               <div className="rounded-xl border border-white/10 bg-zinc-900/30 p-6 backdrop-blur-sm sm:p-8">
                 <h3 className="text-lg text-white">Contact Us</h3>
-                <p className="mt-2 text-sm text-zinc-400">
-                  Have a project in mind? We'd love to hear from you.
-                </p>
+                <p className="mt-2 text-sm text-zinc-400">Have a project in mind? We'd love to hear from you.</p>
 
                 {submitted ? (
                   <motion.div
@@ -278,9 +301,7 @@ export function FooterSection() {
                     animate={{ opacity: 1, y: 0 }}
                     className="mt-6 rounded-lg border border-cyan-300/30 bg-cyan-300/10 p-4"
                   >
-                    <p className="text-sm text-cyan-300">
-                      ✓ Thanks for reaching out! We'll get back to you soon.
-                    </p>
+                    <p className="text-sm text-cyan-300">✓ Thanks for reaching out! We'll get back to you soon.</p>
                   </motion.div>
                 ) : (
                   <form onSubmit={handleSubmit} className="mt-6 space-y-4">
@@ -296,7 +317,7 @@ export function FooterSection() {
                         value={formData.name}
                         onChange={handleChange}
                         required
-                        className="mt-1 block w-full rounded-lg border border-white/10 bg-zinc-800/50 px-4 py-2.5 text-sm text-white placeholder-zinc-500 transition-colors focus:border-white/20 focus:outline-none focus:ring-1 focus:ring-white/20"
+                        className="mt-1 block w-full rounded-lg border border-white/10 bg-zinc-800/50 px-4 py-2.5 text-sm text-white placeholder-zinc-500 transition-colors focus:border-white/20 focus:ring-1 focus:ring-white/20 focus:outline-none"
                         placeholder="Your name"
                       />
                     </div>
@@ -313,7 +334,7 @@ export function FooterSection() {
                         value={formData.email}
                         onChange={handleChange}
                         required
-                        className="mt-1 block w-full rounded-lg border border-white/10 bg-zinc-800/50 px-4 py-2.5 text-sm text-white placeholder-zinc-500 transition-colors focus:border-white/20 focus:outline-none focus:ring-1 focus:ring-white/20"
+                        className="mt-1 block w-full rounded-lg border border-white/10 bg-zinc-800/50 px-4 py-2.5 text-sm text-white placeholder-zinc-500 transition-colors focus:border-white/20 focus:ring-1 focus:ring-white/20 focus:outline-none"
                         placeholder="you@company.com"
                       />
                     </div>
@@ -330,7 +351,7 @@ export function FooterSection() {
                         onChange={handleChange}
                         required
                         rows={4}
-                        className="mt-1 block w-full resize-none rounded-lg border border-white/10 bg-zinc-800/50 px-4 py-2.5 text-sm text-white placeholder-zinc-500 transition-colors focus:border-white/20 focus:outline-none focus:ring-1 focus:ring-white/20"
+                        className="mt-1 block w-full resize-none rounded-lg border border-white/10 bg-zinc-800/50 px-4 py-2.5 text-sm text-white placeholder-zinc-500 transition-colors focus:border-white/20 focus:ring-1 focus:ring-white/20 focus:outline-none"
                         placeholder="Tell us about your project..."
                       />
                     </div>
@@ -339,7 +360,7 @@ export function FooterSection() {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="group inline-flex w-full items-center justify-center gap-2 rounded-lg bg-cyan-500 px-5 py-2.5 text-sm font-semibold text-zinc-950 transition-all duration-300 hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-zinc-950 disabled:cursor-not-allowed disabled:opacity-50"
+                      className="inline-flex shrink-0 items-center justify-center rounded-lg border border-cyan-500/30 px-4 py-2.5 text-sm font-medium text-cyan-100 shadow-sm shadow-cyan-500/10 transition-all duration-300 hover:border-cyan-200 hover:bg-cyan-500/10 hover:text-cyan-100 hover:shadow-md hover:shadow-cyan-500/20"
                     >
                       {isSubmitting ? (
                         <>
@@ -362,12 +383,7 @@ export function FooterSection() {
                           Sending...
                         </>
                       ) : (
-                        <>
-                          Send Message
-                          <span className="transition-transform duration-300 group-hover:translate-x-1">
-                            →
-                          </span>
-                        </>
+                        <>Send Message</>
                       )}
                     </button>
                   </form>
@@ -384,9 +400,7 @@ export function FooterSection() {
             viewport={viewportOptions}
             variants={createDelayedFadeUp(0.3)}
           >
-            <p className="text-sm text-zinc-500">
-              © {new Date().getFullYear()} Mavisoft. All rights reserved.
-            </p>
+            <p className="text-sm text-zinc-500">© {new Date().getFullYear()} Mavisoft. All rights reserved.</p>
             <div className="flex gap-6">
               <button
                 onClick={() => setPrivacyOpen(true)}
@@ -400,41 +414,51 @@ export function FooterSection() {
               >
                 Terms of Service
               </button>
-
             </div>
           </motion.div>
         </div>
       </div>
-      <LegalModal
-          open={privacyOpen}
-          onClose={() => setPrivacyOpen(false)}
-          title="Privacy Policy"
-        >
-          <p>
-            Mavisoft respects your privacy. We collect only the information necessary
-            to operate and improve our services. Your data is never sold to third
-            parties.
-          </p>
-          <p className="mt-3">
-            Usage analytics, contact details, and technical identifiers may be stored
-            securely to enhance platform performance.
-          </p>
-        </LegalModal>
+      
+      <LegalModal open={aboutModal === 'about'} onClose={() => setAboutModal(null)} title="About">
+        <p>
+          Mavisoft builds modern software systems for real-world operations—combining strong UX, reliable
+          infrastructure, and practical AI where it creates measurable value.
+        </p>
+      </LegalModal>
 
-        <LegalModal
-          open={termsOpen}
-          onClose={() => setTermsOpen(false)}
-          title="Terms of Service"
-        >
-          <p>
-            By using Mavisoft services, you agree to comply with all applicable laws and
-            regulations. Services are provided “as is” without warranties.
-          </p>
-          <p className="mt-3">
-            We reserve the right to modify, suspend, or discontinue services at any
-            time without notice.
-          </p>
-        </LegalModal>
+      <LegalModal open={aboutModal === 'mission'} onClose={() => setAboutModal(null)} title="Mission">
+        <p>
+          Our mission is to deliver high-trust systems that help teams understand complex environments and act
+          decisively.
+        </p>
+      </LegalModal>
+
+      <LegalModal open={aboutModal === 'team'} onClose={() => setAboutModal(null)} title="Team">
+        <p>
+          We are a cross-functional team of engineers and product builders focused on clarity, performance, and
+          shipping.
+        </p>
+      </LegalModal>
+
+      <LegalModal open={privacyOpen} onClose={() => setPrivacyOpen(false)} title="Privacy Policy">
+        <p>
+          We respect your privacy. We only collect information necessary to provide and improve our services.
+          We do not sell personal data.
+        </p>
+        <p className="mt-3">
+          Data may include usage analytics, device/browser information, and contact details you submit via forms.
+        </p>
+      </LegalModal>
+
+      <LegalModal open={termsOpen} onClose={() => setTermsOpen(false)} title="Terms of Service">
+        <p>
+          By using Mavisoft services, you agree to comply with all applicable laws and regulations. Services are
+          provided “as is” without warranties.
+        </p>
+        <p className="mt-3">
+          We reserve the right to modify, suspend, or discontinue services at any time without notice.
+        </p>
+      </LegalModal>
     </footer>
   )
 }
