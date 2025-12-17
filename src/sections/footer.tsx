@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import { Logo } from '@/app/logo'
 import {
   fadeUpVariants,
@@ -17,6 +17,58 @@ import {
   EnvelopeIcon,
 } from '@heroicons/react/24/outline'
 
+function LegalModal({
+  open,
+  onClose,
+  title,
+  children,
+}: {
+  open: boolean
+  onClose: () => void
+  title: string
+  children: React.ReactNode
+}) {
+  return (
+    <AnimatePresence>
+      {open && (
+        <>
+          {/* Backdrop */}
+          <motion.div
+            className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={onClose}
+          />
+
+          {/* Modal */}
+          <motion.div
+            className="fixed left-1/2 top-1/2 z-50 w-[90%] max-w-2xl -translate-x-1/2 -translate-y-1/2 rounded-xl border border-white/10 bg-zinc-950 p-6 shadow-2xl"
+            initial={{ opacity: 0, scale: 0.96, y: 10 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.96, y: 10 }}
+            transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <div className="flex items-center justify-between border-b border-white/10 pb-3">
+              <h3 className="text-lg font-semibold text-white">{title}</h3>
+              <button
+                onClick={onClose}
+                className="rounded-md px-2 py-1 text-zinc-400 transition hover:text-white"
+              >
+                ✕
+              </button>
+            </div>
+
+            <div className="mt-4 max-h-[60vh] overflow-y-auto text-sm leading-relaxed text-zinc-400">
+              {children}
+            </div>
+          </motion.div>
+        </>
+      )}
+    </AnimatePresence>
+  )
+}
+
 
 export function FooterSection() {
   const [formData, setFormData] = useState({
@@ -26,6 +78,10 @@ export function FooterSection() {
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitted, setSubmitted] = useState(false)
+
+  const [privacyOpen, setPrivacyOpen] = useState(false)
+  const [termsOpen, setTermsOpen] = useState(false)
+
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -350,22 +406,53 @@ export function FooterSection() {
               © {new Date().getFullYear()} Mavisoft. All rights reserved.
             </p>
             <div className="flex gap-6">
-              <a
-                href="#privacy"
-                className="text-sm text-zinc-500 transition-colors hover:text-zinc-300"
+              <button
+                onClick={() => setPrivacyOpen(true)}
+                className="text-sm text-zinc-500 transition-colors hover:text-white"
               >
                 Privacy Policy
-              </a>
-              <a
-                href="#terms"
-                className="text-sm text-zinc-500 transition-colors hover:text-zinc-300"
+              </button>
+              <button
+                onClick={() => setTermsOpen(true)}
+                className="text-sm text-zinc-500 transition-colors hover:text-white"
               >
                 Terms of Service
-              </a>
+              </button>
+
             </div>
           </motion.div>
         </div>
       </div>
+      <LegalModal
+          open={privacyOpen}
+          onClose={() => setPrivacyOpen(false)}
+          title="Privacy Policy"
+        >
+          <p>
+            Mavisoft respects your privacy. We collect only the information necessary
+            to operate and improve our services. Your data is never sold to third
+            parties.
+          </p>
+          <p className="mt-3">
+            Usage analytics, contact details, and technical identifiers may be stored
+            securely to enhance platform performance.
+          </p>
+        </LegalModal>
+
+        <LegalModal
+          open={termsOpen}
+          onClose={() => setTermsOpen(false)}
+          title="Terms of Service"
+        >
+          <p>
+            By using Mavisoft services, you agree to comply with all applicable laws and
+            regulations. Services are provided “as is” without warranties.
+          </p>
+          <p className="mt-3">
+            We reserve the right to modify, suspend, or discontinue services at any
+            time without notice.
+          </p>
+        </LegalModal>
     </footer>
   )
 }
