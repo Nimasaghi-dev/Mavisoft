@@ -1,15 +1,16 @@
 'use client'
 
 import { useState } from 'react'
-import { motion, AnimatePresence } from 'motion/react'
+import { motion, AnimatePresence } from 'framer-motion'
 import { Logo } from '@/app/logo'
+import { SpectraLogo } from '@/components/SpectraLogo'
 import { Button } from '@/components/button'
 import { Navbar, NavbarSection, NavbarSpacer } from '@/components/navbar'
 
-// ANCHOR links
+// ANCHOR links - use null for label when using custom component
 const menuItems = [
   { label: 'VISION', href: '#vision' },
-  { label: 'SPECTRA', href: '#spectra' },
+  { label: 'SPECTRA', href: '#spectra', isSpectra: true },
   { label: 'SOLUTIONS', href: '#solutions' },
   { label: 'INDUSTRIES', href: '#industries' },
   { label: 'CONTACT', href: '#contact' },
@@ -46,7 +47,11 @@ export function TopNavbar() {
                 href={item.href}
                 className="group relative px-3 py-2 text-sm font-medium text-white transition-all duration-300 hover:text-cyan-100 after:absolute after:right-3 after:bottom-1 after:left-3 after:h-px after:scale-x-0 after:bg-cyan-200 after:opacity-0 after:transition-all after:duration-300 hover:after:scale-x-100 hover:after:opacity-100"
               >
-                {item.label}
+                {item.isSpectra ? (
+                  <SpectraLogo className="h-5 w-auto text-red-400" />
+                ) : (
+                  item.label
+                )}
               </a>
             ))}
           </NavbarSection>
@@ -137,7 +142,11 @@ export function TopNavbar() {
                         onClick={closeMenu}
                         className="flex items-center rounded-lg px-4 py-3 text-base font-medium text-white transition-colors hover:bg-white/10 hover:text-cyan-200"
                       >
-                        {item.label}
+                        {item.isSpectra ? (
+                          <SpectraLogo className="h-5 w-auto" />
+                        ) : (
+                          item.label
+                        )}
                       </a>
                     </motion.li>
                   ))}

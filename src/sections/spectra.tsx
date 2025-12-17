@@ -24,7 +24,7 @@ export function SpectraSection() {
           >
             Introducing{' '}
             <span className="inline-flex items-center align-baseline">
-              <SpectraLogo className="h-[1em] w-auto" />
+              <SpectraLogo className="h-[1em] text-red-400 w-auto" />
             </span>{' '}
             our cognitive framework. Modular, Spatial, Extensible.
           </motion.h2>

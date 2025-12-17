@@ -10,7 +10,6 @@ import {
 } from '@/lib/animations'
 import { AnimatePresence, motion } from 'framer-motion'
 import { useState } from 'react'
-
 import { EnvelopeIcon, MapPinIcon, PhoneIcon } from '@heroicons/react/24/outline'
 
 function LegalModal({
@@ -78,14 +77,7 @@ export function FooterSection() {
   const [termsOpen, setTermsOpen] = useState(false)
 
   type AboutModal = 'mission' | 'team' | null | 'about'
-  const [aboutMenuOpen, setAboutMenuOpen] = useState(false)
   const [aboutModal, setAboutModal] = useState<AboutModal>(null)
-
-  const openAboutModal = (which: Exclude<AboutModal, null>) => {
-    setAboutModal(which)
-    setAboutMenuOpen(false)
-  }
-  const closeAboutModal = () => setAboutModal(null)
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -487,14 +479,25 @@ export function FooterSection() {
         </div>
       </div>
 
-      <LegalModal open={aboutModal === 'about'} onClose={() => setAboutModal(null)} title="About">
-        <p>
-          We are a privately owned Artificial Intelligence (AI) research startup focusing on automating the visual surveying process of industrial assets.
-
-          Based out of the Innovation Dock in Rotterdam, we are a team of professionals passionate about deep learning, striving to offer the most cutting-edge Machine Vision Software for industrial applications.
-
-          Our technology is designed to detect anomalies, damages and defects in concrete, metal, steel and composite materials. With our AI-based products, we are able to localise and categorise damages based on their severity, size and location.
-        </p>
+      <LegalModal open={aboutModal === 'about'} onClose={() => setAboutModal(null)} title="About Mavisoft">
+        <div className="space-y-4">
+          <p className="text-zinc-300">
+            Mavisoft is a Dutch AI company on a mission to unlock the full potential of vision. Just as the human eye and brain work together to make sense of the world, we build{' '}
+            <span className="font-medium text-white">
+              technologies that transform camera feeds into actionable intelligence.
+            </span>
+          </p>
+          
+          <p className="text-zinc-300">
+            At the heart of our work is{' '}
+            <span className="font-medium text-cyan-400">Spectra®</span>, our machine vision platform that empowers people and industries to create their own inspection and monitoring solutions. From airports to maritime ports and beyond,{' '}
+            <span className="font-medium text-cyan-400">Spectra®</span> enables safer, smarter, and more efficient operations by turning every image into actionable insight.
+          </p>
+          
+          <p className="mt-6 border-l-2 border-cyan-500/50 pl-4 text-base font-medium text-white italic">
+            Mavisoft stands for the future of vision
+          </p>
+        </div>
       </LegalModal>
 
       <LegalModal open={aboutModal === 'mission'} onClose={() => setAboutModal(null)} title="Mission">
@@ -502,7 +505,7 @@ export function FooterSection() {
           At Mavisoft, 
           we aim to revolutionise industrial asset inspection and management using cutting-edge AI vision technologies, photogrammetry, 
           and a comprehensive end-to-end service platform. 
-          We empower organisations worldwide by enhancing their industrial assets’ safety, 
+          We empower organisations worldwide by enhancing their industrial assets' safety, 
           reliability, and sustainability. 
           With our innovative solutions, including early damage detection, 
           optimised resource utilisation, and data-driven decision-making, 
@@ -560,7 +563,7 @@ export function FooterSection() {
       <LegalModal open={termsOpen} onClose={() => setTermsOpen(false)} title="Terms of Service">
         <p>
           By using Mavisoft services, you agree to comply with all applicable laws and regulations. Services are
-          provided “as is” without warranties.
+          provided "as is" without warranties.
         </p>
         <p className="mt-3">
           We reserve the right to modify, suspend, or discontinue services at any time without notice.
