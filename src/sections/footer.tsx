@@ -26,43 +26,76 @@ function LegalModal({
   return (
     <AnimatePresence>
       {open && (
-        <>
-          {/* Backdrop */}
-          <motion.div
-            className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
+        <motion.div
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+        >
+          {/* ✅ Backdrop captures outside clicks */}
+          <button
+            type="button"
+            aria-label="Close modal"
             onClick={onClose}
+            className="absolute inset-0 bg-black/70 backdrop-blur-sm"
           />
 
-          {/* Modal */}
+          {/* Modal panel */}
           <motion.div
-            className="fixed top-1/2 left-1/2 z-50 w-[95%] max-w-3xl -translate-x-1/2 -translate-y-1/2 rounded-xl border border-white/10 bg-zinc-950 p-8 shadow-2xl flex flex-col"
-            initial={{ opacity: 0, scale: 0.96, y: 10 }}
+            role="dialog"
+            aria-modal="true"
+            aria-label={title}
+            className={[
+              'relative z-10 w-full max-w-3xl',
+              'max-h-[calc(100vh-2rem)] sm:max-h-[calc(100vh-3rem)]',
+              'overflow-hidden rounded-xl border border-white/10 bg-zinc-950 shadow-2xl',
+              'flex flex-col',
+            ].join(' ')}
+            initial={{ opacity: 0, scale: 0.98, y: 10 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.96, y: 10 }}
+            exit={{ opacity: 0, scale: 0.98, y: 10 }}
             transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+            // ✅ Prevent clicks inside from bubbling to backdrop
+            onClick={(e) => e.stopPropagation()}
           >
-            <div className="flex items-center justify-between border-b border-white/10 pb-3">
-              <h3 className="text-lg font-semibold text-white">{title}</h3>
+            {/* Header */}
+            <div className="flex items-center justify-between gap-3 border-b border-white/10 px-4 py-3 sm:px-6">
+              <h3 className="text-base font-semibold text-white sm:text-lg">{title}</h3>
               <button
                 onClick={onClose}
                 aria-label="Close"
-                className="rounded-md px-2 py-1 text-zinc-400 transition hover:text-white"
+                className="rounded-md px-2 py-1 text-zinc-400 transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white/20"
               >
                 ✕
               </button>
             </div>
-            <div className="mt-4 flex-1 overflow-y-auto text-sm leading-relaxed text-zinc-400">
+
+            {/* Body (scrollable) */}
+            <div
+              className={[
+                'min-h-0 flex-1 overflow-y-auto px-4 py-4 text-sm leading-relaxed text-zinc-300 sm:px-6',
+                '[&::-webkit-scrollbar]:w-2',
+                '[&::-webkit-scrollbar-track]:bg-transparent',
+                '[&::-webkit-scrollbar-thumb]:rounded-full',
+                '[&::-webkit-scrollbar-thumb]:bg-white/10',
+                '[&::-webkit-scrollbar-thumb:hover]:bg-white/20',
+              ].join(' ')}
+              style={{
+                scrollbarWidth: 'thin',
+                scrollbarColor: 'rgba(255,255,255,0.18) transparent',
+              }}
+            >
               {children}
             </div>
           </motion.div>
-        </>
+        </motion.div>
       )}
     </AnimatePresence>
   )
 }
+
+
+
 
 export function FooterSection() {
   const [formData, setFormData] = useState({
@@ -153,7 +186,7 @@ export function FooterSection() {
     },
     {
       name: 'Taufik Hidayat',
-      title: 'Lead Frontend Engineer',
+      title: 'Lead Fullstack Engineer',
       image: '/teams/1707418920597.jpg',
       linkedin: 'https://www.linkedin.com/in/t-hidayat/',
     },
@@ -218,22 +251,23 @@ export function FooterSection() {
 const pressItems: PressItem[] = [
   {
     id: 'seed-round',
-    title: 'Mavisoft raises seed round',
+    title: 'AIrport Inspector featured in Passenger Terminal World magazine',
     date: '2023-April-17',
     image: '/press/download1.jpg',
     excerpt: 'Short 1–2 line summary about the announcement.',
     content: [
       {
-        h2: 'Overview',
+        h2:`In the April edition of Passenger Terminal World magazine, AIrport Inspector takes the spotlight together with Roayl Schiphol Group and its innovations. The innovation shines a light on Schiphol Group Aviation Solutions, highlighting its intentive strategies for improving passenger experiences and operational effectiveness.`,
         paragraphs: [
-          'Longer description paragraph 1...',
-          'Longer description paragraph 2...',
+          
+          `Caroline Massart, the head of the Schiphol Group Aviation Solutions, emphasized the airport's commitment to propelling innovation within the aviation sector. AIrport Inspector is one of the newer innovations part of their portfolio that is on the way to revolutionizing the aviation industry maintenance practices. Designed to transform airport asset management, this technology is tailored for assessing runways and aircraft stands. Unlike conventional sample-based visual inspections, AIrport Inspector employs AI and laser technology to survey these critical assets comprehensively. Caroline Massart explains, This approach provides a highly detailed and objective understanding of surface quality. By inspecting 100% of assets, we uncover and address minor damages that might otherwise lead to accelerated degradation.`,
+          
         ],
       },
       {
-        h3: 'What this enables',
-        h4: 'Product roadmap',
-        paragraphs: ['More details...', 'More details...'],
+        h3: '',
+        h4: '',
+        paragraphs: [],
       },
     ],
   },
@@ -689,7 +723,7 @@ const pressItems: PressItem[] = [
         </div>
       </LegalModal>
 
-      <LegalModal open={pressDetailOpen} onClose={closePressDetail} title="Press">
+      <LegalModal open={pressDetailOpen} onClose={closePressDetail} title="Our Latest News">
   {selectedPress && (
     <article className="space-y-5">
       <div className="overflow-hidden rounded-2xl border border-white/10 bg-zinc-900/30">
