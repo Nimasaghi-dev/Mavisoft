@@ -94,6 +94,25 @@ function LegalModal({
   )
 }
 
+type ContentBlock = {
+  h2?: string
+  h3?: string
+  h4?: string
+  paragraphs: string[]
+}
+
+type ArticleItem = {
+  id: string
+  title: string
+  date: string
+  image: string
+  excerpt: string
+  content: ContentBlock[]
+  category?: string
+  author?: string
+  readTime?: string
+}
+
 export function FooterSection() {
   const [formData, setFormData] = useState({
     name: '',
@@ -109,9 +128,15 @@ export function FooterSection() {
   type AboutModal = 'mission' | 'team' | null | 'about'
   const [aboutModal, setAboutModal] = useState<AboutModal>(null)
 
+  // Press state
   const [pressOpen, setPressOpen] = useState(false)
   const [pressDetailOpen, setPressDetailOpen] = useState(false)
-  const [selectedPress, setSelectedPress] = useState<PressItem | null>(null)
+  const [selectedPress, setSelectedPress] = useState<ArticleItem | null>(null)
+
+  // Blog state
+  const [blogOpen, setBlogOpen] = useState(false)
+  const [blogDetailOpen, setBlogDetailOpen] = useState(false)
+  const [selectedBlog, setSelectedBlog] = useState<ArticleItem | null>(null)
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -135,7 +160,7 @@ export function FooterSection() {
     }))
   }
 
-  function openPressDetail(item: PressItem) {
+  function openPressDetail(item: ArticleItem) {
     setSelectedPress(item)
     setPressDetailOpen(true)
   }
@@ -145,9 +170,18 @@ export function FooterSection() {
     setSelectedPress(null)
   }
 
+  function openBlogDetail(item: ArticleItem) {
+    setSelectedBlog(item)
+    setBlogDetailOpen(true)
+  }
+
+  function closeBlogDetail() {
+    setBlogDetailOpen(false)
+    setSelectedBlog(null)
+  }
+
   const companyLinks = [
     { label: 'Careers', href: '#careers' },
-    { label: 'Blog', href: '#blog' },
   ]
 
   const productLinks = [
@@ -224,51 +258,42 @@ export function FooterSection() {
     },
   ]
 
-  type PressItem = {
-    id: string
-    title: string
-    date: string
-    image: string
-    excerpt: string
-    content: {
-      h2?: string
-      h3?: string
-      h4?: string
-      paragraphs: string[]
-    }[]
-  }
-
-  const pressItems: PressItem[] = [
+  const pressItems: ArticleItem[] = [
     {
       id: 'seed-round',
       title: 'AIrport Inspector featured in Passenger Terminal World magazine',
-      date: '2023-April-17',
+      date: '2023-04-17',
       image: '/press/download1.jpg',
-      excerpt: `In the April edition of Passenger Terminal World magazine, AIrport Inspector takes the spotlight together with Roayl Schiphol Group and its innovations...`,
+      excerpt: `In the April edition of Passenger Terminal World magazine, AIrport Inspector takes the spotlight together with Royal Schiphol Group and its innovations...`,
+      category: 'Press Release',
       content: [
         {
-          h2: `In the April edition of Passenger Terminal World magazine, AIrport Inspector takes the spotlight together with Roayl Schiphol Group and its innovations. The innovation shines a light on Schiphol Group Aviation Solutions, highlighting its intentive strategies for improving passenger experiences and operational effectiveness.`,
+          h2: `Featured Innovation`,
           paragraphs: [
-            `Caroline Massart, the head of the Schiphol Group Aviation Solutions, emphasized the airport's commitment to propelling innovation within the aviation sector. AIrport Inspector is one of the newer innovations part of their portfolio that is on the way to revolutionizing the aviation industry maintenance practices. Designed to transform airport asset management, this technology is tailored for assessing runways and aircraft stands. Unlike conventional sample-based visual inspections, AIrport Inspector employs AI and laser technology to survey these critical assets comprehensively. Caroline Massart explains, This approach provides a highly detailed and objective understanding of surface quality. By inspecting 100% of assets, we uncover and address minor damages that might otherwise lead to accelerated degradation.`,
+            `In the April edition of Passenger Terminal World magazine, AIrport Inspector takes the spotlight together with Royal Schiphol Group and its innovations. The innovation shines a light on Schiphol Group Aviation Solutions, highlighting its intentive strategies for improving passenger experiences and operational effectiveness.`,
+            `Caroline Massart, the head of the Schiphol Group Aviation Solutions, emphasized the airport's commitment to propelling innovation within the aviation sector. AIrport Inspector is one of the newer innovations part of their portfolio that is on the way to revolutionizing the aviation industry maintenance practices. Designed to transform airport asset management, this technology is tailored for assessing runways and aircraft stands. Unlike conventional sample-based visual inspections, AIrport Inspector employs AI and laser technology to survey these critical assets comprehensively.`,
           ],
         },
         {
-          h3: '',
-          h4: '',
-          paragraphs: [],
+          h3: 'Revolutionary Approach',
+          paragraphs: [
+            `Caroline Massart explains, "This approach provides a highly detailed and objective understanding of surface quality. By inspecting 100% of assets, we uncover and address minor damages that might otherwise lead to accelerated degradation."`,
+          ],
         },
       ],
     },
     {
       id: 'maritime-inspection',
-      title: 'AIrport Inspector presented at FTE Digital, Innovation & Startup Hub hosted by Schiphol Group',
-      date: '2023-March-15',
+      title: 'AIrport Inspector presented at FTE Digital, Innovation & Startup Hub',
+      date: '2023-03-15',
       image: '/press/download2.jpg',
-      excerpt: `On the 13th of March, Schiphol Group hosted the FTE Digital, Innovation and Startup Hub and the FTE Baggage Innovation Working Group events at their headquarters in Amsterdam...`,
+      excerpt: `On the 13th of March, Schiphol Group hosted the FTE Digital, Innovation and Startup Hub and the FTE Baggage Innovation Working Group events...`,
+      category: 'Event',
       content: [
         {
-          h3: 'On the 13th of March, Schiphol Group hosted the FTE Digital, Innovation and Startup Hub and the FTE Baggage Innovation Working Group events at their headquarters in Amsterdam. The sessions featured a range of keynotes, panel discussions and startup pitches, with speakers from companies such as KLM, Royal Schiphol Group, Schiphol Group Aviation Solutions, Vanderlande, Pangiam, Abomis Innovations, Cobot Lift, and us Mavisoft, as well as a robust global attendance.',
+          h3: 'Innovation Hub Showcase',
           paragraphs: [
+            `On the 13th of March, Schiphol Group hosted the FTE Digital, Innovation and Startup Hub and the FTE Baggage Innovation Working Group events at their headquarters in Amsterdam. The sessions featured a range of keynotes, panel discussions and startup pitches, with speakers from companies such as KLM, Royal Schiphol Group, Schiphol Group Aviation Solutions, Vanderlande, Pangiam, Abomis Innovations, Cobot Lift, and us Mavisoft, as well as a robust global attendance.`,
             `Our CEO, Theodor Preststulen, garnered significant attention during the startup pitches after presenting AIrport Inspector. In his pitch, he explained how this technology is a game-changer for every airport around the globe by offering comprehensive inspections of concrete and asphalt assets with exceptional accuracy. AIrport Inspector's ability to track damages, monitor degradation rates and identify high-risk issues in their infancy showcases the potential to transform airport maintenance practice.`,
           ],
         },
@@ -277,18 +302,179 @@ export function FooterSection() {
     {
       id: 'airport-pilot',
       title: `AIrport Inspector joins Schiphol at the Passenger Terminal Expo 2023`,
-      date: '2023-Feb-14',
+      date: '2023-02-14',
       image: '/press/passenger_terminal_expo.jpg',
-      excerpt: `On the 14th, 15th and 16th of March, we will join the Schiphol Aviation Solutions booth 2218 at Passenger Terminal Expo 2023 to present our solution - AIrport Inspector!...`,
+      excerpt: `On the 14th, 15th and 16th of March, we will join the Schiphol Aviation Solutions booth 2218 at Passenger Terminal Expo 2023...`,
+      category: 'Exhibition',
       content: [
         {
-          h3: `On the 14th, 15th and 16th of March, we will join the Schiphol Aviation Solutions booth 2218 at Passenger Terminal Expo 2023 to present our solution - AIrport Inspector!`,
+          h3: `Passenger Terminal Expo Partnership`,
           paragraphs: [
-            `Passenger Terminal Expo is known for its premier status in the aviation industry and serves as a platform for industry leaders, experts, and innovators to showcase advancements that share the future of travel.
+            `On the 14th, 15th and 16th of March, we will join the Schiphol Aviation Solutions booth 2218 at Passenger Terminal Expo 2023 to present our solution - AIrport Inspector!`,
+            `Passenger Terminal Expo is known for its premier status in the aviation industry and serves as a platform for industry leaders, experts, and innovators to showcase advancements that shape the future of travel.`,
+            `As we immerse ourselves in this collaborative experience, we invite you to visit us at the Passenger Terminal Expo 2023 in Rotterdam. We are excited to be part of this remarkable event, and we look forward to shaping the future of airport technology alongside Schiphol.`,
+          ],
+        },
+      ],
+    },
+  ]
 
-          As we immerse ourselves in this collaborative experience, we invite you to visit us at the Passenger Terminal Expo 2023 in Rotterdam. We are excited to be part of this remarkable event, and we look forward to shaping the future of airport technology alongside Schiphol.
-
-          Check out here for more information.`,
+  const blogItems: ArticleItem[] = [
+    {
+      id: 'ai-vision-future',
+      title: 'The Future of AI Vision in Infrastructure Inspection',
+      date: '2024-11-15',
+      image: '/blog/ai-vision-hero.jpg',
+      excerpt: `Exploring how artificial intelligence and computer vision are revolutionizing the way we inspect and maintain critical infrastructure across industries...`,
+      category: 'Technology',
+      author: 'Theodor Preststulen',
+      readTime: '8 min read',
+      content: [
+        {
+          h2: 'Transforming Infrastructure Management',
+          paragraphs: [
+            `The landscape of infrastructure inspection is undergoing a fundamental transformation. Traditional manual inspection methods, while reliable, are time-consuming, subjective, and often miss critical details that could prevent costly failures. Enter AI-powered vision systems that are changing the game.`,
+            `At Mavisoft, we've witnessed firsthand how combining advanced computer vision with artificial intelligence creates inspection systems that are not only more accurate but also more comprehensive than traditional methods. Our Spectra® platform demonstrates that when you give machines the ability to "see" and "understand" infrastructure at scale, you unlock possibilities that were simply not feasible before.`,
+          ],
+        },
+        {
+          h3: 'The Power of Complete Coverage',
+          paragraphs: [
+            `One of the most significant advantages of AI vision systems is their ability to inspect 100% of an asset's surface. Traditional methods often rely on statistical sampling—inspecting a small percentage and extrapolating to the whole. This approach can miss localized damage that, if left unchecked, can propagate and lead to catastrophic failures.`,
+            `Computer vision systems capture every detail, creating a complete digital twin of the infrastructure. This comprehensive approach means that even the smallest crack or surface anomaly is documented, tracked over time, and analyzed for potential risk.`,
+          ],
+        },
+        {
+          h3: 'Objectivity and Consistency',
+          paragraphs: [
+            `Human inspectors bring valuable experience and intuition, but they're also subject to fatigue, environmental conditions, and subjective judgment. An AI vision system, once properly trained and validated, applies the same rigorous standards consistently across every inspection.`,
+            `This objectivity is crucial for creating reliable historical data. When you can trust that each inspection uses identical criteria, you can track degradation patterns with confidence and make data-driven maintenance decisions.`,
+          ],
+        },
+        {
+          h3: 'Looking Ahead',
+          paragraphs: [
+            `The future of infrastructure inspection lies in the seamless integration of AI vision with existing maintenance workflows. As these technologies mature, we'll see predictive maintenance become the norm rather than the exception. Organizations will shift from reactive repairs to proactive asset management, extending infrastructure lifespan while reducing costs.`,
+            `At Mavisoft, we're committed to making this future a reality, one inspection at a time.`,
+          ],
+        },
+      ],
+    },
+    {
+      id: 'airport-maintenance',
+      title: 'How Data-Driven Insights Are Reshaping Airport Maintenance',
+      date: '2024-10-22',
+      image: '/blog/airport-maintenance.jpg',
+      excerpt: `Airports are complex ecosystems requiring constant maintenance. Learn how modern data analytics and AI are helping airports optimize their maintenance strategies...`,
+      category: 'Aviation',
+      author: 'Mitch Klaver',
+      readTime: '6 min read',
+      content: [
+        {
+          h2: 'The Challenge of Airport Asset Management',
+          paragraphs: [
+            `Airports operate under immense pressure. Runways, taxiways, and aprons must maintain the highest safety standards while supporting thousands of aircraft movements daily. Traditional maintenance approaches often meant either expensive preventive interventions or risky reactive repairs after problems emerged.`,
+            `The emergence of data-driven maintenance strategies is changing this paradigm. By continuously monitoring asset conditions and analyzing degradation patterns, airports can now optimize their maintenance schedules, reduce downtime, and significantly cut costs.`,
+          ],
+        },
+        {
+          h3: 'From Reactive to Predictive',
+          paragraphs: [
+            `The shift from reactive to predictive maintenance represents one of the most significant advances in airport operations. Instead of waiting for a problem to occur or performing unnecessary preventive maintenance, airports can now predict when and where interventions are needed.`,
+            `This approach relies on comprehensive data collection. High-resolution imaging systems scan runway surfaces regularly, capturing detailed information about surface condition. AI algorithms analyze this data to identify degradation patterns and predict future maintenance needs with remarkable accuracy.`,
+          ],
+        },
+        {
+          h3: 'Real-World Impact',
+          paragraphs: [
+            `The benefits extend far beyond cost savings. Predictive maintenance improves safety by catching potential issues before they become critical. It optimizes resource allocation, ensuring maintenance crews work on the right problems at the right time. And it extends asset lifespan by addressing small issues before they escalate.`,
+            `Several major airports have already implemented data-driven maintenance programs with impressive results. Maintenance costs have decreased by 20-30%, while asset availability has increased. More importantly, safety incidents related to surface conditions have dropped significantly.`,
+          ],
+        },
+        {
+          h3: 'The Path Forward',
+          paragraphs: [
+            `As airports worldwide face increasing traffic and aging infrastructure, data-driven maintenance isn't just an advantage—it's becoming essential. The airports that embrace these technologies today will be better positioned to handle tomorrow's challenges efficiently and safely.`,
+          ],
+        },
+      ],
+    },
+    {
+      id: 'spectra-platform',
+      title: 'Building Spectra®: Lessons from Developing a Machine Vision Platform',
+      date: '2024-09-08',
+      image: '/blog/spectra-development.jpg',
+      excerpt: `A behind-the-scenes look at the technical challenges and design decisions that shaped our flagship machine vision platform...`,
+      category: 'Product',
+      author: 'Taufik Hidayat',
+      readTime: '10 min read',
+      content: [
+        {
+          h2: 'The Vision Behind Spectra®',
+          paragraphs: [
+            `When we set out to build Spectra®, we had a clear goal: create a machine vision platform that would be powerful enough for expert users yet accessible enough for anyone to build their own inspection solutions. This balance between power and usability guided every design decision.`,
+            `The challenge was significant. Traditional machine vision systems require deep expertise in computer vision, machine learning, and often custom hardware integration. We wanted to abstract away this complexity without limiting capability.`,
+          ],
+        },
+        {
+          h3: 'Architecture Decisions',
+          paragraphs: [
+            `Early on, we decided on a modular architecture that would allow users to combine different vision algorithms, processing pipelines, and output formats without writing code. This required careful API design and a flexible plugin system.`,
+            `We also invested heavily in the data pipeline. Machine vision generates enormous amounts of data, and processing it efficiently requires sophisticated infrastructure. Our streaming architecture can handle terabytes of image data while maintaining real-time processing capabilities.`,
+          ],
+        },
+        {
+          h3: 'The Machine Learning Challenge',
+          paragraphs: [
+            `Training machine learning models for infrastructure inspection presented unique challenges. Unlike consumer applications with millions of training examples, infrastructure defects are relatively rare. We developed specialized training techniques that work with limited data, including synthetic data generation and transfer learning approaches.`,
+            `Model validation was equally critical. In infrastructure inspection, false negatives can have serious consequences, while false positives waste resources. We implemented rigorous validation frameworks that ensure our models meet strict accuracy requirements before deployment.`,
+          ],
+        },
+        {
+          h3: 'User Experience Matters',
+          paragraphs: [
+            `Perhaps our biggest lesson was that even the most sophisticated technology is useless if people can't use it effectively. We've spent countless hours refining the user interface, conducting user testing, and iterating based on feedback.`,
+            `The result is a platform that technical users appreciate for its depth while newcomers can start using productively within hours. This accessibility is opening up machine vision to organizations that previously couldn't justify the investment in specialist expertise.`,
+          ],
+        },
+      ],
+    },
+    {
+      id: 'sustainability-inspection',
+      title: 'Sustainable Infrastructure: How Smart Inspection Reduces Environmental Impact',
+      date: '2024-08-30',
+      image: '/blog/sustainability.jpg',
+      excerpt: `Examining the environmental benefits of AI-powered inspection systems and how they contribute to more sustainable infrastructure management...`,
+      category: 'Sustainability',
+      author: 'Ahmed Hanif',
+      readTime: '7 min read',
+      content: [
+        {
+          h2: 'The Environmental Cost of Infrastructure',
+          paragraphs: [
+            `Infrastructure maintenance has a significant environmental footprint. Concrete and asphalt production are major sources of CO2 emissions. The transportation and placement of materials consume energy and generate pollution. Traditional maintenance approaches often lead to premature replacements that amplify these impacts.`,
+            `Smart inspection systems offer a path to more sustainable infrastructure management. By enabling precise, data-driven maintenance decisions, they help extend asset lifespan, reduce material waste, and minimize unnecessary interventions.`,
+          ],
+        },
+        {
+          h3: 'Extending Asset Lifespan',
+          paragraphs: [
+            `The most sustainable maintenance is the maintenance you don't have to do. By catching problems early, when they're still small and localized, AI-powered inspection systems enable targeted repairs that prevent larger failures.`,
+            `This approach can extend infrastructure lifespan by decades. A runway that might traditionally be resurfaced every 15 years could potentially last 20-25 years with proper early intervention. The environmental savings from avoiding even one major resurfacing project are substantial.`,
+          ],
+        },
+        {
+          h3: 'Optimizing Material Use',
+          paragraphs: [
+            `When repairs are necessary, comprehensive inspection data enables precise interventions. Instead of resurfacing entire sections, maintenance crews can target specific problem areas. This precision reduces material consumption, energy use, and waste generation.`,
+            `The data also informs better material choices. By understanding exactly how different materials perform in specific conditions, infrastructure managers can select options that balance performance, cost, and environmental impact.`,
+          ],
+        },
+        {
+          h3: 'A Path to Net Zero',
+          paragraphs: [
+            `As organizations worldwide work toward net-zero emissions targets, infrastructure maintenance will need to evolve. Smart inspection systems are a key enabling technology, providing the data and insights needed to make sustainability a core consideration in every maintenance decision.`,
+            `The future of infrastructure is not just about maintaining what we have—it's about doing so in a way that minimizes our environmental footprint while maximizing longevity and safety.`,
           ],
         },
       ],
@@ -352,6 +538,16 @@ export function FooterSection() {
                         </a>
                       </li>
                     ))}
+                    <li>
+                      <button
+                        type="button"
+                        onClick={() => setBlogOpen(true)}
+                        className="text-sm text-zinc-400 transition-colors hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white/20"
+                        aria-haspopup="dialog"
+                      >
+                        Blog
+                      </button>
+                    </li>
                     <li>
                       <button
                         type="button"
@@ -597,6 +793,7 @@ export function FooterSection() {
         </div>
       </div>
 
+      {/* About Modals */}
       <LegalModal open={aboutModal === 'about'} onClose={() => setAboutModal(null)} title="About Mavisoft">
         <div className="space-y-4">
           <p className="text-zinc-300">
@@ -622,7 +819,7 @@ export function FooterSection() {
 
       <LegalModal open={aboutModal === 'mission'} onClose={() => setAboutModal(null)} title="Mission">
         <p>
-          At Mavisoft, we’re redefining how critical infrastructure is inspected and managed. By combining advanced AI
+          At Mavisoft, we're redefining how critical infrastructure is inspected and managed. By combining advanced AI
           vision, photogrammetry, and an end-to-end service platform, we help organisations move from reactive
           maintenance to confident, data-driven decisions.
         </p>
@@ -670,67 +867,112 @@ export function FooterSection() {
         </div>
       </LegalModal>
 
-      {/* Read more bottom-left */}
-      <LegalModal open={pressOpen} onClose={() => setPressOpen(false)} title="Our Latest News">
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-          {pressItems.map((item) => (
-            <div
-              key={item.id}
-              className="flex flex-col overflow-hidden rounded-xl border border-white/10 bg-zinc-900/30"
-            >
-              <div className="aspect-video w-full overflow-hidden">
-                <img src={item.image} alt={item.title} className="h-full w-full object-cover" loading="lazy" />
-              </div>
+      {/* Press List Modal */}
+      <LegalModal open={pressOpen} onClose={() => setPressOpen(false)} title="Press & Media">
+        <div className="space-y-4">
+          <p className="text-sm text-zinc-400 leading-relaxed">
+            Stay updated with Mavisoft's latest announcements, partnerships, and industry recognition. Explore our press
+            releases and media coverage.
+          </p>
 
-              <div className="flex h-full flex-col p-4">
-                <div className="text-sm font-medium text-white">{item.title}</div>
-                <p className="mt-2 text-sm text-zinc-400">{item.excerpt}</p>
-
-                <div className="mt-auto pt-4">
-                  <button
-                    type="button"
-                    onClick={() => openPressDetail(item)}
-                    className="inline-flex items-center justify-center rounded-lg border border-white/10 px-3 py-2 text-sm text-zinc-200 transition hover:bg-white/5 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white/20"
-                  >
-                    Read more
-                  </button>
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            {pressItems.map((item) => (
+              <article
+                key={item.id}
+                className="group flex flex-col overflow-hidden rounded-xl border border-white/10 bg-zinc-900/30 transition-all duration-300 hover:border-white/20 hover:bg-zinc-900/50 hover:shadow-lg hover:shadow-black/20"
+              >
+                <div className="aspect-video w-full overflow-hidden">
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="h-full w-full object-cover"
+                    loading="lazy"
+                  />
                 </div>
-              </div>
-            </div>
-          ))}
+
+                <div className="flex h-full flex-col p-4">
+                  {item.category && (
+                    <span className="mb-2 inline-block text-xs font-medium uppercase tracking-wide text-zinc-400">
+                      {item.category}
+                    </span>
+                  )}
+
+                  <h3 className="text-sm font-semibold text-white leading-snug transition-colors">
+                    {item.title}
+                  </h3>
+
+                  <time className="mt-1.5 text-xs text-zinc-500">
+                    {new Date(item.date).toLocaleDateString('en-US', {
+                      year: 'numeric',
+                      month: 'long',
+                      day: 'numeric',
+                    })}
+                  </time>
+
+                  <p className="mt-3 text-sm text-zinc-400 leading-relaxed line-clamp-3">{item.excerpt}</p>
+
+                  <div className="mt-auto pt-2.5">
+                    <button
+                      type="button"
+                      onClick={() => openPressDetail(item)}
+                      className="inline-flex items-center gap-2 text-sm font-medium text-white transition-all hover:text-zinc-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/20"
+                    >
+                      Read full article
+                      <svg className="h-4 w-4 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
       </LegalModal>
 
-      <LegalModal open={pressDetailOpen} onClose={closePressDetail} title="Our Latest News">
+      {/* Press Detail Modal */}
+      <LegalModal open={pressDetailOpen} onClose={closePressDetail} title="Press Release">
         {selectedPress && (
-          <article className="space-y-5">
+          <article className="space-y-6">
             <div className="overflow-hidden rounded-2xl border border-white/10 bg-zinc-900/30">
               <div className="aspect-video w-full">
-                <img src={selectedPress.image} alt={selectedPress.title} className="h-full w-full object-cover" />
+                <img
+                  src={selectedPress.image}
+                  alt={selectedPress.title}
+                  className="h-full w-full object-cover"
+                  loading="lazy"
+                />
               </div>
             </div>
 
-            <header className="space-y-1">
-              <h1 className="text-2xl font-semibold tracking-tight text-white">{selectedPress.title}</h1>
-              <time dateTime={selectedPress.date} className="text-sm text-zinc-400">
-                {new Date(selectedPress.date).toLocaleDateString('en-NL', {
+            <header className="space-y-3">
+              {selectedPress.category && (
+                <span className="inline-block text-xs font-medium uppercase tracking-wide text-zinc-400">
+                  {selectedPress.category}
+                </span>
+              )}
+
+              <h1 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">{selectedPress.title}</h1>
+
+              <time dateTime={selectedPress.date} className="block text-sm text-zinc-400">
+                {new Date(selectedPress.date).toLocaleDateString('en-US', {
                   year: 'numeric',
                   month: 'long',
-                  day: '2-digit',
+                  day: 'numeric',
                 })}
               </time>
             </header>
 
-            <div className="space-y-6">
+            <div className="space-y-6 border-t border-white/5 pt-6">
               {selectedPress.content.map((block, idx) => (
-                <section key={idx} className="space-y-2">
-                  {block.h2 && <h2 className="text-lg font-semibold text-white">{block.h2}</h2>}
-                  {block.h3 && <h3 className="text-base font-semibold text-zinc-100">{block.h3}</h3>}
-                  {block.h4 && <h4 className="text-sm font-semibold text-zinc-200">{block.h4}</h4>}
+                <section key={idx} className="space-y-4">
+                  {block.h2 && <h2 className="text-xl font-semibold text-white">{block.h2}</h2>}
+                  {block.h3 && <h3 className="text-lg font-semibold text-zinc-100">{block.h3}</h3>}
+                  {block.h4 && <h4 className="text-base font-semibold text-zinc-200">{block.h4}</h4>}
 
-                  <div className="space-y-3">
+                  <div className="space-y-4">
                     {block.paragraphs.map((p, pIdx) => (
-                      <p key={pIdx} className="text-sm leading-6 text-zinc-300">
+                      <p key={pIdx} className="text-sm leading-7 text-zinc-300">
                         {p}
                       </p>
                     ))}
@@ -742,6 +984,154 @@ export function FooterSection() {
         )}
       </LegalModal>
 
+      {/* Blog List Modal */}
+      <LegalModal open={blogOpen} onClose={() => setBlogOpen(false)} title="Blog & Insights">
+        <div className="space-y-4">
+          <p className="text-sm text-zinc-400 leading-relaxed">
+            Explore thought leadership articles, technical insights, and industry perspectives from the Mavisoft team.
+            Dive deep into AI vision, infrastructure inspection, and the future of asset management.
+          </p>
+
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            {blogItems.map((item) => (
+              <article
+                key={item.id}
+                className="group flex flex-col overflow-hidden rounded-xl border border-white/10 bg-zinc-900/30 transition-all duration-300 hover:border-white/20 hover:bg-zinc-900/50 hover:shadow-lg hover:shadow-black/20"
+              >
+                <div className="aspect-video w-full overflow-hidden">
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="h-full w-full object-cover"
+                    loading="lazy"
+                  />
+                </div>
+
+                <div className="flex h-full flex-col p-4">
+                  <div className="flex items-center gap-2 mb-2">
+                    {item.category && (
+                      <span className="inline-block text-xs font-medium uppercase tracking-wide text-zinc-400">
+                        {item.category}
+                      </span>
+                    )}
+                    {item.readTime && (
+                      <span className="text-xs text-zinc-500">{item.readTime}</span>
+                    )}
+                  </div>
+
+                  <h3 className="text-sm font-semibold text-white leading-snug transition-colors">
+                    {item.title}
+                  </h3>
+
+                  <div className="mt-1.5 flex items-center gap-2 text-xs text-zinc-500">
+                    {item.author && <span>{item.author}</span>}
+                    {item.author && <span>•</span>}
+                    <time dateTime={item.date}>
+                      {new Date(item.date).toLocaleDateString('en-US', {
+                        year: 'numeric',
+                        month: 'short',
+                        day: 'numeric',
+                      })}
+                    </time>
+                  </div>
+
+                  <p className="mt-3 text-sm text-zinc-400 leading-relaxed line-clamp-3">{item.excerpt}</p>
+
+                  <div className="mt-auto pt-2.5">
+                    <button
+                      type="button"
+                      onClick={() => openBlogDetail(item)}
+                      className="inline-flex items-center gap-2 text-sm font-medium text-white transition-all hover:text-zinc-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/20"
+                    >
+                      Read full article
+                      <svg className="h-4 w-4 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </LegalModal>
+
+      {/* Blog Detail Modal */}
+      <LegalModal open={blogDetailOpen} onClose={closeBlogDetail} title="Blog Article">
+        {selectedBlog && (
+          <article className="space-y-6">
+            <div className="overflow-hidden rounded-2xl border border-white/10 bg-zinc-900/30">
+              <div className="aspect-video w-full">
+                <img
+                  src={selectedBlog.image}
+                  alt={selectedBlog.title}
+                  className="h-full w-full object-cover"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+
+            <header className="space-y-3">
+              <div className="flex flex-wrap items-center gap-2">
+                {selectedBlog.category && (
+                  <span className="inline-block text-xs font-medium uppercase tracking-wide text-zinc-400">
+                    {selectedBlog.category}
+                  </span>
+                )}
+                {selectedBlog.readTime && (
+                  <span className="text-sm text-zinc-500">{selectedBlog.readTime}</span>
+                )}
+              </div>
+
+              <h1 className="text-2xl font-bold tracking-tight text-white sm:text-3xl leading-tight">
+                {selectedBlog.title}
+              </h1>
+
+              <div className="flex items-center gap-3 text-sm text-zinc-400">
+                {selectedBlog.author && (
+                  <>
+                    <span className="font-medium">{selectedBlog.author}</span>
+                    <span>•</span>
+                  </>
+                )}
+                <time dateTime={selectedBlog.date}>
+                  {new Date(selectedBlog.date).toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                  })}
+                </time>
+              </div>
+            </header>
+
+            <div className="space-y-6 border-t border-white/5 pt-6">
+              {selectedBlog.content.map((block, idx) => (
+                <section key={idx} className="space-y-4">
+                  {block.h2 && (
+                    <h2 className="text-xl font-bold text-white mt-8 first:mt-0">{block.h2}</h2>
+                  )}
+                  {block.h3 && (
+                    <h3 className="text-lg font-semibold text-zinc-100 mt-6">{block.h3}</h3>
+                  )}
+                  {block.h4 && (
+                    <h4 className="text-base font-semibold text-zinc-200 mt-4">{block.h4}</h4>
+                  )}
+
+                  <div className="space-y-4">
+                    {block.paragraphs.map((p, pIdx) => (
+                      <p key={pIdx} className="text-sm leading-7 text-zinc-300">
+                        {p}
+                      </p>
+                    ))}
+                  </div>
+                </section>
+              ))}
+            </div>
+          </article>
+        )}
+      </LegalModal>
+
+      {/* Legal Modals */}
       <LegalModal open={privacyOpen} onClose={() => setPrivacyOpen(false)} title="Privacy Policy">
         <p>
           At Mavisoft, we value your privacy and are committed to protecting your personal data. This Privacy Policy
@@ -750,7 +1140,7 @@ export function FooterSection() {
 
         <p className="mt-3">
           Mavisoft B.V. operates this website at <span className="font-medium text-white">https://mavisoft.com</span>.
-          References to “we”, “us”, or “our” refer to Mavisoft.
+          References to "we", "us", or "our" refer to Mavisoft.
         </p>
 
         <p className="mt-3">
@@ -808,8 +1198,8 @@ export function FooterSection() {
         </p>
 
         <p className="mt-3">
-          References to “Mavisoft”, “we”, or “us” refer to Mavisoft B.V., registered at Veerhaven 14, 3016 CJ Rotterdam,
-          Netherlands (Company Registration No. 78596122). “You” refers to any user or visitor of this website.
+          References to "Mavisoft", "we", or "us" refer to Mavisoft B.V., registered at Veerhaven 14, 3016 CJ Rotterdam,
+          Netherlands (Company Registration No. 78596122). "You" refers to any user or visitor of this website.
         </p>
 
         <p className="mt-3">
