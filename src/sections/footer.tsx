@@ -222,12 +222,6 @@ export function FooterSection() {
       image: '/teams/1747405448311.jpg',
       linkedin: 'https://www.linkedin.com/in/nima-saghi-web-developer/',
     },
-    {
-      name: 'Lucas Anderson',
-      title: 'Account Executive',
-      image: '/team/lucas.jpg',
-      linkedin: 'https://www.linkedin.com/in/lucas-anderson/',
-    },
   ]
 
   type PressItem = {
