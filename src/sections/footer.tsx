@@ -8,9 +8,9 @@ import {
   staggerContainerVariants,
   viewportOptions,
 } from '@/lib/animations'
+import { EnvelopeIcon, MapPinIcon, PhoneIcon } from '@heroicons/react/24/outline'
 import { AnimatePresence, motion } from 'framer-motion'
 import { useState } from 'react'
-import { EnvelopeIcon, MapPinIcon, PhoneIcon } from '@heroicons/react/24/outline'
 
 function LegalModal({
   open,
@@ -94,9 +94,6 @@ function LegalModal({
   )
 }
 
-
-
-
 export function FooterSection() {
   const [formData, setFormData] = useState({
     name: '',
@@ -115,7 +112,6 @@ export function FooterSection() {
   const [pressOpen, setPressOpen] = useState(false)
   const [pressDetailOpen, setPressDetailOpen] = useState(false)
   const [selectedPress, setSelectedPress] = useState<PressItem | null>(null)
-
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -140,8 +136,8 @@ export function FooterSection() {
   }
 
   function openPressDetail(item: PressItem) {
-  setSelectedPress(item)
-  setPressDetailOpen(true)
+    setSelectedPress(item)
+    setPressDetailOpen(true)
   }
 
   function closePressDetail() {
@@ -248,72 +244,62 @@ export function FooterSection() {
     }[]
   }
 
-const pressItems: PressItem[] = [
-  {
-    id: 'seed-round',
-    title: 'AIrport Inspector featured in Passenger Terminal World magazine',
-    date: '2023-April-17',
-    image: '/press/download1.jpg',
-    excerpt: 'Short 1–2 line summary about the announcement.',
-    content: [
-      {
-        h2:`In the April edition of Passenger Terminal World magazine, AIrport Inspector takes the spotlight together with Roayl Schiphol Group and its innovations. The innovation shines a light on Schiphol Group Aviation Solutions, highlighting its intentive strategies for improving passenger experiences and operational effectiveness.`,
-        paragraphs: [
-          
-          `Caroline Massart, the head of the Schiphol Group Aviation Solutions, emphasized the airport's commitment to propelling innovation within the aviation sector. AIrport Inspector is one of the newer innovations part of their portfolio that is on the way to revolutionizing the aviation industry maintenance practices. Designed to transform airport asset management, this technology is tailored for assessing runways and aircraft stands. Unlike conventional sample-based visual inspections, AIrport Inspector employs AI and laser technology to survey these critical assets comprehensively. Caroline Massart explains, This approach provides a highly detailed and objective understanding of surface quality. By inspecting 100% of assets, we uncover and address minor damages that might otherwise lead to accelerated degradation.`,
-          
-        ],
-      },
-      {
-        h3: '',
-        h4: '',
-        paragraphs: [],
-      },
-    ],
-  },
-  {
-    id: 'maritime-inspection',
-    title: 'Spectra® featured in maritime inspection',
-    date: '2025-11-21',
-    image: '/press/press-2.jpg',
-    excerpt: 'Short 1–2 line summary about the story.',
-    content: [
-      { h2: 'Highlights', paragraphs: ['Add full story text here...'] },
-    ],
-  },
-  {
-    id: 'airport-pilot',
-    title: 'Airport safety pilot goes live',
-    date: '2025-10-10',
-    image: '/press/press-3.jpg',
-    excerpt: 'Short 1–2 line summary about the update.',
-    content: [
-      { h2: 'Pilot scope', paragraphs: ['Add full story text here...'] },
-    ],
-  },
-  {
-    id: 'partnership',
-    title: 'New partnership announcement',
-    date: '2025-09-02',
-    image: '/press/press-4.jpg',
-    excerpt: 'Short 1–2 line summary about the partnership.',
-    content: [
-      { h2: 'Partnership details', paragraphs: ['Add full story text here...'] },
-    ],
-  },
-  {
-    id: 'event',
-    title: 'Mavisoft at industry event',
-    date: '2025-08-18',
-    image: '/press/press-5.jpg',
-    excerpt: 'Short 1–2 line summary about the event.',
-    content: [
-      { h2: 'Event recap', paragraphs: ['Add full story text here...'] },
-    ],
-  },
-]
+  const pressItems: PressItem[] = [
+    {
+      id: 'seed-round',
+      title: 'AIrport Inspector featured in Passenger Terminal World magazine',
+      date: '2023-April-17',
+      image: '/press/download1.jpg',
+      excerpt: `In the April edition of Passenger Terminal World magazine, AIrport Inspector takes the spotlight together with Roayl Schiphol Group and its innovations...`,
+      content: [
+        {
+          h2: `In the April edition of Passenger Terminal World magazine, AIrport Inspector takes the spotlight together with Roayl Schiphol Group and its innovations. The innovation shines a light on Schiphol Group Aviation Solutions, highlighting its intentive strategies for improving passenger experiences and operational effectiveness.`,
+          paragraphs: [
+            `Caroline Massart, the head of the Schiphol Group Aviation Solutions, emphasized the airport's commitment to propelling innovation within the aviation sector. AIrport Inspector is one of the newer innovations part of their portfolio that is on the way to revolutionizing the aviation industry maintenance practices. Designed to transform airport asset management, this technology is tailored for assessing runways and aircraft stands. Unlike conventional sample-based visual inspections, AIrport Inspector employs AI and laser technology to survey these critical assets comprehensively. Caroline Massart explains, This approach provides a highly detailed and objective understanding of surface quality. By inspecting 100% of assets, we uncover and address minor damages that might otherwise lead to accelerated degradation.`,
+          ],
+        },
+        {
+          h3: '',
+          h4: '',
+          paragraphs: [],
+        },
+      ],
+    },
+    {
+      id: 'maritime-inspection',
+      title: 'AIrport Inspector presented at FTE Digital, Innovation & Startup Hub hosted by Schiphol Group',
+      date: '2023-March-15',
+      image: '/press/download2.jpg',
+      excerpt: `On the 13th of March, Schiphol Group hosted the FTE Digital, Innovation and Startup Hub and the FTE Baggage Innovation Working Group events at their headquarters in Amsterdam...`,
+      content: [
+        {
+          h3: 'On the 13th of March, Schiphol Group hosted the FTE Digital, Innovation and Startup Hub and the FTE Baggage Innovation Working Group events at their headquarters in Amsterdam. The sessions featured a range of keynotes, panel discussions and startup pitches, with speakers from companies such as KLM, Royal Schiphol Group, Schiphol Group Aviation Solutions, Vanderlande, Pangiam, Abomis Innovations, Cobot Lift, and us Mavisoft, as well as a robust global attendance.',
+          paragraphs: [
+            `Our CEO, Theodor Preststulen, garnered significant attention during the startup pitches after presenting AIrport Inspector. In his pitch, he explained how this technology is a game-changer for every airport around the globe by offering comprehensive inspections of concrete and asphalt assets with exceptional accuracy. AIrport Inspector's ability to track damages, monitor degradation rates and identify high-risk issues in their infancy showcases the potential to transform airport maintenance practice.`,
+          ],
+        },
+      ],
+    },
+    {
+      id: 'airport-pilot',
+      title: `AIrport Inspector joins Schiphol at the Passenger Terminal Expo 2023`,
+      date: '2023-Feb-14',
+      image: '/press/passenger_terminal_expo.jpg',
+      excerpt: `On the 14th, 15th and 16th of March, we will join the Schiphol Aviation Solutions booth 2218 at Passenger Terminal Expo 2023 to present our solution - AIrport Inspector!...`,
+      content: [
+        {
+          h3: `On the 14th, 15th and 16th of March, we will join the Schiphol Aviation Solutions booth 2218 at Passenger Terminal Expo 2023 to present our solution - AIrport Inspector!`,
+          paragraphs: [
+            `Passenger Terminal Expo is known for its premier status in the aviation industry and serves as a platform for industry leaders, experts, and innovators to showcase advancements that share the future of travel.
 
+          As we immerse ourselves in this collaborative experience, we invite you to visit us at the Passenger Terminal Expo 2023 in Rotterdam. We are excited to be part of this remarkable event, and we look forward to shaping the future of airport technology alongside Schiphol.
 
+          Check out here for more information.`,
+          ],
+        },
+      ],
+    },
+  ]
 
   return (
     <footer id="contact" className="scroll-mt-20 border-t border-white/10 bg-zinc-950">
@@ -371,7 +357,6 @@ const pressItems: PressItem[] = [
                           {link.label}
                         </a>
                       </li>
-                      
                     ))}
                     <li>
                       <button
@@ -492,7 +477,7 @@ const pressItems: PressItem[] = [
             >
               <div className="rounded-xl border border-white/10 bg-zinc-900/30 p-6 backdrop-blur-sm sm:p-8">
                 <h3 className="text-lg text-white">Contact Us</h3>
-                <p className="mt-2 text-sm text-zinc-400">Have a project in mind? We'd love to hear from you.</p>
+                <p className="mt-2 text-sm text-zinc-400">Have a project in mind? we'd love to hear from you.</p>
 
                 {submitted ? (
                   <motion.div
@@ -601,16 +586,10 @@ const pressItems: PressItem[] = [
           >
             <p className="text-sm text-zinc-500">© {new Date().getFullYear()} Mavisoft. All rights reserved.</p>
             <div className="flex gap-6">
-              <button
-                onClick={() => setPrivacyOpen(true)}
-                className="text-sm text-zinc-500 transition-colors hover:text-white"
-              >
+              <button onClick={() => setPrivacyOpen(true)} className="text-sm text-zinc-500 transition-colors hover:text-white">
                 Privacy Policy
               </button>
-              <button
-                onClick={() => setTermsOpen(true)}
-                className="text-sm text-zinc-500 transition-colors hover:text-white"
-              >
+              <button onClick={() => setTermsOpen(true)} className="text-sm text-zinc-500 transition-colors hover:text-white">
                 Terms of Service
               </button>
             </div>
@@ -621,18 +600,20 @@ const pressItems: PressItem[] = [
       <LegalModal open={aboutModal === 'about'} onClose={() => setAboutModal(null)} title="About Mavisoft">
         <div className="space-y-4">
           <p className="text-zinc-300">
-            Mavisoft is a Dutch AI company on a mission to unlock the full potential of vision. Just as the human eye and brain work together to make sense of the world, we build{' '}
+            Mavisoft is a Dutch AI company on a mission to unlock the full potential of vision. Just as the human eye
+            and brain work together to make sense of the world, we build{' '}
             <span className="font-medium text-white">
               technologies that transform camera feeds into actionable intelligence.
             </span>
           </p>
-          
+
           <p className="text-zinc-300">
-            At the heart of our work is{' '}
-            <span className="font-medium text-cyan-400">Spectra®</span>, our machine vision platform that empowers people and industries to create their own inspection and monitoring solutions. From airports to maritime ports and beyond,{' '}
-            <span className="font-medium text-cyan-400">Spectra®</span> enables safer, smarter, and more efficient operations by turning every image into actionable insight.
+            At the heart of our work is <span className="font-medium text-cyan-400">Spectra®</span>, our machine vision
+            platform that empowers people and industries to create their own inspection and monitoring solutions. From
+            airports to maritime ports and beyond, <span className="font-medium text-cyan-400">Spectra®</span> enables
+            safer, smarter, and more efficient operations by turning every image into actionable insight.
           </p>
-          
+
           <p className="mt-6 border-l-2 border-cyan-500/50 pl-4 text-base font-medium text-white italic">
             Mavisoft stands for the future of vision
           </p>
@@ -641,13 +622,10 @@ const pressItems: PressItem[] = [
 
       <LegalModal open={aboutModal === 'mission'} onClose={() => setAboutModal(null)} title="Mission">
         <p>
-          At Mavisoft, 
-          we aim to revolutionise industrial asset inspection and management using cutting-edge AI vision technologies, photogrammetry, 
-          and a comprehensive end-to-end service platform. 
-          We empower organisations worldwide by enhancing their industrial assets' safety, 
-          reliability, and sustainability. 
-          With our innovative solutions, including early damage detection, 
-          optimised resource utilisation, and data-driven decision-making, 
+          At Mavisoft, we aim to revolutionise industrial asset inspection and management using cutting-edge AI vision
+          technologies, photogrammetry, and a comprehensive end-to-end service platform. We empower organisations
+          worldwide by enhancing their industrial assets' safety, reliability, and sustainability. With our innovative
+          solutions, including early damage detection, optimised resource utilisation, and data-driven decision-making,
           we strive to extend the lifespan of industrial assets.
         </p>
       </LegalModal>
@@ -679,7 +657,6 @@ const pressItems: PressItem[] = [
                 aria-label={`${m.name} on LinkedIn`}
                 className="rounded-md p-2 text-zinc-400 transition-colors hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white/20"
               >
-                {/* LinkedIn icon */}
                 <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
                 </svg>
@@ -689,34 +666,28 @@ const pressItems: PressItem[] = [
         </div>
       </LegalModal>
 
+      {/* ✅ ONLY CHANGE BELOW: pin "Read more" bottom-left */}
       <LegalModal open={pressOpen} onClose={() => setPressOpen(false)} title="Our Latest News">
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           {pressItems.map((item) => (
-            <div
-              key={item.id}
-              className="overflow-hidden rounded-xl border border-white/10 bg-zinc-900/30"
-            >
+            <div key={item.id} className="flex flex-col overflow-hidden rounded-xl border border-white/10 bg-zinc-900/30">
               <div className="aspect-video w-full overflow-hidden">
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className="h-full w-full object-cover"
-                  loading="lazy"
-                />
+                <img src={item.image} alt={item.title} className="h-full w-full object-cover" loading="lazy" />
               </div>
 
-              <div className="space-y-2 p-4">
+              <div className="flex h-full flex-col p-4">
                 <div className="text-sm font-medium text-white">{item.title}</div>
-                <p className="text-sm text-zinc-400">{item.excerpt}</p>
+                <p className="mt-2 text-sm text-zinc-400">{item.excerpt}</p>
 
-                <button
-                  type="button"
-                  onClick={() => openPressDetail(item)}
-                  className="inline-flex items-center justify-center rounded-lg border border-white/10 px-3 py-2 text-sm text-zinc-200 transition hover:bg-white/5 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white/20"
-                >
-                  Read more
-                </button>
-
+                <div className="mt-auto pt-4">
+                  <button
+                    type="button"
+                    onClick={() => openPressDetail(item)}
+                    className="inline-flex items-center justify-center rounded-lg border border-white/10 px-3 py-2 text-sm text-zinc-200 transition hover:bg-white/5 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white/20"
+                  >
+                    Read more
+                  </button>
+                </div>
               </div>
             </div>
           ))}
@@ -724,52 +695,45 @@ const pressItems: PressItem[] = [
       </LegalModal>
 
       <LegalModal open={pressDetailOpen} onClose={closePressDetail} title="Our Latest News">
-  {selectedPress && (
-    <article className="space-y-5">
-      <div className="overflow-hidden rounded-2xl border border-white/10 bg-zinc-900/30">
-        <div className="aspect-video w-full">
-          <img
-            src={selectedPress.image}
-            alt={selectedPress.title}
-            className="h-full w-full object-cover"
-          />
-        </div>
-      </div>
+        {selectedPress && (
+          <article className="space-y-5">
+            <div className="overflow-hidden rounded-2xl border border-white/10 bg-zinc-900/30">
+              <div className="aspect-video w-full">
+                <img src={selectedPress.image} alt={selectedPress.title} className="h-full w-full object-cover" />
+              </div>
+            </div>
 
-      <header className="space-y-1">
-        <h1 className="text-2xl font-semibold tracking-tight text-white">
-          {selectedPress.title}
-        </h1>
-        <time dateTime={selectedPress.date} className="text-sm text-zinc-400">
-          {new Date(selectedPress.date).toLocaleDateString('en-NL', {
-            year: 'numeric',
-            month: 'long',
-            day: '2-digit',
-          })}
-        </time>
-      </header>
+            <header className="space-y-1">
+              <h1 className="text-2xl font-semibold tracking-tight text-white">{selectedPress.title}</h1>
+              <time dateTime={selectedPress.date} className="text-sm text-zinc-400">
+                {new Date(selectedPress.date).toLocaleDateString('en-NL', {
+                  year: 'numeric',
+                  month: 'long',
+                  day: '2-digit',
+                })}
+              </time>
+            </header>
 
-      <div className="space-y-6">
-        {selectedPress.content.map((block, idx) => (
-          <section key={idx} className="space-y-2">
-            {block.h2 && <h2 className="text-lg font-semibold text-white">{block.h2}</h2>}
-            {block.h3 && <h3 className="text-base font-semibold text-zinc-100">{block.h3}</h3>}
-            {block.h4 && <h4 className="text-sm font-semibold text-zinc-200">{block.h4}</h4>}
+            <div className="space-y-6">
+              {selectedPress.content.map((block, idx) => (
+                <section key={idx} className="space-y-2">
+                  {block.h2 && <h2 className="text-lg font-semibold text-white">{block.h2}</h2>}
+                  {block.h3 && <h3 className="text-base font-semibold text-zinc-100">{block.h3}</h3>}
+                  {block.h4 && <h4 className="text-sm font-semibold text-zinc-200">{block.h4}</h4>}
 
-            <div className="space-y-3">
-              {block.paragraphs.map((p, pIdx) => (
-                <p key={pIdx} className="text-sm leading-6 text-zinc-300">
-                  {p}
-                </p>
+                  <div className="space-y-3">
+                    {block.paragraphs.map((p, pIdx) => (
+                      <p key={pIdx} className="text-sm leading-6 text-zinc-300">
+                        {p}
+                      </p>
+                    ))}
+                  </div>
+                </section>
               ))}
             </div>
-          </section>
-        ))}
-      </div>
-    </article>
-  )}
-</LegalModal>
-
+          </article>
+        )}
+      </LegalModal>
 
       <LegalModal open={privacyOpen} onClose={() => setPrivacyOpen(false)} title="Privacy Policy">
         <p>
@@ -793,3 +757,4 @@ const pressItems: PressItem[] = [
     </footer>
   )
 }
+
