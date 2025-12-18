@@ -580,10 +580,16 @@ export function FooterSection() {
           >
             <p className="text-sm text-zinc-500">© {new Date().getFullYear()} Mavisoft. All rights reserved.</p>
             <div className="flex gap-6">
-              <button onClick={() => setPrivacyOpen(true)} className="text-sm text-zinc-500 transition-colors hover:text-white">
+              <button
+                onClick={() => setPrivacyOpen(true)}
+                className="text-sm text-zinc-500 transition-colors hover:text-white"
+              >
                 Privacy Policy
               </button>
-              <button onClick={() => setTermsOpen(true)} className="text-sm text-zinc-500 transition-colors hover:text-white">
+              <button
+                onClick={() => setTermsOpen(true)}
+                className="text-sm text-zinc-500 transition-colors hover:text-white"
+              >
                 Terms of Service
               </button>
             </div>
@@ -615,18 +621,18 @@ export function FooterSection() {
       </LegalModal>
 
       <LegalModal open={aboutModal === 'mission'} onClose={() => setAboutModal(null)} title="Mission">
-  <p>
-    At Mavisoft, we’re redefining how critical infrastructure is inspected and managed. By combining advanced AI vision,
-    photogrammetry, and an end-to-end service platform, we help organisations move from reactive maintenance to confident,
-    data-driven decisions.
-  </p>
+        <p>
+          At Mavisoft, we’re redefining how critical infrastructure is inspected and managed. By combining advanced AI
+          vision, photogrammetry, and an end-to-end service platform, we help organisations move from reactive
+          maintenance to confident, data-driven decisions.
+        </p>
 
-  <p className="mt-3">
-    Our technology improves the safety, reliability, and sustainability of industrial assets through early damage
-    detection, smarter resource allocation, and clearer performance insights—ultimately extending asset lifespan and
-    reducing downtime.
-  </p>
-</LegalModal>
+        <p className="mt-3">
+          Our technology improves the safety, reliability, and sustainability of industrial assets through early damage
+          detection, smarter resource allocation, and clearer performance insights—ultimately extending asset lifespan
+          and reducing downtime.
+        </p>
+      </LegalModal>
 
       <LegalModal open={aboutModal === 'team'} onClose={() => setAboutModal(null)} title="Team Members">
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
@@ -668,7 +674,10 @@ export function FooterSection() {
       <LegalModal open={pressOpen} onClose={() => setPressOpen(false)} title="Our Latest News">
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           {pressItems.map((item) => (
-            <div key={item.id} className="flex flex-col overflow-hidden rounded-xl border border-white/10 bg-zinc-900/30">
+            <div
+              key={item.id}
+              className="flex flex-col overflow-hidden rounded-xl border border-white/10 bg-zinc-900/30"
+            >
               <div className="aspect-video w-full overflow-hidden">
                 <img src={item.image} alt={item.title} className="h-full w-full object-cover" loading="lazy" />
               </div>
@@ -735,24 +744,107 @@ export function FooterSection() {
 
       <LegalModal open={privacyOpen} onClose={() => setPrivacyOpen(false)} title="Privacy Policy">
         <p>
-          We respect your privacy. We only collect information necessary to provide and improve our services. We do not
-          sell personal data.
+          At Mavisoft, we value your privacy and are committed to protecting your personal data. This Privacy Policy
+          explains how we collect, use, and safeguard information when you visit or interact with our website.
         </p>
+
         <p className="mt-3">
-          Data may include usage analytics, device/browser information, and contact details you submit via forms.
+          Mavisoft B.V. operates this website at <span className="font-medium text-white">https://mavisoft.com</span>.
+          References to “we”, “us”, or “our” refer to Mavisoft.
+        </p>
+
+        <p className="mt-3">
+          When visitors interact with certain features of the website—such as leaving comments—we may collect
+          information shown in the relevant forms, along with technical data like IP address and browser details. This
+          information is used solely for security, moderation, and spam detection purposes.
+        </p>
+
+        <p className="mt-3">
+          If you choose to upload images to the website, please be aware that images containing embedded location data
+          (EXIF GPS) may allow visitors to extract that information. We recommend removing such data before uploading.
+        </p>
+
+        <p className="mt-3">
+          Our website uses cookies to improve functionality and user experience. Cookies may be used to remember your
+          preferences, login status, or display settings. You can control or disable cookies through your browser
+          settings at any time.
+        </p>
+
+        <p className="mt-3">
+          Some pages on this website may include embedded content from third-party services, such as videos or images.
+          Embedded content behaves as if you have visited the external website directly and may collect data or use
+          cookies according to their own privacy policies.
+        </p>
+
+        <p className="mt-3">
+          We do not sell or trade your personal data. Data may be shared only when necessary for essential website
+          operations, such as automated spam detection or account security (for example, during password reset
+          requests).
+        </p>
+
+        <p className="mt-3">
+          Personal data is retained only for as long as necessary to fulfill its purpose. Comments and related metadata
+          may be stored indefinitely to allow efficient moderation. Registered users (if applicable) may view, edit, or
+          delete their personal information at any time.
+        </p>
+
+        <p className="mt-3">
+          You have the right to request access to the personal data we hold about you, request corrections, or ask for
+          deletion where legally permitted. Certain data may be retained where required for legal, administrative, or
+          security reasons.
+        </p>
+
+        <p className="mt-3">
+          Visitor interactions, such as comments, may be processed through automated systems for spam prevention and
+          security monitoring.
         </p>
       </LegalModal>
 
       <LegalModal open={termsOpen} onClose={() => setTermsOpen(false)} title="Terms of Service">
         <p>
-          By using Mavisoft services, you agree to comply with all applicable laws and regulations. Services are
-          provided "as is" without warranties.
+          Welcome to the Mavisoft website. By accessing or using this website, you agree to be bound by these Terms of
+          Service, together with our Privacy Policy. If you do not agree with any part of these terms, you should not
+          use this website.
         </p>
+
         <p className="mt-3">
-          We reserve the right to modify, suspend, or discontinue services at any time without notice.
+          References to “Mavisoft”, “we”, or “us” refer to Mavisoft B.V., registered at Veerhaven 14, 3016 CJ Rotterdam,
+          Netherlands (Company Registration No. 78596122). “You” refers to any user or visitor of this website.
+        </p>
+
+        <p className="mt-3">
+          The content on this website is provided for general information purposes only and may be updated or changed at
+          any time without prior notice. While we strive to keep information accurate and up to date, we make no
+          warranties or guarantees regarding completeness, accuracy, or suitability for any particular purpose.
+        </p>
+
+        <p className="mt-3">
+          Your use of this website and any reliance on its content is entirely at your own risk. Mavisoft shall not be
+          liable for any direct or indirect damages resulting from the use of, or inability to use, this website or its
+          content, to the fullest extent permitted by law.
+        </p>
+
+        <p className="mt-3">
+          This website may use cookies to improve user experience and monitor site usage. By continuing to browse the
+          website, you consent to the use of cookies in accordance with our Privacy Policy.
+        </p>
+
+        <p className="mt-3">
+          All content on this website, including but not limited to text, visuals, layout, design, and graphics, is
+          owned by or licensed to Mavisoft. Reproduction, distribution, or reuse of any material is prohibited unless
+          explicitly permitted under applicable copyright laws.
+        </p>
+
+        <p className="mt-3">
+          This website may contain links to third-party websites for your convenience. Mavisoft does not endorse and is
+          not responsible for the content, availability, or practices of any external websites.
+        </p>
+
+        <p className="mt-3">
+          Unauthorized use of this website may result in legal action and/or claims for damages. We reserve the right to
+          modify, suspend, or discontinue any part of the website or services at any time without notice.
         </p>
       </LegalModal>
     </footer>
   )
 }
-
