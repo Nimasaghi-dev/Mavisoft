@@ -666,7 +666,7 @@ export function FooterSection() {
         </div>
       </LegalModal>
 
-      {/* ✅ ONLY CHANGE BELOW: pin "Read more" bottom-left */}
+      {/* Read more bottom-left */}
       <LegalModal open={pressOpen} onClose={() => setPressOpen(false)} title="Our Latest News">
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           {pressItems.map((item) => (
