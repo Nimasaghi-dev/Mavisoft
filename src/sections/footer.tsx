@@ -206,7 +206,7 @@ export function FooterSection() {
     },
     {
       name: 'Bruno Balbi',
-      title: 'Sales Expert',
+      title: 'Senior Sales Advisor',
       image: '/teams/1764848011396.jpg',
       linkedin: 'https://www.linkedin.com/in/bbalbi/',
     },
