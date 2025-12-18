@@ -615,14 +615,18 @@ export function FooterSection() {
       </LegalModal>
 
       <LegalModal open={aboutModal === 'mission'} onClose={() => setAboutModal(null)} title="Mission">
-        <p>
-          At Mavisoft, we aim to revolutionise industrial asset inspection and management using cutting-edge AI vision
-          technologies, photogrammetry, and a comprehensive end-to-end service platform. We empower organisations
-          worldwide by enhancing their industrial assets' safety, reliability, and sustainability. With our innovative
-          solutions, including early damage detection, optimised resource utilisation, and data-driven decision-making,
-          we strive to extend the lifespan of industrial assets.
-        </p>
-      </LegalModal>
+  <p>
+    At Mavisoft, we’re redefining how critical infrastructure is inspected and managed. By combining advanced AI vision,
+    photogrammetry, and an end-to-end service platform, we help organisations move from reactive maintenance to confident,
+    data-driven decisions.
+  </p>
+
+  <p className="mt-3">
+    Our technology improves the safety, reliability, and sustainability of industrial assets through early damage
+    detection, smarter resource allocation, and clearer performance insights—ultimately extending asset lifespan and
+    reducing downtime.
+  </p>
+</LegalModal>
 
       <LegalModal open={aboutModal === 'team'} onClose={() => setAboutModal(null)} title="Team Members">
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
