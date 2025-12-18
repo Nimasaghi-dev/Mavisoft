@@ -32,7 +32,7 @@ function LegalModal({
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
         >
-          {/* ✅ Backdrop captures outside clicks */}
+          {/* Backdrop captures outside clicks */}
           <button
             type="button"
             aria-label="Close modal"
@@ -55,7 +55,7 @@ function LegalModal({
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.98, y: 10 }}
             transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
-            // ✅ Prevent clicks inside from bubbling to backdrop
+            // Prevent clicks inside from bubbling to backdrop
             onClick={(e) => e.stopPropagation()}
           >
             {/* Header */}
