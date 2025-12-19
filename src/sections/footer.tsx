@@ -15,6 +15,7 @@ import { teamMembers } from '@/data/team-members'
 import { pressItems } from '@/data/press-items'
 import { blogItems } from '@/data/blog-items'
 import { companyLinks, productLinks } from '@/data/footer-links'
+import { ArticleItem } from '@/types/footer'
 
 function LegalModal({
   open,
@@ -98,24 +99,6 @@ function LegalModal({
   )
 }
 
-type ContentBlock = {
-  h2?: string
-  h3?: string
-  h4?: string
-  paragraphs: string[]
-}
-
-type ArticleItem = {
-  id: string
-  title: string
-  date: string
-  image: string
-  excerpt: string
-  content: ContentBlock[]
-  category?: string
-  author?: string
-  readTime?: string
-}
 
 export function FooterSection() {
   const [formData, setFormData] = useState({
