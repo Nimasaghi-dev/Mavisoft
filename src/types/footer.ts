@@ -19,7 +19,7 @@ export interface ArticleItem {
     readTime?: string
 }
 
-export interface teamMember {
+export interface TeamMember {
     name: string
     title: string
     image: string
