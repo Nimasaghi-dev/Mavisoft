@@ -14,6 +14,7 @@ import { useState } from 'react'
 import { teamMembers } from '@/data/team-members'
 import { pressItems } from '@/data/press-items'
 import { blogItems } from '@/data/blog-items'
+import { companyLinks, productLinks } from '@/data/footer-links'
 
 function LegalModal({
   open,
@@ -183,14 +184,7 @@ export function FooterSection() {
     setSelectedBlog(null)
   }
 
-  const companyLinks = [
-    { label: 'Careers', href: '#careers' },
-  ]
 
-  const productLinks = [
-    { label: 'Spectra', href: '#spectra' },
-    { label: 'Docs', href: '#docs' },
-  ]
 
   const socialLinks = [
     {
