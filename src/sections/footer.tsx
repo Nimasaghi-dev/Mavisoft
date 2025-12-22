@@ -20,7 +20,7 @@ import { companyLinks, productLinks } from '@/data/footer-links'
 
 // component imports
 import { ContactForm } from '@/components/contact-form'
-
+import { ArticleCard } from '@/components/article-card'
 // type imports
 import { ArticleItem } from '@/types/footer'
 
@@ -460,56 +460,14 @@ export function FooterSection() {
             releases and media coverage.
           </p>
 
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <div className='grid grid-cols-1 gap-4 sm:grid-cols-2'>
             {pressItems.map((item) => (
-              <article
+              <ArticleCard 
                 key={item.id}
-                className="group flex flex-col overflow-hidden rounded-xl border border-white/10 bg-zinc-900/30 transition-all duration-300 hover:border-white/20 hover:bg-zinc-900/50 hover:shadow-lg hover:shadow-black/20"
-              >
-                <div className="aspect-video w-full overflow-hidden">
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    className="h-full w-full object-cover"
-                    loading="lazy"
-                  />
-                </div>
-
-                <div className="flex h-full flex-col p-4">
-                  {item.category && (
-                    <span className="mb-2 inline-block text-xs font-medium uppercase tracking-wide text-zinc-400">
-                      {item.category}
-                    </span>
-                  )}
-
-                  <h3 className="text-sm font-semibold text-white leading-snug transition-colors">
-                    {item.title}
-                  </h3>
-
-                  <time className="mt-1.5 text-xs text-zinc-500">
-                    {new Date(item.date).toLocaleDateString('en-US', {
-                      year: 'numeric',
-                      month: 'long',
-                      day: 'numeric',
-                    })}
-                  </time>
-
-                  <p className="mt-3 text-sm text-zinc-400 leading-relaxed line-clamp-3">{item.excerpt}</p>
-
-                  <div className="mt-auto pt-2.5">
-                    <button
-                      type="button"
-                      onClick={() => openPressDetail(item)}
-                      className="inline-flex items-center gap-2 text-sm font-medium text-white transition-all hover:text-zinc-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/20"
-                    >
-                      Read full article
-                      <svg className="h-4 w-4 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-              </article>
+                item={item}
+                onReadMore={openPressDetail}
+                variant='standard'
+              />
             ))}
           </div>
         </div>
@@ -577,65 +535,14 @@ export function FooterSection() {
             Dive deep into AI vision, infrastructure inspection, and the future of asset management.
           </p>
 
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <div className='grid grid-cols-1 gap-4 sm:grid-cols-2'>
             {blogItems.map((item) => (
-              <article
+              <ArticleCard
                 key={item.id}
-                className="group flex flex-col overflow-hidden rounded-xl border border-white/10 bg-zinc-900/30 transition-all duration-300 hover:border-white/20 hover:bg-zinc-900/50 hover:shadow-lg hover:shadow-black/20"
-              >
-                <div className="aspect-video w-full overflow-hidden">
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    className="h-full w-full object-cover"
-                    loading="lazy"
-                  />
-                </div>
-
-                <div className="flex h-full flex-col p-4">
-                  <div className="flex items-center gap-2 mb-2">
-                    {item.category && (
-                      <span className="inline-block text-xs font-medium uppercase tracking-wide text-zinc-400">
-                        {item.category}
-                      </span>
-                    )}
-                    {item.readTime && (
-                      <span className="text-xs text-zinc-500">{item.readTime}</span>
-                    )}
-                  </div>
-
-                  <h3 className="text-sm font-semibold text-white leading-snug transition-colors">
-                    {item.title}
-                  </h3>
-
-                  <div className="mt-1.5 flex items-center gap-2 text-xs text-zinc-500">
-                    {item.author && <span>{item.author}</span>}
-                    {item.author && <span>•</span>}
-                    <time dateTime={item.date}>
-                      {new Date(item.date).toLocaleDateString('en-US', {
-                        year: 'numeric',
-                        month: 'short',
-                        day: 'numeric',
-                      })}
-                    </time>
-                  </div>
-
-                  <p className="mt-3 text-sm text-zinc-400 leading-relaxed line-clamp-3">{item.excerpt}</p>
-
-                  <div className="mt-auto pt-2.5">
-                    <button
-                      type="button"
-                      onClick={() => openBlogDetail(item)}
-                      className="inline-flex items-center gap-2 text-sm font-medium text-white transition-all hover:text-zinc-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/20"
-                    >
-                      Read full article
-                      <svg className="h-4 w-4 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-              </article>
+                item={item}
+                onReadMore={openBlogDetail}
+                variant='compact'
+              />
             ))}
           </div>
         </div>
