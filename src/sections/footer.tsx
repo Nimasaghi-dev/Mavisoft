@@ -9,7 +9,7 @@ import {
   viewportOptions,
 } from '@/lib/animations'
 import { EnvelopeIcon, MapPinIcon, PhoneIcon } from '@heroicons/react/24/outline'
-import { AnimatePresence, motion } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { useState } from 'react'
 
 // Data imports
@@ -18,137 +18,35 @@ import { pressItems } from '@/data/press-items'
 import { blogItems } from '@/data/blog-items'
 import { companyLinks, productLinks } from '@/data/footer-links'
 
-// component imports
+// Component imports
 import { ContactForm } from '@/components/contact-form'
 import { ArticleCard } from '@/components/article-card'
-// type imports
-import { ArticleItem } from '@/types/footer'
+import { LegalModal } from '@/components/legal-modal'
+import { ArticleDetailModal } from '@/components/article-detail-modal'
 
-function LegalModal({
-  open,
-  onClose,
-  title,
-  children,
-}: {
-  open: boolean
-  onClose: () => void
-  title: string
-  children: React.ReactNode
-}) {
-  return (
-    <AnimatePresence>
-      {open && (
-        <motion.div
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-        >
-          {/* Backdrop captures outside clicks */}
-          <button
-            type="button"
-            aria-label="Close modal"
-            onClick={onClose}
-            className="absolute inset-0 bg-black/70 backdrop-blur-sm"
-          />
-
-          {/* Modal panel */}
-          <motion.div
-            role="dialog"
-            aria-modal="true"
-            aria-label={title}
-            className={[
-              'relative z-10 w-full max-w-3xl',
-              'max-h-[calc(100vh-2rem)] sm:max-h-[calc(100vh-3rem)]',
-              'overflow-hidden rounded-xl border border-white/10 bg-zinc-950 shadow-2xl',
-              'flex flex-col',
-            ].join(' ')}
-            initial={{ opacity: 0, scale: 0.98, y: 10 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.98, y: 10 }}
-            transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
-            // Prevent clicks inside from bubbling to backdrop
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* Header */}
-            <div className="flex items-center justify-between gap-3 border-b border-white/10 px-4 py-3 sm:px-6">
-              <h3 className="text-base font-semibold text-white sm:text-lg">{title}</h3>
-              <button
-                onClick={onClose}
-                aria-label="Close"
-                className="rounded-md px-2 py-1 text-zinc-400 transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white/20"
-              >
-                ✕
-              </button>
-            </div>
-
-            {/* Body (scrollable) */}
-            <div
-              className={[
-                'min-h-0 flex-1 overflow-y-auto px-4 py-4 text-sm leading-relaxed text-zinc-300 sm:px-6',
-                '[&::-webkit-scrollbar]:w-2',
-                '[&::-webkit-scrollbar-track]:bg-transparent',
-                '[&::-webkit-scrollbar-thumb]:rounded-full',
-                '[&::-webkit-scrollbar-thumb]:bg-white/10',
-                '[&::-webkit-scrollbar-thumb:hover]:bg-white/20',
-              ].join(' ')}
-              style={{
-                scrollbarWidth: 'thin',
-                scrollbarColor: 'rgba(255,255,255,0.18) transparent',
-              }}
-            >
-              {children}
-            </div>
-          </motion.div>
-        </motion.div>
-      )}
-    </AnimatePresence>
-  )
-}
-
+// Type imports
+import type { ArticleItem } from '@/types/footer'
 
 export function FooterSection() {
-
-
   const [privacyOpen, setPrivacyOpen] = useState(false)
   const [termsOpen, setTermsOpen] = useState(false)
 
-  type AboutModal = 'mission' | 'team' | null | 'about'
+  type AboutModal = 'mission' | 'team' | 'about' | null
   const [aboutModal, setAboutModal] = useState<AboutModal>(null)
 
   // Press state
   const [pressOpen, setPressOpen] = useState(false)
-  const [pressDetailOpen, setPressDetailOpen] = useState(false)
   const [selectedPress, setSelectedPress] = useState<ArticleItem | null>(null)
 
   // Blog state
   const [blogOpen, setBlogOpen] = useState(false)
-  const [blogDetailOpen, setBlogDetailOpen] = useState(false)
   const [selectedBlog, setSelectedBlog] = useState<ArticleItem | null>(null)
 
+  const openPressDetail = (item: ArticleItem) => setSelectedPress(item)
+  const closePressDetail = () => setSelectedPress(null)
 
-
-  function openPressDetail(item: ArticleItem) {
-    setSelectedPress(item)
-    setPressDetailOpen(true)
-  }
-
-  function closePressDetail() {
-    setPressDetailOpen(false)
-    setSelectedPress(null)
-  }
-
-  function openBlogDetail(item: ArticleItem) {
-    setSelectedBlog(item)
-    setBlogDetailOpen(true)
-  }
-
-  function closeBlogDetail() {
-    setBlogDetailOpen(false)
-    setSelectedBlog(null)
-  }
-
-
+  const openBlogDetail = (item: ArticleItem) => setSelectedBlog(item)
+  const closeBlogDetail = () => setSelectedBlog(null)
 
   const socialLinks = [
     {
@@ -161,7 +59,6 @@ export function FooterSection() {
       ),
     },
   ]
-
 
   return (
     <footer id="contact" className="scroll-mt-20 border-t border-white/10 bg-zinc-950">
@@ -180,7 +77,7 @@ export function FooterSection() {
               >
                 {/* Company Links */}
                 <motion.div variants={staggerChildVariants}>
-                  <h3 className="text-sm tracking-wider text-white uppercase">Company</h3>
+                  <h3 className="text-sm uppercase tracking-wider text-white">Company</h3>
                   <ul className="mt-4 space-y-2">
                     <li className="group">
                       <button
@@ -192,7 +89,7 @@ export function FooterSection() {
                         About
                       </button>
 
-                      <div className="mt-1.5 ml-3 max-h-0 overflow-hidden opacity-0 transition-all duration-200 ease-out group-focus-within:max-h-24 group-focus-within:opacity-100 group-hover:max-h-24 group-hover:opacity-100">
+                      <div className="ml-3 mt-1.5 max-h-0 overflow-hidden opacity-0 transition-all duration-200 ease-out group-focus-within:max-h-24 group-focus-within:opacity-100 group-hover:max-h-24 group-hover:opacity-100">
                         <div className="space-y-1.5 border-l border-white/10 pl-3">
                           <button
                             type="button"
@@ -245,7 +142,7 @@ export function FooterSection() {
 
                 {/* Product Links */}
                 <motion.div variants={staggerChildVariants}>
-                  <h3 className="text-sm tracking-wider text-white uppercase">Product</h3>
+                  <h3 className="text-sm uppercase tracking-wider text-white">Product</h3>
                   <ul className="mt-4 space-y-3">
                     {productLinks.map((link) => (
                       <li key={link.label}>
@@ -259,7 +156,7 @@ export function FooterSection() {
 
                 {/* Social Links */}
                 <motion.div className="col-span-2 sm:col-span-2" variants={staggerChildVariants}>
-                  <h3 className="text-sm tracking-wider text-white uppercase">Connect</h3>
+                  <h3 className="text-sm uppercase tracking-wider text-white">Connect</h3>
                   <div className="mt-4 flex flex-wrap gap-4">
                     {socialLinks.map((link) => (
                       <a
@@ -347,7 +244,7 @@ export function FooterSection() {
               viewport={viewportOptions}
               variants={fadeUpVariants}
             >
-            <ContactForm />
+              <ContactForm />
             </motion.div>
           </div>
 
@@ -378,7 +275,9 @@ export function FooterSection() {
         </div>
       </div>
 
-      {/* About Modals */}
+      {/* ==================== MODALS ==================== */}
+
+      {/* About Modal */}
       <LegalModal open={aboutModal === 'about'} onClose={() => setAboutModal(null)} title="About Mavisoft">
         <div className="space-y-4">
           <p className="text-zinc-300">
@@ -396,16 +295,17 @@ export function FooterSection() {
             safer, smarter, and more efficient operations by turning every image into actionable insight.
           </p>
 
-          <p className="mt-6 border-l-2 border-cyan-500/50 pl-4 text-base font-medium text-white italic">
+          <p className="mt-6 border-l-2 border-cyan-500/50 pl-4 text-base font-medium italic text-white">
             Mavisoft stands for the future of vision
           </p>
         </div>
       </LegalModal>
 
+      {/* Mission Modal */}
       <LegalModal open={aboutModal === 'mission'} onClose={() => setAboutModal(null)} title="Mission">
         <p>
-          At Mavisoft, we're redefining how critical infrastructure is inspected and managed. By combining advanced AI
-          vision, photogrammetry, and an end-to-end service platform, we help organisations move from reactive
+          At Mavisoft, we&apos;re redefining how critical infrastructure is inspected and managed. By combining advanced
+          AI vision, photogrammetry, and an end-to-end service platform, we help organisations move from reactive
           maintenance to confident, data-driven decisions.
         </p>
 
@@ -416,6 +316,7 @@ export function FooterSection() {
         </p>
       </LegalModal>
 
+      {/* Team Modal */}
       <LegalModal open={aboutModal === 'team'} onClose={() => setAboutModal(null)} title="Team Members">
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           {teamMembers.map((m) => (
@@ -455,175 +356,54 @@ export function FooterSection() {
       {/* Press List Modal */}
       <LegalModal open={pressOpen} onClose={() => setPressOpen(false)} title="Press & Media">
         <div className="space-y-4">
-          <p className="text-sm text-zinc-400 leading-relaxed">
-            Stay updated with Mavisoft's latest announcements, partnerships, and industry recognition. Explore our press
-            releases and media coverage.
+          <p className="text-sm leading-relaxed text-zinc-400">
+            Stay updated with Mavisoft&apos;s latest announcements, partnerships, and industry recognition. Explore our
+            press releases and media coverage.
           </p>
 
-          <div className='grid grid-cols-1 gap-4 sm:grid-cols-2'>
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             {pressItems.map((item) => (
-              <ArticleCard 
-                key={item.id}
-                item={item}
-                onReadMore={openPressDetail}
-                variant='standard'
-              />
+              <ArticleCard key={item.id} item={item} onReadMore={openPressDetail} variant="standard" />
             ))}
           </div>
         </div>
       </LegalModal>
 
       {/* Press Detail Modal */}
-      <LegalModal open={pressDetailOpen} onClose={closePressDetail} title="Press Release">
-        {selectedPress && (
-          <article className="space-y-6">
-            <div className="overflow-hidden rounded-2xl border border-white/10 bg-zinc-900/30">
-              <div className="aspect-video w-full">
-                <img
-                  src={selectedPress.image}
-                  alt={selectedPress.title}
-                  className="h-full w-full object-cover"
-                  loading="lazy"
-                />
-              </div>
-            </div>
-
-            <header className="space-y-3">
-              {selectedPress.category && (
-                <span className="inline-block text-xs font-medium uppercase tracking-wide text-zinc-400">
-                  {selectedPress.category}
-                </span>
-              )}
-
-              <h1 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">{selectedPress.title}</h1>
-
-              <time dateTime={selectedPress.date} className="block text-sm text-zinc-400">
-                {new Date(selectedPress.date).toLocaleDateString('en-US', {
-                  year: 'numeric',
-                  month: 'long',
-                  day: 'numeric',
-                })}
-              </time>
-            </header>
-
-            <div className="space-y-6 border-t border-white/5 pt-6">
-              {selectedPress.content.map((block, idx) => (
-                <section key={idx} className="space-y-4">
-                  {block.h2 && <h2 className="text-xl font-semibold text-white">{block.h2}</h2>}
-                  {block.h3 && <h3 className="text-lg font-semibold text-zinc-100">{block.h3}</h3>}
-                  {block.h4 && <h4 className="text-base font-semibold text-zinc-200">{block.h4}</h4>}
-
-                  <div className="space-y-4">
-                    {block.paragraphs.map((p, pIdx) => (
-                      <p key={pIdx} className="text-sm leading-7 text-zinc-300">
-                        {p}
-                      </p>
-                    ))}
-                  </div>
-                </section>
-              ))}
-            </div>
-          </article>
-        )}
-      </LegalModal>
+      <ArticleDetailModal
+        open={selectedPress !== null}
+        onClose={closePressDetail}
+        article={selectedPress}
+        variant="standard"
+        modalTitle="Press Release"
+      />
 
       {/* Blog List Modal */}
       <LegalModal open={blogOpen} onClose={() => setBlogOpen(false)} title="Blog & Insights">
         <div className="space-y-4">
-          <p className="text-sm text-zinc-400 leading-relaxed">
+          <p className="text-sm leading-relaxed text-zinc-400">
             Explore thought leadership articles, technical insights, and industry perspectives from the Mavisoft team.
             Dive deep into AI vision, infrastructure inspection, and the future of asset management.
           </p>
 
-          <div className='grid grid-cols-1 gap-4 sm:grid-cols-2'>
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             {blogItems.map((item) => (
-              <ArticleCard
-                key={item.id}
-                item={item}
-                onReadMore={openBlogDetail}
-                variant='compact'
-              />
+              <ArticleCard key={item.id} item={item} onReadMore={openBlogDetail} variant="compact" />
             ))}
           </div>
         </div>
       </LegalModal>
 
       {/* Blog Detail Modal */}
-      <LegalModal open={blogDetailOpen} onClose={closeBlogDetail} title="Blog Article">
-        {selectedBlog && (
-          <article className="space-y-6">
-            <div className="overflow-hidden rounded-2xl border border-white/10 bg-zinc-900/30">
-              <div className="aspect-video w-full">
-                <img
-                  src={selectedBlog.image}
-                  alt={selectedBlog.title}
-                  className="h-full w-full object-cover"
-                  loading="lazy"
-                />
-              </div>
-            </div>
+      <ArticleDetailModal
+        open={selectedBlog !== null}
+        onClose={closeBlogDetail}
+        article={selectedBlog}
+        variant="rich"
+        modalTitle="Blog Article"
+      />
 
-            <header className="space-y-3">
-              <div className="flex flex-wrap items-center gap-2">
-                {selectedBlog.category && (
-                  <span className="inline-block text-xs font-medium uppercase tracking-wide text-zinc-400">
-                    {selectedBlog.category}
-                  </span>
-                )}
-                {selectedBlog.readTime && (
-                  <span className="text-sm text-zinc-500">{selectedBlog.readTime}</span>
-                )}
-              </div>
-
-              <h1 className="text-2xl font-bold tracking-tight text-white sm:text-3xl leading-tight">
-                {selectedBlog.title}
-              </h1>
-
-              <div className="flex items-center gap-3 text-sm text-zinc-400">
-                {selectedBlog.author && (
-                  <>
-                    <span className="font-medium">{selectedBlog.author}</span>
-                    <span>•</span>
-                  </>
-                )}
-                <time dateTime={selectedBlog.date}>
-                  {new Date(selectedBlog.date).toLocaleDateString('en-US', {
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric',
-                  })}
-                </time>
-              </div>
-            </header>
-
-            <div className="space-y-6 border-t border-white/5 pt-6">
-              {selectedBlog.content.map((block, idx) => (
-                <section key={idx} className="space-y-4">
-                  {block.h2 && (
-                    <h2 className="text-xl font-bold text-white mt-8 first:mt-0">{block.h2}</h2>
-                  )}
-                  {block.h3 && (
-                    <h3 className="text-lg font-semibold text-zinc-100 mt-6">{block.h3}</h3>
-                  )}
-                  {block.h4 && (
-                    <h4 className="text-base font-semibold text-zinc-200 mt-4">{block.h4}</h4>
-                  )}
-
-                  <div className="space-y-4">
-                    {block.paragraphs.map((p, pIdx) => (
-                      <p key={pIdx} className="text-sm leading-7 text-zinc-300">
-                        {p}
-                      </p>
-                    ))}
-                  </div>
-                </section>
-              ))}
-            </div>
-          </article>
-        )}
-      </LegalModal>
-
-      {/* Legal Modals */}
+      {/* Privacy Policy Modal */}
       <LegalModal open={privacyOpen} onClose={() => setPrivacyOpen(false)} title="Privacy Policy">
         <p>
           At Mavisoft, we value your privacy and are committed to protecting your personal data. This Privacy Policy
@@ -632,7 +412,7 @@ export function FooterSection() {
 
         <p className="mt-3">
           Mavisoft B.V. operates this website at <span className="font-medium text-white">https://mavisoft.com</span>.
-          References to "we", "us", or "our" refer to Mavisoft.
+          References to &quot;we&quot;, &quot;us&quot;, or &quot;our&quot; refer to Mavisoft.
         </p>
 
         <p className="mt-3">
@@ -682,6 +462,7 @@ export function FooterSection() {
         </p>
       </LegalModal>
 
+      {/* Terms of Service Modal */}
       <LegalModal open={termsOpen} onClose={() => setTermsOpen(false)} title="Terms of Service">
         <p>
           Welcome to the Mavisoft website. By accessing or using this website, you agree to be bound by these Terms of
@@ -690,8 +471,9 @@ export function FooterSection() {
         </p>
 
         <p className="mt-3">
-          References to "Mavisoft", "we", or "us" refer to Mavisoft B.V., registered at Veerhaven 14, 3016 CJ Rotterdam,
-          Netherlands (Company Registration No. 78596122). "You" refers to any user or visitor of this website.
+          References to &quot;Mavisoft&quot;, &quot;we&quot;, or &quot;us&quot; refer to Mavisoft B.V., registered at
+          Veerhaven 14, 3016 CJ Rotterdam, Netherlands (Company Registration No. 78596122). &quot;You&quot; refers to
+          any user or visitor of this website.
         </p>
 
         <p className="mt-3">
