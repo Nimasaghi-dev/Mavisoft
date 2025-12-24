@@ -6,6 +6,7 @@ export const pressItems: ArticleItem[] = [
       title: 'AIrport Inspector featured in Passenger Terminal World magazine',
       date: '2023-04-17',
       image: '/press/download1.jpg',
+      video: '',
       excerpt: `In the April edition of Passenger Terminal World magazine, AIrport Inspector takes the spotlight together with Royal Schiphol Group and its innovations...`,
       category: 'Press Release',
       content: [
@@ -29,6 +30,7 @@ export const pressItems: ArticleItem[] = [
       title: 'AIrport Inspector presented at FTE Digital, Innovation & Startup Hub',
       date: '2023-03-15',
       image: '/press/download2.jpg',
+      video: '',
       excerpt: `On the 13th of March, Schiphol Group hosted the FTE Digital, Innovation and Startup Hub and the FTE Baggage Innovation Working Group events...`,
       category: 'Event',
       content: [
@@ -46,6 +48,7 @@ export const pressItems: ArticleItem[] = [
       title: `AIrport Inspector joins Schiphol at the Passenger Terminal Expo 2023`,
       date: '2023-02-14',
       image: '/press/passenger_terminal_expo.jpg',
+      video: '',
       excerpt: `On the 14th, 15th and 16th of March, we will join the Schiphol Aviation Solutions booth 2218 at Passenger Terminal Expo 2023...`,
       category: 'Exhibition',
       content: [

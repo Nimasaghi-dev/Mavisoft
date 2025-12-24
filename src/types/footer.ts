@@ -12,6 +12,7 @@ export interface ArticleItem {
     title: string
     date: string
     image: string
+    video: string
     excerpt: string
     content: ContentBlock[]
     category?: string

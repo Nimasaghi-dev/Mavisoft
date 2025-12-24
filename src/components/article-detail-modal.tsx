@@ -7,15 +7,7 @@ interface ArticleDetailModalProps {
   open: boolean
   onClose: () => void
   article: ArticleItem | null
-  /**
-   * Controls header layout and heading styles
-   * - 'standard': Simple category + date layout (for press)
-   * - 'rich': Shows readTime, author, enhanced heading spacing (for blog)
-   */
   variant?: 'standard' | 'rich'
-  /**
-   * Modal title shown in header bar
-   */
   modalTitle?: string
 }
 
@@ -40,18 +32,30 @@ export function ArticleDetailModal({
     day: 'numeric',
   })
 
+  // Determine if we should show video or image
+  const hasVideo = article.video && article.video.length > 0
+
   return (
     <LegalModal open={open} onClose={onClose} title={modalTitle}>
       <article className="space-y-6">
-        {/* Featured Image */}
+        {/* Featured Media: Video or Image */}
         <div className="overflow-hidden rounded-2xl border border-white/10 bg-zinc-900/30">
           <div className="aspect-video w-full">
-            <img
-              src={article.image}
-              alt={article.title}
-              className="h-full w-full object-cover"
-              loading="lazy"
-            />
+            {hasVideo ? (
+              <video
+                src={article.video}
+                className="h-full w-full object-cover"
+                controls
+                playsInline
+              />
+            ) : (
+              <img
+                src={article.image}
+                alt={article.title}
+                className="h-full w-full object-cover"
+                loading="lazy"
+              />
+            )}
           </div>
         </div>
 
@@ -107,13 +111,10 @@ export function ArticleDetailModal({
         <div className="space-y-6 border-t border-white/5 pt-6">
           {article.content.map((block, idx) => (
             <section key={idx} className="space-y-4">
-              {/* Headings */}
               {block.h2 && (
                 <h2
                   className={`text-xl text-white ${
-                    variant === 'rich'
-                      ? 'mt-8 font-bold first:mt-0'
-                      : 'font-semibold'
+                    variant === 'rich' ? 'mt-8 font-bold first:mt-0' : 'font-semibold'
                   }`}
                 >
                   {block.h2}
@@ -138,7 +139,6 @@ export function ArticleDetailModal({
                 </h4>
               )}
 
-              {/* Paragraphs */}
               <div className="space-y-4">
                 {block.paragraphs.map((p, pIdx) => (
                   <p key={pIdx} className="text-sm leading-7 text-zinc-300">

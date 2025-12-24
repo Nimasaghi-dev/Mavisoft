@@ -13,16 +13,30 @@ export function ArticleCard({ item, onReadMore, variant = 'standard' }: ArticleC
     day: 'numeric',
   })
 
+  // Determine if we should show video or image
+  const hasVideo = item.video && item.video.length > 0
+
   return (
     <article className="group flex flex-col overflow-hidden rounded-xl border border-white/10 bg-zinc-900/30 transition-all duration-300 hover:border-white/20 hover:bg-zinc-900/50 hover:shadow-lg hover:shadow-black/20">
-      {/* Image */}
+      {/* Media: Video or Image */}
       <div className="aspect-video w-full overflow-hidden">
-        <img
-          src={item.image}
-          alt={item.title}
-          className="h-full w-full object-cover"
-          loading="lazy"
-        />
+        {hasVideo ? (
+          <video
+            src={item.video}
+            className="h-full w-full object-cover"
+            muted
+            loop
+            playsInline
+            autoPlay
+          />
+        ) : (
+          <img
+            src={item.image}
+            alt={item.title}
+            className="h-full w-full object-cover "
+            loading="lazy"
+          />
+        )}
       </div>
 
       {/* Content */}
