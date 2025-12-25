@@ -42,25 +42,23 @@ export function ArticleDetailModal({
     <LegalModal open={open} onClose={onClose} title={modalTitle}>
       <article className="space-y-6">
         {/* Featured Media: Video or Image */}
-        <div className="overflow-hidden rounded-2xl border border-white/10 bg-zinc-900/30">
-          <div className="aspect-video w-full">
-            {hasVideo ? (
-              <video
-                src={article.video}
-                className="h-full w-full object-cover"
-                controls
-                playsInline
-              />
-            ) : (
-              <img
-                src={displayImage}
-                alt={article.title}
-                className="h-full w-full object-cover"
-                loading="lazy"
-              />
-            )}
+        <figure>
+          <div className="overflow-hidden rounded-2xl border border-white/10 bg-zinc-900/30">
+            <div className="aspect-video w-full">
+              {hasVideo ? (
+                <video src={article.video} className="h-full w-full object-cover" controls playsInline />
+              ) : (
+                <img src={displayImage} alt={article.title} className="h-full w-full object-cover" loading="lazy" />
+              )}
+            </div>
           </div>
-        </div>
+          {/* Image Caption */}
+          {article.detailImageCaption && (
+            <figcaption className="mt-3 text-center text-sm text-zinc-500 italic">
+              {article.detailImageCaption}
+            </figcaption>
+          )}
+        </figure>
 
         {/* Header */}
         <header className="space-y-3">
@@ -68,7 +66,7 @@ export function ArticleDetailModal({
           {variant === 'rich' ? (
             <div className="flex flex-wrap items-center gap-2">
               {article.category && (
-                <span className="inline-block text-xs font-medium uppercase tracking-wide text-zinc-400">
+                <span className="inline-block text-xs font-medium tracking-wide text-zinc-400 uppercase">
                   {article.category}
                 </span>
               )}
@@ -81,16 +79,14 @@ export function ArticleDetailModal({
             </div>
           ) : (
             article.category && (
-              <span className="inline-block text-xs font-medium uppercase tracking-wide text-zinc-400">
+              <span className="inline-block text-xs font-medium tracking-wide text-zinc-400 uppercase">
                 {article.category}
               </span>
             )
           )}
 
           {/* Title */}
-          <h1 className="text-2xl font-bold leading-tight tracking-tight text-white sm:text-3xl">
-            {article.title}
-          </h1>
+          <h1 className="text-2xl leading-tight font-bold tracking-tight text-white sm:text-3xl">{article.title}</h1>
 
           {/* Author & Date */}
           {variant === 'rich' ? (
@@ -116,27 +112,19 @@ export function ArticleDetailModal({
             <section key={idx} className="space-y-4">
               {block.h2 && (
                 <h2
-                  className={`text-xl text-white ${
-                    variant === 'rich' ? 'mt-8 font-bold first:mt-0' : 'font-semibold'
-                  }`}
+                  className={`text-xl text-white ${variant === 'rich' ? 'mt-8 font-bold first:mt-0' : 'font-semibold'}`}
                 >
                   {block.h2}
                 </h2>
               )}
               {block.h3 && (
-                <h3
-                  className={`text-lg text-zinc-100 ${
-                    variant === 'rich' ? 'mt-6 font-semibold' : 'font-semibold'
-                  }`}
-                >
+                <h3 className={`text-lg text-zinc-100 ${variant === 'rich' ? 'mt-6 font-semibold' : 'font-semibold'}`}>
                   {block.h3}
                 </h3>
               )}
               {block.h4 && (
                 <h4
-                  className={`text-base text-zinc-200 ${
-                    variant === 'rich' ? 'mt-4 font-semibold' : 'font-semibold'
-                  }`}
+                  className={`text-base text-zinc-200 ${variant === 'rich' ? 'mt-4 font-semibold' : 'font-semibold'}`}
                 >
                   {block.h4}
                 </h4>

@@ -19,6 +19,7 @@ export interface ArticleItem {
     date: string
     image: string
     detailImage?: string
+    detailImageCaption?: string 
     video: string
     excerpt: string
     content: ContentBlock[]

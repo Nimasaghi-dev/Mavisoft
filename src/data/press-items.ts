@@ -8,7 +8,7 @@ export const pressItems: ArticleItem[] = [
     image: '/press/download1.jpg',
     video: '',
     excerpt: `In the April edition of Passenger Terminal World magazine, AIrport Inspector takes the spotlight together with Royal Schiphol Group and its innovations...`,
-    category: 'Press Release',
+    category: '',
     content: [
       {
         h2: `Featured Innovation`,
@@ -32,7 +32,7 @@ export const pressItems: ArticleItem[] = [
     image: '/press/download2.jpg',
     video: '',
     excerpt: `On the 13th of March, Schiphol Group hosted the FTE Digital, Innovation and Startup Hub and the FTE Baggage Innovation Working Group events...`,
-    category: 'Event',
+    category: '',
     content: [
       {
         h3: 'Innovation Hub Showcase',
@@ -50,7 +50,7 @@ export const pressItems: ArticleItem[] = [
     image: '/press/passenger_terminal_expo.jpg',
     video: '',
     excerpt: `On the 14th, 15th and 16th of March, we will join the Schiphol Aviation Solutions booth 2218 at Passenger Terminal Expo 2023...`,
-    category: 'Exhibition',
+    category: '',
     content: [
       {
         h3: `Passenger Terminal Expo Partnership`,
@@ -70,7 +70,7 @@ export const pressItems: ArticleItem[] = [
     detailImage: '/press/download4.png',
     video: '',
     excerpt: `After countless conversations, we officially joined forces with Schiphol, SWIC and VolkerInfra for a groundbreaking 5-year joint venture...`,
-    category: 'Partnership',
+    category: '',
     content: [
       {
         h3: `A Groundbreaking Joint Venture`,
@@ -104,6 +104,78 @@ export const pressItems: ArticleItem[] = [
           text: 'Read the',
           url: 'https://www.schiphol.nl/en/innovation/blog/aircraft-stands-concrete-paving-now-inspected-with-lasers-and-ai/',
           label: 'full article on the Schiphol blog',
+        },
+      },
+    ],
+  },
+    {
+    id: 'PortXL-Antwerp',
+    title: `Mavisoft completes the PortXL Antwerp Startup Accelerator programme`,
+    date: '2019-dec-16',
+    image: '/press/contract.jpg',
+    video: '',
+    excerpt: `Today, we celebrate! Five contracts were signed by the talented bunch (including us!) from our 2019 cohort...`,
+    category: '',
+    content: [
+      {
+        h3: `Today, we celebrate! Five contracts were signed by the talented bunch (including us!) from our 2019 cohort. It's a testament to our community's innovative spirit that's alive and thriving.`,
+        paragraphs: [
+          `The innovators from the 2019 cohort pitched their exciting ideas, and we all got to take a tour of the startup expo – a glimpse into the future of the Antwerp port ecosystem and beyond. The event wrapped up with Alderman Annick De Ridder, reminding us of Antwerp's legacy of innovation and how it continues to shape the city's entrepreneurial spirit.`,
+          `Our journey in the program was all about finding the right match with corporates and tackling industry challenges together. At the same time, our goal was to build strong relationships and secure collaborations that make a difference. And you know what? It worked! We're coming out of this experience with new contracts in hand and a network that's richer than ever.`,
+        ],
+      },
+      {
+        paragraphs: [],
+        link: {
+          text: 'Read the',
+          url: 'https://www.schiphol.nl/en/innovation/blog/aircraft-stands-concrete-paving-now-inspected-with-lasers-and-ai/',
+          label: 'full article in PortXL news',
+        },
+      },
+      {
+        paragraphs: [],
+        link: {
+          text: 'Checkout this great',
+          url: 'https://vimeo.com/380306662',
+          label: 'after movie that PortXL put together.',
+        },
+      },
+    ],
+  },
+    {
+    id: 'schiphol-joint-venture',
+    title: `Mavisoft joins PortXL Antwerp accelerator programme`,
+    date: '2019-sep-30',
+    image: '/press/portXL.png',
+    detailImage: '/press/group-picture.jpg',
+    detailImageCaption: 'Group picture of the 2019 cohort, the corporate partners & the PortXL team following the contract signings. -- Photo credit: Jonas Verhulst',
+    video: '',
+    excerpt: `We have officially made it into this year’s PortXL Antwerp startup programme!  Just a little backstory – during the PortXL Selection Day, a bunch of candidates, including us, found themselves in the "orange status" category...`,
+    category: '',
+    content: [
+      {
+        h3: `A Groundbreaking Joint Venture`,
+        paragraphs: [
+          `Just a little backstory – during the PortXL Selection Day, a bunch of candidates, including us, found themselves in the "orange status" category. This meant a follow-up meeting to see if we were a good fit for the program.`,
+          `Guess what? We managed to impress MSC (Mediterranean Shipping Company) with our ideas and potential. Thanks to that, we're all set to dive into the 3-month program, side by side with some other really cool companies like Cnext, Evolution Energie, ProcessDelight, Romware, and Smart-Ship`,
+        ],
+      },
+      {
+        paragraphs: [
+          `So, that's our story so far! As we take a spot in the PortXL Antwerp programme, we're gearing up for some serious innovation and collaboration. We're on a mission to make a difference with AI, and we'd love for you to be part of the journey.`,
+        ],
+      },
+      {
+        paragraphs: [
+          `Stay curious, stay connected, and get ready to witness some exciting changes with Mavisoft leading the way!`,
+        ],
+      },
+      {
+        paragraphs: [],
+        link: {
+          text: 'Read the',
+          url: 'https://portxl.org/news/mavisoft-catches-second-wave-of-portxl-antwerp/',
+          label: 'full article  in PortXL news.',
         },
       },
     ],
