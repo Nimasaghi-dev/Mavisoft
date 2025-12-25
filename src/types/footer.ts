@@ -5,6 +5,12 @@ export interface ContentBlock {
     h3?: string
     h4?: string
     paragraphs: string[]
+    list?: string[]
+    link?: {
+        text: string
+        url: string
+        label: string
+    }
 }
 
 export interface ArticleItem {
@@ -12,6 +18,7 @@ export interface ArticleItem {
     title: string
     date: string
     image: string
+    detailImage?: string
     video: string
     excerpt: string
     content: ContentBlock[]

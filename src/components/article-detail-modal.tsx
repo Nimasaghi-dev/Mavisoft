@@ -35,6 +35,9 @@ export function ArticleDetailModal({
   // Determine if we should show video or image
   const hasVideo = article.video && article.video.length > 0
 
+  // Use detailImage if available, otherwise fallback to image
+  const displayImage = article.detailImage || article.image
+
   return (
     <LegalModal open={open} onClose={onClose} title={modalTitle}>
       <article className="space-y-6">
@@ -50,7 +53,7 @@ export function ArticleDetailModal({
               />
             ) : (
               <img
-                src={article.image}
+                src={displayImage}
                 alt={article.title}
                 className="h-full w-full object-cover"
                 loading="lazy"
@@ -139,13 +142,42 @@ export function ArticleDetailModal({
                 </h4>
               )}
 
-              <div className="space-y-4">
-                {block.paragraphs.map((p, pIdx) => (
-                  <p key={pIdx} className="text-sm leading-7 text-zinc-300">
-                    {p}
-                  </p>
-                ))}
-              </div>
+              {/* Paragraphs */}
+              {block.paragraphs && block.paragraphs.length > 0 && (
+                <div className="space-y-4">
+                  {block.paragraphs.map((p, pIdx) =>
+                    p ? (
+                      <p key={pIdx} className="text-sm leading-7 text-zinc-300">
+                        {p}
+                      </p>
+                    ) : null
+                  )}
+                </div>
+              )}
+
+              {/* List */}
+              {block.list && block.list.length > 0 && (
+                <ul className="ml-4 list-disc space-y-2 text-sm leading-7 text-zinc-300">
+                  {block.list.map((item, listIdx) => (
+                    <li key={listIdx}>{item}</li>
+                  ))}
+                </ul>
+              )}
+
+              {/* Link */}
+              {block.link && (
+                <p className="text-sm leading-7 text-zinc-300">
+                  {block.link.text}{' '}
+                  <a
+                    href={block.link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-cyan-400 underline transition-colors hover:text-cyan-300"
+                  >
+                    {block.link.label}
+                  </a>
+                </p>
+              )}
             </section>
           ))}
         </div>
