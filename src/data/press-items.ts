@@ -108,7 +108,7 @@ export const pressItems: ArticleItem[] = [
       },
     ],
   },
-    {
+  {
     id: 'PortXL-Antwerp',
     title: `Mavisoft completes the PortXL Antwerp Startup Accelerator programme`,
     date: '2019-dec-16',
@@ -142,13 +142,14 @@ export const pressItems: ArticleItem[] = [
       },
     ],
   },
-    {
+  {
     id: 'schiphol-joint-venture',
     title: `Mavisoft joins PortXL Antwerp accelerator programme`,
     date: '2019-sep-30',
     image: '/press/portXL.png',
     detailImage: '/press/group-picture.jpg',
-    detailImageCaption: 'Group picture of the 2019 cohort, the corporate partners & the PortXL team following the contract signings. -- Photo credit: Jonas Verhulst',
+    detailImageCaption:
+      'Group picture of the 2019 cohort, the corporate partners & the PortXL team following the contract signings. -- Photo credit: Jonas Verhulst',
     video: '',
     excerpt: `We have officially made it into this year’s PortXL Antwerp startup programme!  Just a little backstory – during the PortXL Selection Day, a bunch of candidates, including us, found themselves in the "orange status" category...`,
     category: '',
@@ -177,6 +178,64 @@ export const pressItems: ArticleItem[] = [
           url: 'https://portxl.org/news/mavisoft-catches-second-wave-of-portxl-antwerp/',
           label: 'full article  in PortXL news.',
         },
+      },
+    ],
+  },
+  {
+    id: 'schiphol-joint-venture',
+    title: `Transforming industrial asset inspection at the Port of Melbourne`,
+    date: '2023-Jun-16',
+    image: '/press/port-of-melbourn.jpg',
+    detailImage: '/press/railway.jpg',
+    detailImageCaption: 'The Railway Pier in Sandridge, Melbourne State Library Victoria',
+    video: '',
+    excerpt: `The Port of Melbourne, Australia's largest container and general cargo port, stands proudly on the shores of picturesque Port Phillip Bay. Strategically located in close proximity to Melbourne's bustling central business district, this vibrant port serves...`,
+    category: '',
+    content: [
+      {
+        h3: `A fascinating legacy`,
+        paragraphs: [
+          `During the Victorian gold rush of the late 1800s, the Port of Melbourne was instrumental in facilitating the transportation of gold and other precious minerals from Australia to international markets. At the height of operations, the port was, in fact, the world’s busiest; fueling Melbourne's rapid infrastructural development and economic growth. This extraordinary era left an indelible mark on the city's architecture and cultural institutions, forever preserving the port's remarkable legacy.`,
+        ],
+      },
+      {
+        h3: `Challenges faced`,
+        paragraphs: [
+          `As part of its ongoing development, the Port of Melbourne embarked on a quest to optimise industrial asset inspection processes, focusing on crucial components such as wharfs and quay walls. Traditional data collection methods involved dispatching personnel to gather information on a manual basis, imposing substantial costs. This labour-intensive process is not only expensive but also time-consuming and potentially hazardous. Senior Hydrographic Surveyor Andrew Ternes shared his insights on the matter.`,
+        ],
+      },
+      {
+        paragraphs: [
+          `As surveyors, we see the data in three dimensions, and we want to communicate those spatial attributes to our asset engineers. We want to be able to identify the signs of deterioration and communicate it with them more clearly`,
+        ],
+        h4: `Andrew Ternes – Senior Hydrographic Surveyor`,
+      },
+      {
+        h3: `Proposed solution`,
+        paragraphs: [
+          `To overcome these challenges, we teamed up with the Port of Melbourne to embark on a pilot project designed to harness the power of Infrascan technology. This cutting-edge solution ultimately helped us create a digital twin of the inspected wharf, enabling precise identification of damage such as rust, cracks, corrosion, etc. Leveraging simple equipment such as GoPro cameras, the Port of Melbourne successfully collected the necessary data for processing and analysis purposes.`,
+        ],
+      },
+      {
+        h3: `Impressive results`,
+        paragraphs: [
+          `Upon completion of the project, we delivered a comprehensive wharf condition report detailing various damage, including rust, cracks, corrosion, and acid attacks. Consistent interpretation and unified approach demonstrated model accuracy and reliability, ensuring accurate and consistent results across the full breadth of asset inspection. These results support a systematic process to target follow-up human asset inspection and prioritise rehabilitation works.`,
+        ],
+      },
+      {
+        image: '/press/infrascan-result.png',
+        imageCaption: 'Infrascan results showing various detected damages',
+      },
+      {
+        h3: `Charting a course for automation and optimisation`,
+        paragraphs: [
+          `Following successful pilot project completion, the Port of Melbourne— together with our team—acknowledged the potential to further enhance the quality of results by utilising higher-quality equipment such as advanced cameras and drones. Nonetheless, the project yielded commendable results that played a pivotal role in the decision-making process despite utilising data captured with simple GoPro cameras; with outcomes laying a strong foundation to ultimately revolutionise the industrial asset inspection process. With a shared commitment to innovation and optimisation, we are confident that our pilot with the Port of Melbourne will pave the way for asset management system automation and optimisation.`,
+        ],
+      },
+      {
+        paragraphs: [
+          `With a bright future ahead, the Port of Melbourne continues to inspire and lead the way; driving progress and       propelling global trade and commerce to unprecedented heights.`,
+        ],
       },
     ],
   },

@@ -166,6 +166,25 @@ export function ArticleDetailModal({
                   </a>
                 </p>
               )}
+                            {/* Content Image */}
+              {block.image && (
+                <figure className="my-6">
+                  <div className="overflow-hidden rounded-xl border border-white/10 bg-zinc-900/30">
+                    <img
+                      src={block.image}
+                      alt={block.imageCaption || ''}
+                      className="w-full object-cover"
+                      loading="lazy"
+                    />
+                  </div>
+                  {block.imageCaption && (
+                    <figcaption className="mt-3 text-center text-sm text-zinc-500 italic">
+                      {block.imageCaption}
+                    </figcaption>
+                  )}
+                </figure>
+              )}
+
             </section>
           ))}
         </div>

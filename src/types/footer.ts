@@ -4,13 +4,15 @@ export interface ContentBlock {
     h2?: string
     h3?: string
     h4?: string
-    paragraphs: string[]
+    paragraphs?: string[]
     list?: string[]
     link?: {
         text: string
         url: string
         label: string
     }
+    image?: string
+    imageCaption?: string
 }
 
 export interface ArticleItem {
