@@ -208,7 +208,14 @@ export const pressItems: ArticleItem[] = [
         paragraphs: [
           `As surveyors, we see the data in three dimensions, and we want to communicate those spatial attributes to our asset engineers. We want to be able to identify the signs of deterioration and communicate it with them more clearly`,
         ],
-        h4: `Andrew Ternes – Senior Hydrographic Surveyor`,
+
+      },
+      {
+        quote: {
+          text: `As surveyors, we see the data in three dimensions, and we want to communicate those spatial attributes to our asset engineers. We want to be able to identify the signs of deterioration and communicate it with them more clearly`,
+          author: 'Felix Musolf',
+          title: `Andrew Ternes – Senior Hydrographic Surveyor`,
+        },
       },
       {
         h3: `Proposed solution`,
