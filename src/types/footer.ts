@@ -13,6 +13,11 @@ export interface ContentBlock {
     }
     image?: string
     imageCaption?: string
+    quote?: {
+        text: string
+        author: string
+        title?: string
+    }
 }
 
 export interface ArticleItem {

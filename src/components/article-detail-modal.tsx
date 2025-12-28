@@ -166,7 +166,23 @@ export function ArticleDetailModal({
                   </a>
                 </p>
               )}
-                            {/* Content Image */}
+
+              {/* Quote/Blockquote */}
+              {block.quote && (
+                <blockquote className="my-6 border-l-2 border-cyan-500/50 pl-4">
+                  <p className="text-base italic leading-relaxed text-zinc-300">
+                    &ldquo;{block.quote.text}&rdquo;
+                  </p>
+                  <footer className="mt-3 text-sm text-zinc-400">
+                    <span className="font-medium text-white">{block.quote.author}</span>
+                    {block.quote.title && (
+                      <span className="text-zinc-500"> — {block.quote.title}</span>
+                    )}
+                  </footer>
+                </blockquote>
+              )}
+
+              {/* Content Image */}
               {block.image && (
                 <figure className="my-6">
                   <div className="overflow-hidden rounded-xl border border-white/10 bg-zinc-900/30">

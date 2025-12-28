@@ -314,6 +314,64 @@ export const pressItems: ArticleItem[] = [
           `Apart from the economic impact, I think COVID is going to really shine a light on flaws in the industry; first and foremost, the conception that one must be present at work in order to fulfil their obligations. Like all industries, I think we have a tendency to believe that working from home will lead to procrastination or difficulty to focus, simply because that’s exactly what you do when you get home, you relax, cook, and enjoy your hobbies. Since COVID is literally forcing people to work from home, we’re also forced to adapt, which before was rarely an option. If people get used to working from home and they like it, chances are they’re going to love it without the quarantine. This is something that I think companies are just going to have to accept. With that said, I think it’s well past time we prepare for remote controlling the port anyway, which is not only going to help centralise control but increase safety as well.`,
         ],
       },
+      {
+        paragraphs: [],
+        link: {
+          text: 'Originally posted by AntwerpXL on their blog ',
+          url: 'https://easyfairsassets.com/sites/179/2020/05/INTERVIEW-Mavisoft-CEO-Theodor-Preststulen.pdf',
+          label: 'on their blog.',
+        },
+      },
     ],
   },
+{
+  id: 'duisport',
+  title: `Duisport simplifies port maintenance with Mavisoft`,
+  date: '2022-04-11',
+  image: '/press/duisport.jpg',
+  detailImage: '',
+  video: '',
+  excerpt: `Quay walls and sheet piling are exposed to fluctuating water levels and changing weather conditions, which...`,
+  category: '',
+  content: [
+    {
+      h3: `A Groundbreaking Joint Venture`,
+      paragraphs: [],
+      link: {
+        text: `Quay walls and sheet piling are exposed to fluctuating water levels and changing weather conditions, which cause damage over the long term: rust, concrete damage or cracks can occur. In order to identify and repair such damage in good time, the duisport Group regularly inspects the quay walls and sheet piling in the Port of Duisburg. So far, this check has been carried out manually. In order to simplify the process, the startport startup Mavisoft has been supporting duisport as part of a pilot project since December 2021 in analyzing images of quay wall sections and detecting and classifying possible damage. To do this, Mavisoft uses artificial intelligence (AI) and`,
+        url: 'https://gi.de/informatiklexikon/digitaler-zwilling/',
+        label: 'digital twinning.',
+      },
+    },
+    {
+      h3:`'Mavisoft's solution reduces the amount of work and provides valuable additional information`,
+      paragraphs: [
+        `Mavisoft analyzes existing image material of the quay walls for duisport. This was recorded in advance using a drone and then transferred to a digital model (Digital Twin). With the help of algorithms, damage was then identified and its severity assessed. The AI-based analysis is more time-efficient for duisport and also more accurate because it is not based on subjective experience. In order to obtain precise analysis results, the startup includes additional information from the startup i4Sea about the weather, the Rhine level and user behavior.`,
+      ],
+    },
+    {
+      image: '/press/online-call-teddy.jpg',
+      imageCaption: '',
+    },
+    {
+      h3: 'Startport innovation platform successfully networked',
+      paragraphs: [
+        `This analysis, and thus the first phase of the pilot project, has already been successfully completed. After evaluating the results, a decision is made as to whether the startup's solution should continue to be used. Felix Musolf, Manager Digitization and Innovation at duisport, is convinced of the startup's commitment:`,
+      ],
+    },
+    {
+      quote: {
+        text: 'The team is very motivated and inspired us with their professional approach. We are excited to see how the solution develops.',
+        author: 'Felix Musolf',
+        title: 'Manager Digitization and Innovation at Duisport',
+      },
+    },
+    {
+      paragraphs: [
+        `The young AI research company Mavisoft is part of the sixth batch of the startup program from startport, the innovation platform for logistics and supply chain. At the end of 2021, the exchange was initiated by startport and the AI ​​measurement startup was able to win duisport as a customer. The first pilot projects are important for startups, says startport Managing Director Alexander Garbar: “In this specific project, Mavisoft has the opportunity to convince with its business model and thus also to win a long-term customer and advocate. This is very valuable for startups.”`
+      ],
+      
+    },
+  ],
+},
 ]
