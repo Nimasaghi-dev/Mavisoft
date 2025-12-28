@@ -17,10 +17,10 @@ function renderParagraphWithLinks(text: string, inlineLinks?: { text: string; ur
     return text
   }
 
-  let result: (string | JSX.Element)[] = [text]
+  let result: (string | React.ReactNode)[] = [text]
 
   inlineLinks.forEach((link, linkIndex) => {
-    const newResult: (string | JSX.Element)[] = []
+    const newResult: (string | React.ReactNode)[] = []
 
     result.forEach((segment, segmentIndex) => {
       if (typeof segment === 'string') {
