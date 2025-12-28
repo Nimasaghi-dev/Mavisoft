@@ -1,7 +1,7 @@
 'use client'
 
 import { LegalModal } from '@/components/legal-modal'
-import type { ArticleItem } from '@/types/footer'
+import type { ArticleItem, ContentBlock } from '@/types/footer'
 
 interface ArticleDetailModalProps {
   open: boolean
@@ -9,6 +9,51 @@ interface ArticleDetailModalProps {
   article: ArticleItem | null
   variant?: 'standard' | 'rich'
   modalTitle?: string
+}
+
+// Helper function to render paragraph text with inline links
+function renderParagraphWithLinks(text: string, inlineLinks?: { text: string; url: string }[]) {
+  if (!inlineLinks || inlineLinks.length === 0) {
+    return text
+  }
+
+  let result: (string | JSX.Element)[] = [text]
+
+  inlineLinks.forEach((link, linkIndex) => {
+    const newResult: (string | JSX.Element)[] = []
+
+    result.forEach((segment, segmentIndex) => {
+      if (typeof segment === 'string') {
+        const parts = segment.split(link.text)
+
+        parts.forEach((part, partIndex) => {
+          if (part) {
+            newResult.push(part)
+          }
+          // Add link between parts (but not after the last part)
+          if (partIndex < parts.length - 1) {
+            newResult.push(
+              <a
+                key={`link-${linkIndex}-${segmentIndex}-${partIndex}`}
+                href={link.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-cyan-400 underline transition-colors hover:text-cyan-300"
+              >
+                {link.text}
+              </a>
+            )
+          }
+        })
+      } else {
+        newResult.push(segment)
+      }
+    })
+
+    result = newResult
+  })
+
+  return <>{result}</>
 }
 
 export function ArticleDetailModal({
@@ -32,7 +77,7 @@ export function ArticleDetailModal({
     day: 'numeric',
   })
 
-  // Determine if we should show video or image
+  // Determine if we should show video or image for the header
   const hasVideo = article.video && article.video.length > 0
 
   // Use detailImage if available, otherwise fallback to image
@@ -54,7 +99,7 @@ export function ArticleDetailModal({
           </div>
           {/* Image Caption */}
           {article.detailImageCaption && (
-            <figcaption className="mt-3 text-center text-sm text-zinc-500 italic">
+            <figcaption className="mt-3 text-center text-sm italic text-zinc-500">
               {article.detailImageCaption}
             </figcaption>
           )}
@@ -66,7 +111,7 @@ export function ArticleDetailModal({
           {variant === 'rich' ? (
             <div className="flex flex-wrap items-center gap-2">
               {article.category && (
-                <span className="inline-block text-xs font-medium tracking-wide text-zinc-400 uppercase">
+                <span className="inline-block text-xs font-medium uppercase tracking-wide text-zinc-400">
                   {article.category}
                 </span>
               )}
@@ -79,14 +124,14 @@ export function ArticleDetailModal({
             </div>
           ) : (
             article.category && (
-              <span className="inline-block text-xs font-medium tracking-wide text-zinc-400 uppercase">
+              <span className="inline-block text-xs font-medium uppercase tracking-wide text-zinc-400">
                 {article.category}
               </span>
             )
           )}
 
           {/* Title */}
-          <h1 className="text-2xl leading-tight font-bold tracking-tight text-white sm:text-3xl">{article.title}</h1>
+          <h1 className="text-2xl font-bold leading-tight tracking-tight text-white sm:text-3xl">{article.title}</h1>
 
           {/* Author & Date */}
           {variant === 'rich' ? (
@@ -123,20 +168,18 @@ export function ArticleDetailModal({
                 </h3>
               )}
               {block.h4 && (
-                <h4
-                  className={`text-base text-zinc-200 ${variant === 'rich' ? 'mt-4 font-semibold' : 'font-semibold'}`}
-                >
+                <h4 className={`text-base text-zinc-200 ${variant === 'rich' ? 'mt-4 font-semibold' : 'font-semibold'}`}>
                   {block.h4}
                 </h4>
               )}
 
-              {/* Paragraphs */}
+              {/* Paragraphs with inline links support */}
               {block.paragraphs && block.paragraphs.length > 0 && (
                 <div className="space-y-4">
                   {block.paragraphs.map((p, pIdx) =>
                     p ? (
                       <p key={pIdx} className="text-sm leading-7 text-zinc-300">
-                        {p}
+                        {renderParagraphWithLinks(p, block.inlineLinks)}
                       </p>
                     ) : null
                   )}
@@ -170,14 +213,10 @@ export function ArticleDetailModal({
               {/* Quote/Blockquote */}
               {block.quote && (
                 <blockquote className="my-6 border-l-2 border-cyan-500/50 pl-4">
-                  <p className="text-base italic leading-relaxed text-zinc-300">
-                    &ldquo;{block.quote.text}&rdquo;
-                  </p>
+                  <p className="text-base italic leading-relaxed text-zinc-300">&ldquo;{block.quote.text}&rdquo;</p>
                   <footer className="mt-3 text-sm text-zinc-400">
                     <span className="font-medium text-white">{block.quote.author}</span>
-                    {block.quote.title && (
-                      <span className="text-zinc-500"> — {block.quote.title}</span>
-                    )}
+                    {block.quote.title && <span className="text-zinc-500"> — {block.quote.title}</span>}
                   </footer>
                 </blockquote>
               )}
@@ -186,21 +225,34 @@ export function ArticleDetailModal({
               {block.image && (
                 <figure className="my-6">
                   <div className="overflow-hidden rounded-xl border border-white/10 bg-zinc-900/30">
-                    <img
-                      src={block.image}
-                      alt={block.imageCaption || ''}
-                      className="w-full object-cover"
-                      loading="lazy"
-                    />
+                    <img src={block.image} alt={block.imageCaption || ''} className="w-full object-cover" loading="lazy" />
                   </div>
                   {block.imageCaption && (
-                    <figcaption className="mt-3 text-center text-sm text-zinc-500 italic">
+                    <figcaption className="mt-3 text-center text-sm italic text-zinc-500">
                       {block.imageCaption}
                     </figcaption>
                   )}
                 </figure>
               )}
 
+              {/* Content Video */}
+              {block.video && (
+                <figure className="my-6">
+                  <div className="overflow-hidden rounded-xl border border-white/10 bg-zinc-900/30">
+                    <video
+                      src={block.video}
+                      className="w-full"
+                      controls
+                      playsInline
+                    />
+                  </div>
+                  {block.videoCaption && (
+                    <figcaption className="mt-3 text-center text-sm italic text-zinc-500">
+                      {block.videoCaption}
+                    </figcaption>
+                  )}
+                </figure>
+              )}
             </section>
           ))}
         </div>
