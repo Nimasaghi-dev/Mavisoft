@@ -380,43 +380,110 @@ export const pressItems: ArticleItem[] = [
       },
     ],
   },
-{
-  id: 'port-of-antwerp',
-  title: `Port of Antwerp optimizes for the future with Mavisoft's Infrascan`,
-  date: '2022-04-22',
-  image: '/press/port-of-antwerp.jpg',
-  detailImage: '',
-  video: '',
-  excerpt: `It's been very hard to keep this project a secret from our network...`,
-  category: '',
-  content: [
+  {
+    id: 'port-of-antwerp',
+    title: `Port of Antwerp optimizes for the future with Mavisoft's Infrascan`,
+    date: '2022-04-22',
+    image: '/press/port-of-antwerp.jpg',
+    detailImage: '',
+    video: '',
+    excerpt: `It's been very hard to keep this project a secret from our network...`,
+    category: '',
+    content: [
+      {
+        h3: `A Groundbreaking Partnership`,
+        paragraphs: [
+          `It's been very hard to keep this project a secret from our network, but the time has come! We are beyond excited to share this video made by Port of Antwerp; this is a great representation of how our AI solution is being used to optimize one of the most advanced ports in the world.`,
+        ],
+        inlineLinks: [{ text: 'Port of Antwerp', url: 'https://www.portofantwerp.com' }],
+      },
+      {
+        video: '/blogs/1635857952437.mp4',
+        videoCaption: "Video by Port of Antwerp showcasing Mavisoft's AI solution",
+      },
+      {
+        paragraphs: [
+          `This is clearly a stepping stone to transforming Port of Antwerp into a state-of-the-art port. We are very proud to be contributing to their mission towards a more sustainable future!`,
+        ],
+        inlineLinks: [{ text: 'Port of Antwerp', url: 'https://www.linkedin.com/company/port-of-antwerp-bruges/' }],
+      },
+      {
+        paragraphs: ['Stay tuned to hear more about how Mavisoft is changing the surveying game!'],
+        inlineLinks: [{ text: 'Mavisoft', url: 'https://www.linkedin.com/company/mavisoft/' }],
+      },
+    ],
+  },
     {
-      h3: `A Groundbreaking Partnership`,
-      paragraphs: [
-        `It's been very hard to keep this project a secret from our network, but the time has come! We are beyond excited to share this video made by Port of Antwerp; this is a great representation of how our AI solution is being used to optimize one of the most advanced ports in the world.`,
-      ],
-      inlineLinks: [
-        { text: 'Port of Antwerp', url: 'https://www.portofantwerp.com' },
-      ],
-    },
+    id: 'port-of-antwerp',
+    title: `Completion of successful pilot project with Duisport`,
+    date: '2021-dec-06',
+    image: '/press/pilot-project.jpg',
+    detailImage: '',
+    video: '',
+    excerpt: `We are beyond happy about the successful completion of this pilot project with duisport – Duisburger Hafen AG!...`,
+    category: '',
+    content: [
+      {
+        h3: `A Groundbreaking Partnership`,
+        paragraphs: [
+          `We are beyond happy about the successful completion of this pilot project with duisport – Duisburger Hafen AG!`,
+        ],
+        inlineLinks: [{ text: 'duisport – Duisburger Hafen AG!', url: 'https://www.portofantwerp.com' }],
+      },
+      {
+        paragraphs: [
+          `Being part of the Startport GmbH accelerator program has come with great benefits, one of them being the introduction to Duisport.`,
+        ],
+        inlineLinks: [{ text: 'Startport GmbH', url: 'https://www.linkedin.com/company/startport-gmbh/' }],
+      },
+      {
+        paragraphs: [
+          `Mavisoft looks forward to a further collaboration with Duisport!`
+        ]
+      },
+    ],
+  },
     {
-      video: '/blogs/1635857952437.mp4',
-      videoCaption: 'Video by Port of Antwerp showcasing Mavisoft\'s AI solution',
-    },
-    {
-      paragraphs: [
-        `This is clearly a stepping stone to transforming Port of Antwerp into a state-of-the-art port. We are very proud to be contributing to their mission towards a more sustainable future!`,
-      ],
-      inlineLinks: [
-        { text: 'Port of Antwerp', url: 'https://www.linkedin.com/company/port-of-antwerp-bruges/'}
-      ]
-    },
-    {
-      paragraphs: ['Stay tuned to hear more about how Mavisoft is changing the surveying game!'],
-      inlineLinks: [
-        { text: 'Mavisoft', url: 'https://www.linkedin.com/company/mavisoft/'},
-      ],
-    },
-  ],
-},
+    id: 'port-of-zeebrugge',
+    title: `Port of Zeebrugge pilot project kicks off with partners`,
+    date: '2021-Nov-06',
+    image: '/press/port-of-zeeburg.jpg',
+    detailImage: '',
+    video: '',
+    excerpt: `We were honored to be part of this project with Port of Zeebrugge, which focused on optimizing the surveying process...`,
+    category: '',
+    content: [
+      {
+        image: '/press/port-molen.jpg',
+        imageCaption: 'drone in action',
+      },
+      {
+        paragraphs: [
+          `Mavisoft played a big role in advising on data collection and building the 3D model, which you can view below. Soon we will be wrapping up with our AI results which will automate the localization process of damages, as well as determining their severity and what needs to be done in regard to necessary repairs.`,
+        ],
+        inlineLinks: [{ text: 'Mavisoft', url: 'https://www.linkedin.com/company/mavisoft/posts/?feedView=all' }],
+
+      },
+      {
+        paragraphs: [
+          `Our focus was to conduct a quay wall inspection, where Citymesh also played a significant role, by delivering high-quality images with the use of their 'safety drone', which is currently being used by the Port of Zeebrugge to quickly address situations occurring in the port.`,
+        ],
+        inlineLinks: [{ text: 'Citymesh', url: 'https://www.linkedin.com/company/citymesh/' }],
+      },
+      {
+        paragraphs: [
+          `We look forward to working with Port of Zeebrugge in the future, and we are excited to see what comes next!`
+        ]
+      },
+      {
+        paragraphs: [
+          `Stay tuned for the final AI results!`
+        ]
+      },
+      {
+        image: '/press/drone-view.jpg',
+        imageCaption: 'drone-view',
+      },
+    ],
+  },
 ]
