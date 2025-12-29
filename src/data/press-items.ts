@@ -2,6 +2,70 @@ import type { ArticleItem } from '@/types/footer'
 
 export const pressItems: ArticleItem[] = [
   {
+    id: 'port-of-melbourne',
+    title: `Transforming industrial asset inspection at the Port of Melbourne`,
+    date: '2023-06-16',
+    image: '/press/port-of-melbourn.jpg',
+    detailImage: '/press/railway.jpg',
+    detailImageCaption: 'The Railway Pier in Sandridge, Melbourne State Library Victoria',
+    video: '',
+    excerpt: `The Port of Melbourne, Australia's largest container and general cargo port, stands proudly on the shores of picturesque Port Phillip Bay. Strategically located in close proximity to Melbourne's bustling central business district, this vibrant port serves...`,
+    category: '',
+    content: [
+      {
+        h3: `A fascinating legacy`,
+        paragraphs: [
+          `During the Victorian gold rush of the late 1800s, the Port of Melbourne was instrumental in facilitating the transportation of gold and other precious minerals from Australia to international markets. At the height of operations, the port was, in fact, the world's busiest; fueling Melbourne's rapid infrastructural development and economic growth. This extraordinary era left an indelible mark on the city's architecture and cultural institutions, forever preserving the port's remarkable legacy.`,
+        ],
+      },
+      {
+        h3: `Challenges faced`,
+        paragraphs: [
+          `As part of its ongoing development, the Port of Melbourne embarked on a quest to optimise industrial asset inspection processes, focusing on crucial components such as wharfs and quay walls. Traditional data collection methods involved dispatching personnel to gather information on a manual basis, imposing substantial costs. This labour-intensive process is not only expensive but also time-consuming and potentially hazardous. Senior Hydrographic Surveyor Andrew Ternes shared his insights on the matter.`,
+        ],
+      },
+      {
+        paragraphs: [
+          `As surveyors, we see the data in three dimensions, and we want to communicate those spatial attributes to our asset engineers. We want to be able to identify the signs of deterioration and communicate it with them more clearly`,
+        ],
+      },
+      {
+        quote: {
+          text: `As surveyors, we see the data in three dimensions, and we want to communicate those spatial attributes to our asset engineers. We want to be able to identify the signs of deterioration and communicate it with them more clearly`,
+          author: 'Felix Musolf',
+          title: `Andrew Ternes – Senior Hydrographic Surveyor`,
+        },
+      },
+      {
+        h3: `Proposed solution`,
+        paragraphs: [
+          `To overcome these challenges, we teamed up with the Port of Melbourne to embark on a pilot project designed to harness the power of Infrascan technology. This cutting-edge solution ultimately helped us create a digital twin of the inspected wharf, enabling precise identification of damage such as rust, cracks, corrosion, etc. Leveraging simple equipment such as GoPro cameras, the Port of Melbourne successfully collected the necessary data for processing and analysis purposes.`,
+        ],
+      },
+      {
+        h3: `Impressive results`,
+        paragraphs: [
+          `Upon completion of the project, we delivered a comprehensive wharf condition report detailing various damage, including rust, cracks, corrosion, and acid attacks. Consistent interpretation and unified approach demonstrated model accuracy and reliability, ensuring accurate and consistent results across the full breadth of asset inspection. These results support a systematic process to target follow-up human asset inspection and prioritise rehabilitation works.`,
+        ],
+      },
+      {
+        image: '/press/infrascan-result.png',
+        imageCaption: 'Infrascan results showing various detected damages',
+      },
+      {
+        h3: `Charting a course for automation and optimisation`,
+        paragraphs: [
+          `Following successful pilot project completion, the Port of Melbourne— together with our team—acknowledged the potential to further enhance the quality of results by utilising higher-quality equipment such as advanced cameras and drones. Nonetheless, the project yielded commendable results that played a pivotal role in the decision-making process despite utilising data captured with simple GoPro cameras; with outcomes laying a strong foundation to ultimately revolutionise the industrial asset inspection process. With a shared commitment to innovation and optimisation, we are confident that our pilot with the Port of Melbourne will pave the way for asset management system automation and optimisation.`,
+        ],
+      },
+      {
+        paragraphs: [
+          `With a bright future ahead, the Port of Melbourne continues to inspire and lead the way; driving progress and       propelling global trade and commerce to unprecedented heights.`,
+        ],
+      },
+    ],
+  },
+  {
     id: 'seed-round',
     title: 'AIrport Inspector featured in Passenger Terminal World magazine',
     date: '2023-04-17',
@@ -13,7 +77,7 @@ export const pressItems: ArticleItem[] = [
       {
         h2: `Featured Innovation`,
         paragraphs: [
-          `In the April edition of Passenger Terminal World magazine, AIrport Inspector takes the spotlight together with Royal Schiphol Group and its innovations. The innovation shines a light on Schiphol Group Aviation Solutions, highlighting its intentive strategies for improving passenger experiences and operational effectiveness.`,
+          `In the April edition of Passenger Terminal World magazine, AIrport Inspector takes the spotlight together with Royal Schiphol Group and its innovations. The innovation shines a light on Schiphol Group Aviation Solutions, highlighting its innovative strategies for improving passenger experiences and operational effectiveness.`,
           `Caroline Massart, the head of the Schiphol Group Aviation Solutions, emphasized the airport's commitment to propelling innovation within the aviation sector. AIrport Inspector is one of the newer innovations part of their portfolio that is on the way to revolutionizing the aviation industry maintenance practices. Designed to transform airport asset management, this technology is tailored for assessing runways and aircraft stands. Unlike conventional sample-based visual inspections, AIrport Inspector employs AI and laser technology to survey these critical assets comprehensively.`,
         ],
       },
@@ -109,163 +173,26 @@ export const pressItems: ArticleItem[] = [
     ],
   },
   {
-    id: 'PortXL-Antwerp',
-    title: `Mavisoft completes the PortXL Antwerp Startup Accelerator programme`,
-    date: '2019-dec-16',
-    image: '/press/contract.jpg',
-    video: '',
-    excerpt: `Today, we celebrate! Five contracts were signed by the talented bunch (including us!) from our 2019 cohort...`,
-    category: '',
-    content: [
-      {
-        h3: `Today, we celebrate! Five contracts were signed by the talented bunch (including us!) from our 2019 cohort. It's a testament to our community's innovative spirit that's alive and thriving.`,
-        paragraphs: [
-          `The innovators from the 2019 cohort pitched their exciting ideas, and we all got to take a tour of the startup expo – a glimpse into the future of the Antwerp port ecosystem and beyond. The event wrapped up with Alderman Annick De Ridder, reminding us of Antwerp's legacy of innovation and how it continues to shape the city's entrepreneurial spirit.`,
-          `Our journey in the program was all about finding the right match with corporates and tackling industry challenges together. At the same time, our goal was to build strong relationships and secure collaborations that make a difference. And you know what? It worked! We're coming out of this experience with new contracts in hand and a network that's richer than ever.`,
-        ],
-      },
-      {
-        paragraphs: [],
-        link: {
-          text: 'Read the',
-          url: 'https://www.schiphol.nl/en/innovation/blog/aircraft-stands-concrete-paving-now-inspected-with-lasers-and-ai/',
-          label: 'full article in PortXL news',
-        },
-      },
-      {
-        paragraphs: [],
-        link: {
-          text: 'Checkout this great',
-          url: 'https://vimeo.com/380306662',
-          label: 'after movie that PortXL put together.',
-        },
-      },
-    ],
-  },
-  {
-    id: 'schiphol-joint-venture',
-    title: `Mavisoft joins PortXL Antwerp accelerator programme`,
-    date: '2019-sep-30',
-    image: '/press/portXL.png',
-    detailImage: '/press/group-picture.jpg',
-    detailImageCaption:
-      'Group picture of the 2019 cohort, the corporate partners & the PortXL team following the contract signings. -- Photo credit: Jonas Verhulst',
-    video: '',
-    excerpt: `We have officially made it into this year’s PortXL Antwerp startup programme!  Just a little backstory – during the PortXL Selection Day, a bunch of candidates, including us, found themselves in the "orange status" category...`,
-    category: '',
-    content: [
-      {
-        h3: `A Groundbreaking Joint Venture`,
-        paragraphs: [
-          `Just a little backstory – during the PortXL Selection Day, a bunch of candidates, including us, found themselves in the "orange status" category. This meant a follow-up meeting to see if we were a good fit for the program.`,
-          `Guess what? We managed to impress MSC (Mediterranean Shipping Company) with our ideas and potential. Thanks to that, we're all set to dive into the 3-month program, side by side with some other really cool companies like Cnext, Evolution Energie, ProcessDelight, Romware, and Smart-Ship`,
-        ],
-      },
-      {
-        paragraphs: [
-          `So, that's our story so far! As we take a spot in the PortXL Antwerp programme, we're gearing up for some serious innovation and collaboration. We're on a mission to make a difference with AI, and we'd love for you to be part of the journey.`,
-        ],
-      },
-      {
-        paragraphs: [
-          `Stay curious, stay connected, and get ready to witness some exciting changes with Mavisoft leading the way!`,
-        ],
-      },
-      {
-        paragraphs: [],
-        link: {
-          text: 'Read the',
-          url: 'https://portxl.org/news/mavisoft-catches-second-wave-of-portxl-antwerp/',
-          label: 'full article  in PortXL news.',
-        },
-      },
-    ],
-  },
-  {
-    id: 'schiphol-joint-venture',
-    title: `Transforming industrial asset inspection at the Port of Melbourne`,
-    date: '2023-Jun-16',
-    image: '/press/port-of-melbourn.jpg',
-    detailImage: '/press/railway.jpg',
-    detailImageCaption: 'The Railway Pier in Sandridge, Melbourne State Library Victoria',
-    video: '',
-    excerpt: `The Port of Melbourne, Australia's largest container and general cargo port, stands proudly on the shores of picturesque Port Phillip Bay. Strategically located in close proximity to Melbourne's bustling central business district, this vibrant port serves...`,
-    category: '',
-    content: [
-      {
-        h3: `A fascinating legacy`,
-        paragraphs: [
-          `During the Victorian gold rush of the late 1800s, the Port of Melbourne was instrumental in facilitating the transportation of gold and other precious minerals from Australia to international markets. At the height of operations, the port was, in fact, the world’s busiest; fueling Melbourne's rapid infrastructural development and economic growth. This extraordinary era left an indelible mark on the city's architecture and cultural institutions, forever preserving the port's remarkable legacy.`,
-        ],
-      },
-      {
-        h3: `Challenges faced`,
-        paragraphs: [
-          `As part of its ongoing development, the Port of Melbourne embarked on a quest to optimise industrial asset inspection processes, focusing on crucial components such as wharfs and quay walls. Traditional data collection methods involved dispatching personnel to gather information on a manual basis, imposing substantial costs. This labour-intensive process is not only expensive but also time-consuming and potentially hazardous. Senior Hydrographic Surveyor Andrew Ternes shared his insights on the matter.`,
-        ],
-      },
-      {
-        paragraphs: [
-          `As surveyors, we see the data in three dimensions, and we want to communicate those spatial attributes to our asset engineers. We want to be able to identify the signs of deterioration and communicate it with them more clearly`,
-        ],
-      },
-      {
-        quote: {
-          text: `As surveyors, we see the data in three dimensions, and we want to communicate those spatial attributes to our asset engineers. We want to be able to identify the signs of deterioration and communicate it with them more clearly`,
-          author: 'Felix Musolf',
-          title: `Andrew Ternes – Senior Hydrographic Surveyor`,
-        },
-      },
-      {
-        h3: `Proposed solution`,
-        paragraphs: [
-          `To overcome these challenges, we teamed up with the Port of Melbourne to embark on a pilot project designed to harness the power of Infrascan technology. This cutting-edge solution ultimately helped us create a digital twin of the inspected wharf, enabling precise identification of damage such as rust, cracks, corrosion, etc. Leveraging simple equipment such as GoPro cameras, the Port of Melbourne successfully collected the necessary data for processing and analysis purposes.`,
-        ],
-      },
-      {
-        h3: `Impressive results`,
-        paragraphs: [
-          `Upon completion of the project, we delivered a comprehensive wharf condition report detailing various damage, including rust, cracks, corrosion, and acid attacks. Consistent interpretation and unified approach demonstrated model accuracy and reliability, ensuring accurate and consistent results across the full breadth of asset inspection. These results support a systematic process to target follow-up human asset inspection and prioritise rehabilitation works.`,
-        ],
-      },
-      {
-        image: '/press/infrascan-result.png',
-        imageCaption: 'Infrascan results showing various detected damages',
-      },
-      {
-        h3: `Charting a course for automation and optimisation`,
-        paragraphs: [
-          `Following successful pilot project completion, the Port of Melbourne— together with our team—acknowledged the potential to further enhance the quality of results by utilising higher-quality equipment such as advanced cameras and drones. Nonetheless, the project yielded commendable results that played a pivotal role in the decision-making process despite utilising data captured with simple GoPro cameras; with outcomes laying a strong foundation to ultimately revolutionise the industrial asset inspection process. With a shared commitment to innovation and optimisation, we are confident that our pilot with the Port of Melbourne will pave the way for asset management system automation and optimisation.`,
-        ],
-      },
-      {
-        paragraphs: [
-          `With a bright future ahead, the Port of Melbourne continues to inspire and lead the way; driving progress and       propelling global trade and commerce to unprecedented heights.`,
-        ],
-      },
-    ],
-  },
-  {
-    id: 'Interview-with-Teddy',
+    id: 'interview-with-teddy',
     title: `Interview with Theodor Preststulen, CEO of Mavisoft at AntwerpXL`,
-    date: '2022-Apr-26',
+    date: '2022-04-26',
     image: '/press/port-containers.jpg',
     detailImage: '/press/teddy-meeting.jpg',
     detailImageCaption: 'The Railway Pier in Sandridge, Melbourne State Library Victoria',
     video: '',
-    excerpt: `We sat down with Theodor Preststulen, CEO of first-time AXL exhibitor Mavisoft – the world’s leading researcher of automated...`,
+    excerpt: `We sat down with Theodor Preststulen, CEO of first-time AXL exhibitor Mavisoft – the world's leading researcher of automated...`,
     category: '',
     content: [
       {
         h3: `Interview with Theodor Preststulen, CEO of Mavisoft at AntwerpXL`,
         paragraphs: [
-          `We sat down with Theodor Preststulen, CEO of first-time AXL exhibitor Mavisoft – the world’s leading researcher of automated industrial surveying – to talk about the show, industry trends, and the impact of COVID-19 has had on business.`,
+          `We sat down with Theodor Preststulen, CEO of first-time AXL exhibitor Mavisoft – the world's leading researcher of automated industrial surveying – to talk about the show, industry trends, and the impact of COVID-19 has had on business.`,
         ],
       },
       {
         h3: `What is it about Antwerp XL that made you want to exhibit for the first time in 2020?`,
         paragraphs: [
-          `Antwerp XL has great attributes, particularly when it comes to location, network, and ambition; what I mean by this is that they are good at pushing innovation through partners such as PortXL, which for us is a must when presenting at a conference. Apart from that, they have a solid track record so we’re sure the work we are putting into this will pay off with a good level of exposure.`,
+          `Antwerp XL has great attributes, particularly when it comes to location, network, and ambition; what I mean by this is that they are good at pushing innovation through partners such as PortXL, which for us is a must when presenting at a conference. Apart from that, they have a solid track record so we're sure the work we are putting into this will pay off with a good level of exposure.`,
         ],
       },
       {
@@ -283,7 +210,7 @@ export const pressItems: ArticleItem[] = [
       {
         h3: `Which trends and challenges will impact your business most?`,
         paragraphs: [
-          `Remote analytics is a huge trend. Surveying work has always required someone to be physically present, but now it can now be automated with the use of Artificial Intelligence. For tasks that are more complex, AI can act as an ‘assistant’ to help spot anomalies that humans can’t, in other words, prevent human error. It’s our bread and butter so it will impact us positively.`,
+          `Remote analytics is a huge trend. Surveying work has always required someone to be physically present, but now it can now be automated with the use of Artificial Intelligence. For tasks that are more complex, AI can act as an 'assistant' to help spot anomalies that humans can't, in other words, prevent human error. It's our bread and butter so it will impact us positively.`,
         ],
       },
       {
@@ -293,7 +220,7 @@ export const pressItems: ArticleItem[] = [
         ],
       },
       {
-        h3: `What has been your organisation’s biggest accomplishment?`,
+        h3: `What has been your organisation's biggest accomplishment?`,
         paragraphs: [
           `Our biggest accomplishments during the quarantine period have been the productisation of our services into two offerings, Infrascan & Scantainr. We still have multiple services we plan on converting to products, however, these are the two most promising ones at the moment for us.`,
         ],
@@ -312,22 +239,55 @@ export const pressItems: ArticleItem[] = [
       {
         h3: `What impact has COVID-19 had on your business?`,
         paragraphs: [
-          `Apart from a handful of projects being put on hold, Mavisoft has managed to adapt fairly quickly to this new environment we are all faced with. The largest impact it has had on the company at this point is the lack of physical interaction between the team members. We take company culture seriously and the most challenging part about COVID is maintaining this interaction through online engagement which isn’t always as easy as you’d think. Apart from this, we think the larger impacts this will have on the market are yet to come, so we are doing everything we can to prepare ourselves.`,
+          `Apart from a handful of projects being put on hold, Mavisoft has managed to adapt fairly quickly to this new environment we are all faced with. The largest impact it has had on the company at this point is the lack of physical interaction between the team members. We take company culture seriously and the most challenging part about COVID is maintaining this interaction through online engagement which isn't always as easy as you'd think. Apart from this, we think the larger impacts this will have on the market are yet to come, so we are doing everything we can to prepare ourselves.`,
         ],
       },
       {
         h3: 'What do you think the long-term impact of COVID-19 will be on the industry?',
         paragraphs: [
-          `Apart from the economic impact, I think COVID is going to really shine a light on flaws in the industry; first and foremost, the conception that one must be present at work in order to fulfil their obligations. Like all industries, I think we have a tendency to believe that working from home will lead to procrastination or difficulty to focus, simply because that’s exactly what you do when you get home, you relax, cook, and enjoy your hobbies. Since COVID is literally forcing people to work from home, we’re also forced to adapt, which before was rarely an option. If people get used to working from home and they like it, chances are they’re going to love it without the quarantine. This is something that I think companies are just going to have to accept. With that said, I think it’s well past time we prepare for remote controlling the port anyway, which is not only going to help centralise control but increase safety as well.`,
+          `Apart from the economic impact, I think COVID is going to really shine a light on flaws in the industry; first and foremost, the conception that one must be present at work in order to fulfil their obligations. Like all industries, I think we have a tendency to believe that working from home will lead to procrastination or difficulty to focus, simply because that's exactly what you do when you get home, you relax, cook, and enjoy your hobbies. Since COVID is literally forcing people to work from home, we're also forced to adapt, which before was rarely an option. If people get used to working from home and they like it, chances are they're going to love it without the quarantine. This is something that I think companies are just going to have to accept. With that said, I think it's well past time we prepare for remote controlling the port anyway, which is not only going to help centralise control but increase safety as well.`,
         ],
       },
       {
         paragraphs: [],
         link: {
-          text: 'Originally posted by AntwerpXL on their blog ',
+          text: 'Originally posted by AntwerpXL',
           url: 'https://easyfairsassets.com/sites/179/2020/05/INTERVIEW-Mavisoft-CEO-Theodor-Preststulen.pdf',
           label: 'on their blog.',
         },
+      },
+    ],
+  },
+  {
+    id: 'port-of-antwerp',
+    title: `Port of Antwerp optimizes for the future with Mavisoft's Infrascan`,
+    date: '2022-04-22',
+    image: '/press/port-of-antwerp.jpg',
+    detailImage: '',
+    video: '',
+    excerpt: `It's been very hard to keep this project a secret from our network...`,
+    category: '',
+    content: [
+      {
+        h3: `A Groundbreaking Partnership`,
+        paragraphs: [
+          `It's been very hard to keep this project a secret from our network, but the time has come! We are beyond excited to share this video made by Port of Antwerp; this is a great representation of how our AI solution is being used to optimize one of the most advanced ports in the world.`,
+        ],
+        inlineLinks: [{ text: 'Port of Antwerp', url: 'https://www.portofantwerp.com' }],
+      },
+      {
+        video: '/blogs/1635857952437.mp4',
+        videoCaption: "Video by Port of Antwerp showcasing Mavisoft's AI solution",
+      },
+      {
+        paragraphs: [
+          `This is clearly a stepping stone to transforming Port of Antwerp into a state-of-the-art port. We are very proud to be contributing to their mission towards a more sustainable future!`,
+        ],
+        inlineLinks: [{ text: 'Port of Antwerp', url: 'https://www.linkedin.com/company/port-of-antwerp-bruges/' }],
+      },
+      {
+        paragraphs: ['Stay tuned to hear more about how Mavisoft is changing the surveying game!'],
+        inlineLinks: [{ text: 'Mavisoft', url: 'https://www.linkedin.com/company/mavisoft/' }],
       },
     ],
   },
@@ -375,48 +335,15 @@ export const pressItems: ArticleItem[] = [
       },
       {
         paragraphs: [
-          `The young AI research company Mavisoft is part of the sixth batch of the startup program from startport, the innovation platform for logistics and supply chain. At the end of 2021, the exchange was initiated by startport and the AI ​​measurement startup was able to win duisport as a customer. The first pilot projects are important for startups, says startport Managing Director Alexander Garbar: “In this specific project, Mavisoft has the opportunity to convince with its business model and thus also to win a long-term customer and advocate. This is very valuable for startups.”`,
+          `The young AI research company Mavisoft is part of the sixth batch of the startup program from startport, the innovation platform for logistics and supply chain. At the end of 2021, the exchange was initiated by startport and the AI ​​measurement startup was able to win duisport as a customer. The first pilot projects are important for startups, says startport Managing Director Alexander Garbar: "In this specific project, Mavisoft has the opportunity to convince with its business model and thus also to win a long-term customer and advocate. This is very valuable for startups."`,
         ],
       },
     ],
   },
   {
-    id: 'port-of-antwerp',
-    title: `Port of Antwerp optimizes for the future with Mavisoft's Infrascan`,
-    date: '2022-04-22',
-    image: '/press/port-of-antwerp.jpg',
-    detailImage: '',
-    video: '',
-    excerpt: `It's been very hard to keep this project a secret from our network...`,
-    category: '',
-    content: [
-      {
-        h3: `A Groundbreaking Partnership`,
-        paragraphs: [
-          `It's been very hard to keep this project a secret from our network, but the time has come! We are beyond excited to share this video made by Port of Antwerp; this is a great representation of how our AI solution is being used to optimize one of the most advanced ports in the world.`,
-        ],
-        inlineLinks: [{ text: 'Port of Antwerp', url: 'https://www.portofantwerp.com' }],
-      },
-      {
-        video: '/blogs/1635857952437.mp4',
-        videoCaption: "Video by Port of Antwerp showcasing Mavisoft's AI solution",
-      },
-      {
-        paragraphs: [
-          `This is clearly a stepping stone to transforming Port of Antwerp into a state-of-the-art port. We are very proud to be contributing to their mission towards a more sustainable future!`,
-        ],
-        inlineLinks: [{ text: 'Port of Antwerp', url: 'https://www.linkedin.com/company/port-of-antwerp-bruges/' }],
-      },
-      {
-        paragraphs: ['Stay tuned to hear more about how Mavisoft is changing the surveying game!'],
-        inlineLinks: [{ text: 'Mavisoft', url: 'https://www.linkedin.com/company/mavisoft/' }],
-      },
-    ],
-  },
-    {
-    id: 'port-of-antwerp',
+    id: 'duisport-pilot-completion',
     title: `Completion of successful pilot project with Duisport`,
-    date: '2021-dec-06',
+    date: '2021-12-06',
     image: '/press/pilot-project.jpg',
     detailImage: '',
     video: '',
@@ -428,7 +355,7 @@ export const pressItems: ArticleItem[] = [
         paragraphs: [
           `We are beyond happy about the successful completion of this pilot project with duisport – Duisburger Hafen AG!`,
         ],
-        inlineLinks: [{ text: 'duisport – Duisburger Hafen AG!', url: 'https://www.portofantwerp.com' }],
+        inlineLinks: [{ text: 'duisport – Duisburger Hafen AG!', url: 'https://www.duisport.de' }],
       },
       {
         paragraphs: [
@@ -437,16 +364,44 @@ export const pressItems: ArticleItem[] = [
         inlineLinks: [{ text: 'Startport GmbH', url: 'https://www.linkedin.com/company/startport-gmbh/' }],
       },
       {
-        paragraphs: [
-          `Mavisoft looks forward to a further collaboration with Duisport!`
-        ]
+        paragraphs: [`Mavisoft looks forward to a further collaboration with Duisport!`],
       },
     ],
   },
-    {
+  {
+    id: 'mavisoft-moves',
+    title: `Mavisoft moves ahead with startport innovation platform`,
+    date: '2021-12-06',
+    image: '/press/mavisoft-moves.jpg',
+    detailImage: '',
+    video: '',
+    excerpt: `Mavisoft has been selected to move forward with the Startport GmbH accelerator program...`,
+    category: '',
+    content: [
+      {
+        paragraphs: [
+          `Mavisoft has been selected to move forward with the Startport GmbH accelerator program. We are beyond happy to be joining this innovative program aimed at supporting startups and scaleups with coaching, workshops, and more importantly, penetrating the German market!`,
+        ],
+        inlineLinks: [{ text: 'Startport GmbH', url: 'https://www.linkedin.com/company/startport-gmbh/' }],
+      },
+      {
+        image: '/press/detected-damage.jpg',
+        imageCaption: 'Example of detected damage',
+      },
+      {
+        paragraphs: [
+          `We also want to congratulate the other start-ups that have made it this far, and we look forward to cooperating with them!`,
+        ],
+      },
+      {
+        paragraphs: [`Stay tuned to see where this new journey leads us!`],
+      },
+    ],
+  },
+  {
     id: 'port-of-zeebrugge',
     title: `Port of Zeebrugge pilot project kicks off with partners`,
-    date: '2021-Nov-06',
+    date: '2021-11-06',
     image: '/press/port-of-zeeburg.jpg',
     detailImage: '',
     video: '',
@@ -462,7 +417,6 @@ export const pressItems: ArticleItem[] = [
           `Mavisoft played a big role in advising on data collection and building the 3D model, which you can view below. Soon we will be wrapping up with our AI results which will automate the localization process of damages, as well as determining their severity and what needs to be done in regard to necessary repairs.`,
         ],
         inlineLinks: [{ text: 'Mavisoft', url: 'https://www.linkedin.com/company/mavisoft/posts/?feedView=all' }],
-
       },
       {
         paragraphs: [
@@ -472,13 +426,11 @@ export const pressItems: ArticleItem[] = [
       },
       {
         paragraphs: [
-          `We look forward to working with Port of Zeebrugge in the future, and we are excited to see what comes next!`
-        ]
+          `We look forward to working with Port of Zeebrugge in the future, and we are excited to see what comes next!`,
+        ],
       },
       {
-        paragraphs: [
-          `Stay tuned for the final AI results!`
-        ]
+        paragraphs: [`Stay tuned for the final AI results!`],
       },
       {
         image: '/press/drone-view.jpg',
@@ -486,33 +438,76 @@ export const pressItems: ArticleItem[] = [
       },
     ],
   },
-    {
-    id: 'mavisoft-moves',
-    title: `Mavisoft moves ahead with startport innovation platform`,
-    date: '2021-Dec-06',
-    image: '/press/mavisoft-moves.jpg',
-    detailImage: '',
+  {
+    id: 'portxl-antwerp-completion',
+    title: `Mavisoft completes the PortXL Antwerp Startup Accelerator programme`,
+    date: '2019-12-16',
+    image: '/press/contract.jpg',
     video: '',
-    excerpt: `We were honored to be part of this project with Port of Zeebrugge, which focused on optimizing the surveying process...`,
+    excerpt: `Today, we celebrate! Five contracts were signed by the talented bunch (including us!) from our 2019 cohort...`,
     category: '',
     content: [
       {
-        paragraphs: [`Mavisoft has been selected to move forward with the Startport GmbH accelerator program. We are beyond happy to be joining this innovative program aimed at supporting startups and scaleups with coaching, workshops, and more importantly, penetrating the German market!`],
-        inlineLinks: [{ text: 'Startport GmbH', url: 'https://www.linkedin.com/company/startport-gmbh/'}]
-      },
-      {
-        image: '/press/detected-damage.jpg',
-        imageCaption: 'Example of detected damage',
-      },
-      {
+        h3: `Today, we celebrate! Five contracts were signed by the talented bunch (including us!) from our 2019 cohort. It's a testament to our community's innovative spirit that's alive and thriving.`,
         paragraphs: [
-          `We also want to congratulate the other start-ups that have made it this far, and we look forward to cooperating with them!`,
+          `The innovators from the 2019 cohort pitched their exciting ideas, and we all got to take a tour of the startup expo – a glimpse into the future of the Antwerp port ecosystem and beyond. The event wrapped up with Alderman Annick De Ridder, reminding us of Antwerp's legacy of innovation and how it continues to shape the city's entrepreneurial spirit.`,
+          `Our journey in the program was all about finding the right match with corporates and tackling industry challenges together. At the same time, our goal was to build strong relationships and secure collaborations that make a difference. And you know what? It worked! We're coming out of this experience with new contracts in hand and a network that's richer than ever.`,
+        ],
+      },
+      {
+        paragraphs: [],
+        link: {
+          text: 'Read the',
+          url: 'https://portxl.org/news/portxl-antwerp-2019-cohort-completes-program/',
+          label: 'full article in PortXL news',
+        },
+      },
+      {
+        paragraphs: [],
+        link: {
+          text: 'Checkout this great',
+          url: 'https://vimeo.com/380306662',
+          label: 'after movie that PortXL put together.',
+        },
+      },
+    ],
+  },
+  {
+    id: 'portxl-antwerp-join',
+    title: `Mavisoft joins PortXL Antwerp accelerator programme`,
+    date: '2019-09-30',
+    image: '/press/portXL.png',
+    detailImage: '/press/group-picture.jpg',
+    detailImageCaption:
+      'Group picture of the 2019 cohort, the corporate partners & the PortXL team following the contract signings. -- Photo credit: Jonas Verhulst',
+    video: '',
+    excerpt: `We have officially made it into this year's PortXL Antwerp startup programme!  Just a little backstory – during the PortXL Selection Day, a bunch of candidates, including us, found themselves in the "orange status" category...`,
+    category: '',
+    content: [
+      {
+        h3: `Joining the PortXL Programme`,
+        paragraphs: [
+          `Just a little backstory – during the PortXL Selection Day, a bunch of candidates, including us, found themselves in the "orange status" category. This meant a follow-up meeting to see if we were a good fit for the program.`,
+          `Guess what? We managed to impress MSC (Mediterranean Shipping Company) with our ideas and potential. Thanks to that, we're all set to dive into the 3-month program, side by side with some other really cool companies like Cnext, Evolution Energie, ProcessDelight, Romware, and Smart-Ship`,
         ],
       },
       {
         paragraphs: [
-          `Stay tuned to see where this new journey leads us!`,
+          `So, that's our story so far! As we take a spot in the PortXL Antwerp programme, we're gearing up for some serious innovation and collaboration. We're on a mission to make a difference with AI, and we'd love for you to be part of the journey.`,
         ],
+      },
+      {
+        paragraphs: [
+          `Stay curious, stay connected, and get ready to witness some exciting changes with Mavisoft leading the way!`,
+        ],
+      },
+      {
+        paragraphs: [],
+        link: {
+          text: 'Read the',
+          url: 'https://portxl.org/news/mavisoft-catches-second-wave-of-portxl-antwerp/',
+          label: 'full article in PortXL news.',
+        },
       },
     ],
   },
