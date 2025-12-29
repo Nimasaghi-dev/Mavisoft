@@ -486,4 +486,34 @@ export const pressItems: ArticleItem[] = [
       },
     ],
   },
+    {
+    id: 'mavisoft-moves',
+    title: `Mavisoft moves ahead with startport innovation platform`,
+    date: '2021-Dec-06',
+    image: '/press/mavisoft-moves.jpg',
+    detailImage: '',
+    video: '',
+    excerpt: `We were honored to be part of this project with Port of Zeebrugge, which focused on optimizing the surveying process...`,
+    category: '',
+    content: [
+      {
+        paragraphs: [`Mavisoft has been selected to move forward with the Startport GmbH accelerator program. We are beyond happy to be joining this innovative program aimed at supporting startups and scaleups with coaching, workshops, and more importantly, penetrating the German market!`],
+        inlineLinks: [{ text: 'Startport GmbH', url: 'https://www.linkedin.com/company/startport-gmbh/'}]
+      },
+      {
+        image: '/press/detected-damage.jpg',
+        imageCaption: 'Example of detected damage',
+      },
+      {
+        paragraphs: [
+          `We also want to congratulate the other start-ups that have made it this far, and we look forward to cooperating with them!`,
+        ],
+      },
+      {
+        paragraphs: [
+          `Stay tuned to see where this new journey leads us!`,
+        ],
+      },
+    ],
+  },
 ]
