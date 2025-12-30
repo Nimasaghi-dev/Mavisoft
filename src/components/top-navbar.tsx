@@ -6,6 +6,7 @@ import { Logo } from '@/app/logo'
 import { SpectraLogo } from '@/components/SpectraLogo'
 import { Button } from '@/components/button'
 import { Navbar, NavbarSection, NavbarSpacer } from '@/components/navbar'
+import { useRouter } from 'next/navigation'
 
 // ANCHOR links - use null for label when using custom component
 const menuItems = [
@@ -18,10 +19,17 @@ const menuItems = [
 
 export function TopNavbar() {
   const [isOpen, setIsOpen] = useState(false)
+  const router = useRouter()
 
   // Helper functions 
   const toggleMenu = () => setIsOpen(!isOpen)
   const closeMenu = () => setIsOpen(false)
+
+  const handleLogoClick = () => {
+    window.scrollTo({ top:0, behavior:'smooth' })
+
+    router.push('/', { scroll: false })
+  }
 
   return (
     <header className="animate-fadeSlide fixed top-0 right-0 left-0 z-50 bg-transparent-md backdrop-blur-md">
@@ -30,7 +38,7 @@ export function TopNavbar() {
           <NavbarSection>
             <button
               type="button"
-              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              onClick={handleLogoClick}
               className="cursor-pointer"
               aria-label="Scroll to top"
             >
