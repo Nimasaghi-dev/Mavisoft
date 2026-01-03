@@ -2,38 +2,93 @@
 
 import { motion } from 'framer-motion'
 import { useState } from 'react'
-import type { ContactFormData } from '@/types/footer'
+import type { ContactFormData, FormStatus } from '@/types/footer'
 
+/**
+ * ContactForm Component
+ * 
+ * A contact form that sends submissions to /api/contact
+ * which then emails the message via Resend.
+ * 
+ * Features:
+ * - Client-side validation
+ * - Loading states
+ * - Success/error feedback
+ * - Accessible form controls
+ */
 export function ContactForm() {
+  // Form data state
   const [formData, setFormData] = useState<ContactFormData>({
     name: '',
     email: '',
     message: '',
   })
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [submitted, setSubmitted] = useState(false)
+  
+  // Form status: 'idle' | 'submitting' | 'success' | 'error'
+  const [status, setStatus] = useState<FormStatus>('idle')
+  
+  // Error message to display
+  const [errorMessage, setErrorMessage] = useState<string>('')
 
+  /** Handles form submission - Sends data to the API and handles the response */
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    setIsSubmitting(true)
+    
+    // Reset error state
+    setErrorMessage('')
+    setStatus('submitting')
 
-    // Simulate form submission - replace with actual API
-    await new Promise((resolve) => setTimeout(resolve, 1000))
+    try {
+      // Send POST request to our API route
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
 
-    setIsSubmitting(false)
-    setSubmitted(true)
-    setFormData({ name: '', email: '', message: '' })
+      // Parse the JSON response
+      const result = await response.json()
 
-    // Reset success message after 5 seconds
-    setTimeout(() => setSubmitted(false), 5000)
+      if (!response.ok || !result.success) {
+        // Handle error response from API
+        setStatus('error')
+        setErrorMessage(result.error || 'Something went wrong. Please try again.')
+        return
+      }
+
+      // Success! Clear form and show success message
+      setStatus('success')
+      setFormData({ name: '', email: '', message: '' })
+
+      // Reset to idle state after 5 seconds
+      setTimeout(() => setStatus('idle'), 5000)
+
+    } catch (error) {
+      // Handle network errors or unexpected issues
+      console.error('Form submission error:', error)
+      setStatus('error')
+      setErrorMessage('Unable to send message. Please check your connection and try again.')
+    }
   }
 
+  /** Handles input changes - Updates form data state */
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    // Clear error when user starts typing again
+    if (status === 'error') {
+      setStatus('idle')
+      setErrorMessage('')
+    }
+    
     setFormData((prev) => ({
       ...prev,
       [e.target.name]: e.target.value,
     }))
   }
+
+  // Determine if form is currently submitting
+  const isSubmitting = status === 'submitting'
 
   return (
     <div className="rounded-xl border border-white/10 bg-zinc-900/30 p-6 backdrop-blur-sm sm:p-8">
@@ -42,7 +97,8 @@ export function ContactForm() {
         Have a project in mind? We&apos;d love to hear from you.
       </p>
 
-      {submitted ? (
+      {/* Success State */}
+      {status === 'success' ? (
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -54,7 +110,21 @@ export function ContactForm() {
         </motion.div>
       ) : (
         <form onSubmit={handleSubmit} className="mt-6 space-y-4">
-          {/* Name */}
+          
+          {/* Error Message */}
+          {status === 'error' && errorMessage && (
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="rounded-lg border border-red-400/30 bg-red-400/10 p-4"
+            >
+              <p className="text-sm text-red-400">
+                ✕ {errorMessage}
+              </p>
+            </motion.div>
+          )}
+
+          {/* Name Field */}
           <div>
             <label htmlFor="contact-name" className="block text-sm font-medium text-zinc-300">
               Name
@@ -66,12 +136,14 @@ export function ContactForm() {
               value={formData.name}
               onChange={handleChange}
               required
-              className="mt-1 block w-full rounded-lg border border-white/10 bg-zinc-800/50 px-4 py-2.5 text-sm text-white placeholder-zinc-500 transition-colors focus:border-white/20 focus:outline-none focus:ring-1 focus:ring-white/20"
+              minLength={2}
+              disabled={isSubmitting}
+              className="mt-1 block w-full rounded-lg border border-white/10 bg-zinc-800/50 px-4 py-2.5 text-sm text-white placeholder-zinc-500 transition-colors focus:border-white/20 focus:outline-none focus:ring-1 focus:ring-white/20 disabled:cursor-not-allowed disabled:opacity-50"
               placeholder="Your name"
             />
           </div>
 
-          {/* Email */}
+          {/* Email Field */}
           <div>
             <label htmlFor="contact-email" className="block text-sm font-medium text-zinc-300">
               Email
@@ -83,12 +155,13 @@ export function ContactForm() {
               value={formData.email}
               onChange={handleChange}
               required
-              className="mt-1 block w-full rounded-lg border border-white/10 bg-zinc-800/50 px-4 py-2.5 text-sm text-white placeholder-zinc-500 transition-colors focus:border-white/20 focus:outline-none focus:ring-1 focus:ring-white/20"
+              disabled={isSubmitting}
+              className="mt-1 block w-full rounded-lg border border-white/10 bg-zinc-800/50 px-4 py-2.5 text-sm text-white placeholder-zinc-500 transition-colors focus:border-white/20 focus:outline-none focus:ring-1 focus:ring-white/20 disabled:cursor-not-allowed disabled:opacity-50"
               placeholder="you@company.com"
             />
           </div>
 
-          {/* Message */}
+          {/* Message Field */}
           <div>
             <label htmlFor="contact-message" className="block text-sm font-medium text-zinc-300">
               Message
@@ -99,8 +172,11 @@ export function ContactForm() {
               value={formData.message}
               onChange={handleChange}
               required
+              minLength={10}
+              maxLength={5000}
               rows={4}
-              className="mt-1 block w-full resize-none rounded-lg border border-white/10 bg-zinc-800/50 px-4 py-2.5 text-sm text-white placeholder-zinc-500 transition-colors focus:border-white/20 focus:outline-none focus:ring-1 focus:ring-white/20"
+              disabled={isSubmitting}
+              className="mt-1 block w-full resize-none rounded-lg border border-white/10 bg-zinc-800/50 px-4 py-2.5 text-sm text-white placeholder-zinc-500 transition-colors focus:border-white/20 focus:outline-none focus:ring-1 focus:ring-white/20 disabled:cursor-not-allowed disabled:opacity-50"
               placeholder="Tell us about your project..."
             />
           </div>
@@ -113,6 +189,7 @@ export function ContactForm() {
           >
             {isSubmitting ? (
               <>
+                {/* Loading Spinner */}
                 <svg className="mr-2 h-4 w-4 animate-spin" viewBox="0 0 24 24">
                   <circle
                     className="opacity-25"
