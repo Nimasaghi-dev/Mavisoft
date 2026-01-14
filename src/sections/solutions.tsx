@@ -65,7 +65,7 @@ export function SolutionSection() {
       number: 5,
       title: 'Trigger actions',
       highlight: 'instantly',
-      image: '/Spectra_AssetsArtboard 2@2x.png',
+      image: '/women-in-industry.png',
       icon: '/Inspection_Icon.svg',
       items: [
         'Use the cameras you already have',
@@ -141,7 +141,7 @@ export function SolutionSection() {
                   whileInView="visible"
                   viewport={viewportOptions}
                   variants={scaleFadeVariants}
-                  className={`mx-auto max-w-5xl rounded-2xl border border-white/5 bg-zinc-900/30 p-4 shadow-lg shadow-black/20 backdrop-blur-sm transition-all duration-500 ease-out hover:scale-[1.02] hover:border-white/20 hover:bg-zinc-800/40 hover:shadow-lg hover:shadow-white/20 sm:rounded-3xl sm:p-5 lg:p-6 ${
+                  className={`mx-auto max-w-5xl rounded-2xl border border-white/5 bg-zinc-900/30 p-4 shadow-lg shadow-black/20 backdrop-blur-sm transition-all duration-300 ease-in hover:scale-[1.01] hover:border-white/20 hover:bg-zinc-800/40 hover:shadow-lg hover:shadow-white/20 sm:rounded-3xl sm:p-5 lg:p-6 ${
                     card.number % 2 === 1 ? 'translate-x-15' : '-translate-x-15'
                   }`}
                 >
@@ -236,7 +236,7 @@ export function SolutionSection() {
                 variants={staggerChildVariants}
                 className="group relative min-h-[360px] overflow-hidden rounded-xl border border-white/10 shadow-lg shadow-black/20 transition-all duration-300 ease-out hover:border-red-200/30 hover:shadow-lg hover:shadow-white/20 sm:min-h-[300px]"
               >
-                {/* Background image - no blur */}
+                {/* Background image */}
                 <div className="pointer-events-none absolute inset-0">
                   <Image
                     src={c.image}
