@@ -18,6 +18,7 @@ export function SolutionSection() {
       title: 'Connect your',
       highlight: 'feeds',
       image: '/Untitled-1Artboard 1.png',
+      icon: '/Camera_Icon.svg',
       items: [
         'Use the cameras you already have',
         'Add drones or handheld photos when needed',
@@ -28,7 +29,8 @@ export function SolutionSection() {
       number: 2,
       title: 'Apply the AI models',
       highlight: 'you need',
-      image: '/Spectra_AssetsArtboard 2@2x.png',
+      image: '/apply_your_AI_models.png',
+      icon: '/Model_Icon.svg',
       items: [
         'Pick the models you need (cracks, PPE, people, etc.).',
         'Add drones or handheld photos when needed',
@@ -40,6 +42,7 @@ export function SolutionSection() {
       title: 'See everything in',
       highlight: 'XR',
       image: '/ChatGPT Image Oct 17, 2025, 11_46_48 AM.png',
+      icon: '/XR_Icon.svg',
       items: [
         'Use the cameras you already have',
         'Add drones or handheld photos when needed',
@@ -51,6 +54,7 @@ export function SolutionSection() {
       title: 'Automate with',
       highlight: 'workflows',
       image: '/Spectra_AssetsArtboard 2@2x.png',
+      icon: '/Workflow_Icon.svg',
       items: [
         'Use the cameras you already have',
         'Add drones or handheld photos when needed',
@@ -62,6 +66,7 @@ export function SolutionSection() {
       title: 'Trigger actions',
       highlight: 'instantly',
       image: '/Spectra_AssetsArtboard 2@2x.png',
+      icon: '/Inspection_Icon.svg',
       items: [
         'Use the cameras you already have',
         'Add drones or handheld photos when needed',
@@ -126,8 +131,8 @@ export function SolutionSection() {
 
           {/* Main Cards */}
           <div className="mt-12 flex flex-col gap-6 md:mt-16">
-            {cards.map((card, index) => {
-              const isOdd = index % 2 === 1
+            {cards.map((card) => {
+              const isOddCard = card.number % 2 === 1
 
               return (
                 <motion.div
@@ -136,32 +141,44 @@ export function SolutionSection() {
                   whileInView="visible"
                   viewport={viewportOptions}
                   variants={scaleFadeVariants}
-                  className="rounded-xl border border-white/10 bg-zinc-900/30 p-6 shadow-lg shadow-black/20 backdrop-blur-sm transition-all duration-500 ease-out hover:scale-[1.02] hover:border-white/30 hover:bg-zinc-800/40 hover:shadow-lg hover:shadow-white/20 lg:p-10"
+                  className={`mx-auto max-w-5xl rounded-2xl border border-white/5 bg-zinc-900/30 p-4 shadow-lg shadow-black/20 backdrop-blur-sm transition-all duration-500 ease-out hover:scale-[1.02] hover:border-white/20 hover:bg-zinc-800/40 hover:shadow-lg hover:shadow-white/20 sm:rounded-3xl sm:p-5 lg:p-6 ${
+                    card.number % 2 === 1 ? 'translate-x-15' : '-translate-x-15'
+                  }`}
                 >
-                  <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-16">
+                  <div className="grid grid-cols-1 items-center gap-2 sm:gap-3 lg:grid-cols-2 lg:gap-4">
                     {/* Image */}
                     <div
-                      className={`flex w-full items-center justify-center ${isOdd ? 'lg:order-2' : 'lg:order-1'}`}
+                      className={`flex w-full items-center justify-center ${isOddCard ? 'lg:order-2' : 'lg:order-1'}`}
                     >
-                      <div className="relative h-48 w-full max-w-sm sm:h-56 lg:h-56">
+                      <div className="relative h-40 w-full max-w-sm overflow-hidden rounded-lg border border-zinc-700/80 sm:h-44 sm:rounded-xl sm:border-2 lg:h-48">
+                        {/* Icon overlay */}
+                        <div className="absolute left-2 top-2 z-10 rounded-md bg-black/40 p-1 sm:left-3 sm:top-3 sm:p-1.5">
+                          <Image
+                            src={card.icon}
+                            alt=""
+                            width={20}
+                            height={20}
+                            className="h-4 w-4 sm:h-5 sm:w-5"
+                          />
+                        </div>
                         <Image
                           alt={card.title}
                           src={card.image}
                           fill
-                          className="object-contain"
-                          priority={index < 2}
+                          className="object-cover"
+                          priority={card.number <= 2}
                         />
                       </div>
                     </div>
 
                     {/* Text */}
                     <div
-                      className={`flex w-full items-center justify-center ${isOdd ? 'lg:order-1' : 'lg:order-2'}`}
+                      className={`flex w-full items-center justify-center ${isOddCard ? 'lg:order-1' : 'lg:order-2'}`}
                     >
                       <div className="max-w-md text-center lg:text-left">
                         <h3 className="text-xl font-medium text-white sm:text-2xl">
                           {card.number}. {card.title}{' '}
-                          <span className="text-red-700">{card.highlight}</span>
+                          <span className="text-red-400">{card.highlight}</span>
                         </h3>
                         <ul className="mt-4 space-y-2 text-sm text-gray-400 sm:text-base">
                           {card.items.map((item, idx) => (
