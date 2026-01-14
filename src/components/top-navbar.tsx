@@ -68,19 +68,19 @@ export function TopNavbar() {
 
           <NavbarSection className="hidden md:flex">
             <Button
-              className="group rounded-lg! border! border-cyan-500/30! px-4! py-2.5! text-sm! font-medium! text-cyan-100! shadow-sm! shadow-cyan-500/10! transition-all! duration-300! hover:border-cyan-200! hover:bg-cyan-500/10! hover:text-cyan-100! hover:shadow-md! hover:shadow-cyan-500/20!"
-              href="/login"
+              className="group rounded-lg! border! border-cyan-500/30! inline-flex! items-center! justify-center! px-4! py-2.5! h-8! text-sm! font-medium! text-cyan-100! shadow-sm! shadow-cyan-500/10! transition-all! duration-300! hover:border-cyan-200! hover:bg-cyan-500/10! hover:text-cyan-100! hover:shadow-md! hover:shadow-cyan-500/20!"
+              href="/#contact"
               outline
             >
               Login
             </Button>
-            <Button
+            {/* <Button
               className="group rounded-lg! border! border-cyan-500/30! px-4! py-2.5! text-sm! font-medium! text-cyan-100! shadow-sm! shadow-cyan-500/10! transition-all! duration-300! hover:border-cyan-200! hover:bg-cyan-500/10! hover:text-cyan-100! hover:shadow-md! hover:shadow-cyan-500/20!"
               href="/request-access"
               outline
             >
               Request Access
-            </Button>
+            </Button> */}
           </NavbarSection>
 
           {/* Hamburger Button (Mobile Only) */}
