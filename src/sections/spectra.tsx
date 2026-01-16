@@ -47,7 +47,7 @@ export function SpectraSection() {
 
           {/* Bottom Content */}
           <motion.div
-            className="mt-12 flex flex-col gap-6 md:flex-row md:items-center md:justify-between"
+            className="mt-12 flex flex-col items-start gap-4"
             initial="hidden"
             whileInView="visible"
             viewport={viewportOptions}
