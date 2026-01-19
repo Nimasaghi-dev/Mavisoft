@@ -13,21 +13,21 @@ const VisionSection = () => {
   const cards = [
     {
       icon: '/Perception_Icon.svg',
-      logoDark: 'https://tailwindcss.com/plus-assets/img/logos/tuple-logo-white.svg',
+      logoDark: '/Perception_Icon.svg',
       title: 'Perception',
       description:
         'Understanding the world through multi-modal sensing, transforming raw signals into meaningful representations.',
     },
     {
-      icon: 'https://tailwindcss.com/plus-assets/img/logos/reform-logo-gray-900.svg',
-      logoDark: 'https://tailwindcss.com/plus-assets/img/logos/reform-logo-white.svg',
+      icon: '/public/Comprehension_Icon.svg',
+      logoDark: '/public/Comprehension_Icon.svg',
       title: 'Structure',
       description:
         'Organizing complexity into coherent frameworks that reveal underlying patterns and relationships.',
     },
     {
-      icon: 'https://tailwindcss.com/plus-assets/img/logos/savvycal-logo-gray-900.svg',
-      logoDark: 'https://tailwindcss.com/plus-assets/img/logos/savvycal-logo-white.svg',
+      icon: '/public/Action_Icon.svg',
+      logoDark: '/public/Action_Icon.svg',
       title: 'Action',
       description:
         'Leveraging AI models and detections to create workflows and define meaningful events.',
