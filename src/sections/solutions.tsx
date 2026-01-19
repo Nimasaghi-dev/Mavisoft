@@ -86,21 +86,21 @@ export function SolutionSection() {
     {
       id: 'b',
       title: 'Operations Optimization',
-      image: '/Untitled-1Artboard 1.png',
+      image: '/press/airport-detailed-image.jpg',
       body: 'Unblock queues and keep work moving smoothly',
       subline: 'MTTR • Dwell time',
     },
     {
       id: 'c',
       title: 'Security & Access Control',
-      image: '/Untitled-1Artboard 1.png',
+      image: '/press/infrascan-result.png',
       body: "Know who's where and keep the wrong things out",
       subline: 'Throughput • False alarms',
     },
     {
       id: 'd',
       title: 'Safety & Compliance (HSE)',
-      image: '/Untitled-1Artboard 1.png',
+      image: '/press/pilot-project.jpg',
       body: 'Spot unsafe situations and nudge the right behavior',
       subline: 'Incidents • Compliance rate',
     },
@@ -141,7 +141,7 @@ export function SolutionSection() {
                   whileInView="visible"
                   viewport={viewportOptions}
                   variants={scaleFadeVariants}
-                  className={`mx-auto max-w-5xl rounded-2xl border border-white/5 bg-zinc-900/30 p-4 shadow-lg shadow-black/20 backdrop-blur-sm transition-all duration-300 ease-in hover:scale-[1.01] hover:border-white/20 hover:bg-zinc-800/40 hover:shadow-lg hover:shadow-white/20 sm:rounded-3xl sm:p-5 lg:p-6 ${
+                  className={`mx-auto max-w-5xl rounded-2xl border border-white/5 bg-zinc-900/30 p-4 shadow-lg shadow-black/20 backdrop-blur-sm transition-all duration-300 ease-in hover:border-white/20 hover:bg-zinc-800/40 hover:shadow-lg hover:shadow-white/20 sm:rounded-3xl sm:p-5 lg:p-6 ${
                     card.number % 2 === 1 ? 'translate-x-15' : '-translate-x-15'
                   }`}
                 >

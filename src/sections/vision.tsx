@@ -12,21 +12,21 @@ import {
 const VisionSection = () => {
   const cards = [
     {
-      logo: 'https://tailwindcss.com/plus-assets/img/logos/tuple-logo-gray-900.svg',
+      icon: '/Perception_Icon.svg',
       logoDark: 'https://tailwindcss.com/plus-assets/img/logos/tuple-logo-white.svg',
       title: 'Perception',
       description:
         'Understanding the world through multi-modal sensing, transforming raw signals into meaningful representations.',
     },
     {
-      logo: 'https://tailwindcss.com/plus-assets/img/logos/reform-logo-gray-900.svg',
+      icon: 'https://tailwindcss.com/plus-assets/img/logos/reform-logo-gray-900.svg',
       logoDark: 'https://tailwindcss.com/plus-assets/img/logos/reform-logo-white.svg',
       title: 'Structure',
       description:
         'Organizing complexity into coherent frameworks that reveal underlying patterns and relationships.',
     },
     {
-      logo: 'https://tailwindcss.com/plus-assets/img/logos/savvycal-logo-gray-900.svg',
+      icon: 'https://tailwindcss.com/plus-assets/img/logos/savvycal-logo-gray-900.svg',
       logoDark: 'https://tailwindcss.com/plus-assets/img/logos/savvycal-logo-white.svg',
       title: 'Action',
       description:
@@ -106,7 +106,7 @@ const VisionSection = () => {
               >
                 <div className="flex items-center gap-4">
                   <div className="shrink-0">
-                    <img src={card.logo} alt="" className="h-8 w-auto dark:hidden" />
+                    <img src={card.icon} alt="" className="h-8 w-auto dark:hidden" />
                     <img src={card.logoDark} alt="" className="hidden h-8 w-auto dark:block" />
                   </div>
                   <h3 className="text-lg font-medium text-white">{card.title}</h3>
