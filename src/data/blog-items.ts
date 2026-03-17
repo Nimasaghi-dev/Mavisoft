@@ -3,159 +3,111 @@ import { ArticleItem } from "@/types/footer"
 export const blogItems: ArticleItem[] = [
     {
       id: 'ai-vision-future',
-      title: 'The Future of AI Vision in Infrastructure Inspection',
-      date: '2024-11-15',
-      image: '/blog/ai-vision-hero.jpg',
-      excerpt: `Exploring how artificial intelligence and computer vision are revolutionizing the way we inspect and maintain critical infrastructure across industries...`,
-      category: 'Technology',
+      title: 'Interview with Theodor Preststulen, CEO of Mavisoft at AntwerpXL',
+      date: '2022-April-26',
+      image: '/Blogs/twelfth-layout-2.jpg',
+      video: '',
+      excerpt: `We sat down with Theodor Preststulen, CEO of first-time AXL exhibitor Mavisoft – the world’s leading researcher of automated industrial surveying – to talk about the show, industry trends, and ...`,
+      category: 'INTERVIEWS',
       author: 'Theodor Preststulen',
       readTime: '8 min read',
       content: [
         {
-          h2: 'Transforming Infrastructure Management',
+          h2: 'Interview with Theodor Preststulen, CEO of Mavisoft at AntwerpXL',
           paragraphs: [
-            `The landscape of infrastructure inspection is undergoing a fundamental transformation. Traditional manual inspection methods, while reliable, are time-consuming, subjective, and often miss critical details that could prevent costly failures. Enter AI-powered vision systems that are changing the game.`,
-            `At Mavisoft, we've witnessed firsthand how combining advanced computer vision with artificial intelligence creates inspection systems that are not only more accurate but also more comprehensive than traditional methods. Our Spectra® platform demonstrates that when you give machines the ability to "see" and "understand" infrastructure at scale, you unlock possibilities that were simply not feasible before.`,
+            `We sat down with Theodor Preststulen, CEO of first-time AXL exhibitor Mavisoft – the world’s leading researcher of automated industrial surveying – to talk about the show, industry trends, and the impact of COVID-19 has had on business.`,
+            
           ],
         },
         {
-          h3: 'The Power of Complete Coverage',
+          h3: 'What is it about Antwerp XL that made you want to exhibit for the first time in 2020?',
           paragraphs: [
-            `One of the most significant advantages of AI vision systems is their ability to inspect 100% of an asset's surface. Traditional methods often rely on statistical sampling—inspecting a small percentage and extrapolating to the whole. This approach can miss localized damage that, if left unchecked, can propagate and lead to catastrophic failures.`,
-            `Computer vision systems capture every detail, creating a complete digital twin of the infrastructure. This comprehensive approach means that even the smallest crack or surface anomaly is documented, tracked over time, and analyzed for potential risk.`,
+            `Antwerp XL has great attributes, particularly when it comes to location, network, and ambition; what I mean by this is that they are good at pushing innovation through partners such as PortXL, which for us is a must when presenting at a conference. Apart from that, they have a solid track record so we’re sure the work we are putting into this will pay off with a good level of exposure.`,
           ],
         },
         {
-          h3: 'Objectivity and Consistency',
+          h3: 'What will you be showcasing at the innovation zone at Antwerp XL?',
           paragraphs: [
-            `Human inspectors bring valuable experience and intuition, but they're also subject to fatigue, environmental conditions, and subjective judgment. An AI vision system, once properly trained and validated, applies the same rigorous standards consistently across every inspection.`,
-            `This objectivity is crucial for creating reliable historical data. When you can trust that each inspection uses identical criteria, you can track degradation patterns with confidence and make data-driven maintenance decisions.`,
+            `At AntwerpXL, we will be displaying two of our products, Infrascan, and Scantainr. They are both focused on damage detection using our specialized AI algorithms. Infrascan is used for industrial surveying of any metal or concrete based assets, where we detect defects based on the source and severity of the damage, and this information can then be used for repair optimisation and budget management. Scantainr is a damage surveying solution specific to shipping containers, the largest value propositions lie in preventing damage claims, as well as repair and maintenance management. As a company we are currently focused very much on damage detection, however, we do plan on expanding our horizons in the coming years.`,
           ],
         },
         {
-          h3: 'Looking Ahead',
+          h3: 'What do you think will be the most prevalent industry trends and challenges in the next 12 months?',
           paragraphs: [
-            `The future of infrastructure inspection lies in the seamless integration of AI vision with existing maintenance workflows. As these technologies mature, we'll see predictive maintenance become the norm rather than the exception. Organizations will shift from reactive repairs to proactive asset management, extending infrastructure lifespan while reducing costs.`,
-            `At Mavisoft, we're committed to making this future a reality, one inspection at a time.`,
+            `Remote work and monitoring is the first thing that springs to mind. To give an example, if an asset needs to be surveyed, which today is usually done with drones, a live feed can be sent anywhere, giving surveyors the ability to analyse feeds remotely. The Rotterdam World Gateway is already doing this in the port where container discharging is almost fully automated, with autonomous trucks and cranes being controlled from offices. Once you combine this remote access with the support of AI, it allows people not only to work from home but also gives them more insight than they had before, resulting in less work needing to be done by humans.`,
+          ],
+        },
+        {
+          h3: 'Which trends and challenges will impact your business most?',
+          paragraphs: [
+            `Remote analytics is a huge trend. Surveying work has always required someone to be physically present, but now it can now be automated with the use of Artificial Intelligence. For tasks that are more complex, AI can act as an ‘assistant’ to help spot anomalies that humans can’t, in other words, prevent human error. It’s our bread and butter so it will impact us positively.`,
+          ],
+        },
+        {
+          h3: 'What new industry innovation or technology has impressed you the most?',
+          paragraphs: [
+            `What impresses us the most is how new companies are using AI to aid in all kinds of processes. From autonomous shipping to robots capable of fulfilling orders, the list never ends. It has untold applications; the possibilities are endless.`,
+          ],
+        },
+        {
+          h3: 'What has been your organisation’s biggest accomplishment?',
+          paragraphs: [
+            `Our biggest accomplishments during the quarantine period have been the productisation of our services into two offerings, Infrascan & Scantainr. We still have multiple services we plan on converting to products, however, these are the two most promising ones at the moment for us.`,
+          ],
+        },
+        {
+          h3: 'What are the most important goals that your organisation has set over the next 5-10 years?',
+          paragraphs: [
+            `Our goal in the next 5-10 years is to be a leading provider in automated damage detection for high-value problem-solving. This will be provided through uniquely built platforms that provide the ideal balance between performance and cost.`,
+          ],
+        },
+        {
+          h3: 'What impact has COVID-19 had on your business?',
+          paragraphs: [
+            `Apart from a handful of projects being put on hold, Mavisoft has managed to adapt fairly quickly to this new environment we are all faced with. The largest impact it has had on the company at this point is the lack of physical interaction between the team members. We take company culture seriously and the most challenging part about COVID is maintaining this interaction through online engagement which isn’t always as easy as you’d think. Apart from this, we think the larger impacts this will have on the market are yet to come, so we are doing everything we can to prepare ourselves.`,
+          ],
+        },
+        {
+          h3: 'What do you think the long-term impact of COVID-19 will be on the industry?',
+          paragraphs: [
+            `Apart from the economic impact, I think COVID is going to really shine a light on flaws in the industry; first and foremost, the conception that one must be present at work in order to fulfil their obligations. Like all industries, I think we have a tendency to believe that working from home will lead to procrastination or difficulty to focus, simply because that’s exactly what you do when you get home, you relax, cook, and enjoy your hobbies. Since COVID is literally forcing people to work from home, we’re also forced to adapt, which before was rarely an option. If people get used to working from home and they like it, chances are they’re going to love it without the quarantine. This is something that I think companies are just going to have to accept. With that said, I think it’s well past time we prepare for remote controlling the port anyway, which is not only going to help centralise control but increase safety as well.`,
           ],
         },
       ],
     },
     {
       id: 'airport-maintenance',
-      title: 'How Data-Driven Insights Are Reshaping Airport Maintenance',
+      title: 'Port of Antwerp’s Digital Transformation',
       date: '2024-10-22',
-      image: '/blog/airport-maintenance.jpg',
-      excerpt: `Airports are complex ecosystems requiring constant maintenance. Learn how modern data analytics and AI are helping airports optimize their maintenance strategies...`,
-      category: 'Aviation',
-      author: 'Mitch Klaver',
-      readTime: '6 min read',
+      image: '',
+      video: '/Blogs/1635857952437.mp4',
+      excerpt: `How our AI solution is being used to optimize one of the most advanced ports in the world.`,
+      category: 'CLIENT STORIES',
+      author: '',
+      readTime: '',
       content: [
         {
-          h2: 'The Challenge of Airport Asset Management',
+          h2: '',
           paragraphs: [
-            `Airports operate under immense pressure. Runways, taxiways, and aprons must maintain the highest safety standards while supporting thousands of aircraft movements daily. Traditional maintenance approaches often meant either expensive preventive interventions or risky reactive repairs after problems emerged.`,
-            `The emergence of data-driven maintenance strategies is changing this paradigm. By continuously monitoring asset conditions and analyzing degradation patterns, airports can now optimize their maintenance schedules, reduce downtime, and significantly cut costs.`,
+            ``,
           ],
         },
         {
-          h3: 'From Reactive to Predictive',
+          h3: '',
           paragraphs: [
-            `The shift from reactive to predictive maintenance represents one of the most significant advances in airport operations. Instead of waiting for a problem to occur or performing unnecessary preventive maintenance, airports can now predict when and where interventions are needed.`,
-            `This approach relies on comprehensive data collection. High-resolution imaging systems scan runway surfaces regularly, capturing detailed information about surface condition. AI algorithms analyze this data to identify degradation patterns and predict future maintenance needs with remarkable accuracy.`,
+            ``,
           ],
         },
         {
-          h3: 'Real-World Impact',
+          h3: '',
           paragraphs: [
-            `The benefits extend far beyond cost savings. Predictive maintenance improves safety by catching potential issues before they become critical. It optimizes resource allocation, ensuring maintenance crews work on the right problems at the right time. And it extends asset lifespan by addressing small issues before they escalate.`,
-            `Several major airports have already implemented data-driven maintenance programs with impressive results. Maintenance costs have decreased by 20-30%, while asset availability has increased. More importantly, safety incidents related to surface conditions have dropped significantly.`,
+            ``,
           ],
         },
         {
-          h3: 'The Path Forward',
+          h3: '',
           paragraphs: [
-            `As airports worldwide face increasing traffic and aging infrastructure, data-driven maintenance isn't just an advantage—it's becoming essential. The airports that embrace these technologies today will be better positioned to handle tomorrow's challenges efficiently and safely.`,
-          ],
-        },
-      ],
-    },
-    {
-      id: 'spectra-platform',
-      title: 'Building Spectra®: Lessons from Developing a Machine Vision Platform',
-      date: '2024-09-08',
-      image: '/blog/spectra-development.jpg',
-      excerpt: `A behind-the-scenes look at the technical challenges and design decisions that shaped our flagship machine vision platform...`,
-      category: 'Product',
-      author: 'Taufik Hidayat',
-      readTime: '10 min read',
-      content: [
-        {
-          h2: 'The Vision Behind Spectra®',
-          paragraphs: [
-            `When we set out to build Spectra®, we had a clear goal: create a machine vision platform that would be powerful enough for expert users yet accessible enough for anyone to build their own inspection solutions. This balance between power and usability guided every design decision.`,
-            `The challenge was significant. Traditional machine vision systems require deep expertise in computer vision, machine learning, and often custom hardware integration. We wanted to abstract away this complexity without limiting capability.`,
-          ],
-        },
-        {
-          h3: 'Architecture Decisions',
-          paragraphs: [
-            `Early on, we decided on a modular architecture that would allow users to combine different vision algorithms, processing pipelines, and output formats without writing code. This required careful API design and a flexible plugin system.`,
-            `We also invested heavily in the data pipeline. Machine vision generates enormous amounts of data, and processing it efficiently requires sophisticated infrastructure. Our streaming architecture can handle terabytes of image data while maintaining real-time processing capabilities.`,
-          ],
-        },
-        {
-          h3: 'The Machine Learning Challenge',
-          paragraphs: [
-            `Training machine learning models for infrastructure inspection presented unique challenges. Unlike consumer applications with millions of training examples, infrastructure defects are relatively rare. We developed specialized training techniques that work with limited data, including synthetic data generation and transfer learning approaches.`,
-            `Model validation was equally critical. In infrastructure inspection, false negatives can have serious consequences, while false positives waste resources. We implemented rigorous validation frameworks that ensure our models meet strict accuracy requirements before deployment.`,
-          ],
-        },
-        {
-          h3: 'User Experience Matters',
-          paragraphs: [
-            `Perhaps our biggest lesson was that even the most sophisticated technology is useless if people can't use it effectively. We've spent countless hours refining the user interface, conducting user testing, and iterating based on feedback.`,
-            `The result is a platform that technical users appreciate for its depth while newcomers can start using productively within hours. This accessibility is opening up machine vision to organizations that previously couldn't justify the investment in specialist expertise.`,
-          ],
-        },
-      ],
-    },
-    {
-      id: 'sustainability-inspection',
-      title: 'Sustainable Infrastructure: How Smart Inspection Reduces Environmental Impact',
-      date: '2024-08-30',
-      image: '/blog/sustainability.jpg',
-      excerpt: `Examining the environmental benefits of AI-powered inspection systems and how they contribute to more sustainable infrastructure management...`,
-      category: 'Sustainability',
-      author: 'Ahmed Hanif',
-      readTime: '7 min read',
-      content: [
-        {
-          h2: 'The Environmental Cost of Infrastructure',
-          paragraphs: [
-            `Infrastructure maintenance has a significant environmental footprint. Concrete and asphalt production are major sources of CO2 emissions. The transportation and placement of materials consume energy and generate pollution. Traditional maintenance approaches often lead to premature replacements that amplify these impacts.`,
-            `Smart inspection systems offer a path to more sustainable infrastructure management. By enabling precise, data-driven maintenance decisions, they help extend asset lifespan, reduce material waste, and minimize unnecessary interventions.`,
-          ],
-        },
-        {
-          h3: 'Extending Asset Lifespan',
-          paragraphs: [
-            `The most sustainable maintenance is the maintenance you don't have to do. By catching problems early, when they're still small and localized, AI-powered inspection systems enable targeted repairs that prevent larger failures.`,
-            `This approach can extend infrastructure lifespan by decades. A runway that might traditionally be resurfaced every 15 years could potentially last 20-25 years with proper early intervention. The environmental savings from avoiding even one major resurfacing project are substantial.`,
-          ],
-        },
-        {
-          h3: 'Optimizing Material Use',
-          paragraphs: [
-            `When repairs are necessary, comprehensive inspection data enables precise interventions. Instead of resurfacing entire sections, maintenance crews can target specific problem areas. This precision reduces material consumption, energy use, and waste generation.`,
-            `The data also informs better material choices. By understanding exactly how different materials perform in specific conditions, infrastructure managers can select options that balance performance, cost, and environmental impact.`,
-          ],
-        },
-        {
-          h3: 'A Path to Net Zero',
-          paragraphs: [
-            `As organizations worldwide work toward net-zero emissions targets, infrastructure maintenance will need to evolve. Smart inspection systems are a key enabling technology, providing the data and insights needed to make sustainability a core consideration in every maintenance decision.`,
-            `The future of infrastructure is not just about maintaining what we have—it's about doing so in a way that minimizes our environmental footprint while maximizing longevity and safety.`,
+            ``,
           ],
         },
       ],

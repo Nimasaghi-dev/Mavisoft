@@ -143,7 +143,7 @@ export function TopNavbar() {
                         className="flex items-center rounded-lg px-4 py-3 text-base font-medium text-white transition-colors hover:bg-white/10 hover:text-cyan-200"
                       >
                         {item.isSpectra ? (
-                          <SpectraLogo className="h-5 w-auto" />
+                          <SpectraLogo className="h-5 w-auto text-red-400" />
                         ) : (
                           item.label
                         )}

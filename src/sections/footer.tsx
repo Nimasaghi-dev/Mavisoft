@@ -67,7 +67,7 @@ export function FooterSection() {
           {/* Main Footer Grid */}
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-8">
             {/* Left Side - Logo & Links */}
-            <div className="lg:col-span-7">
+            <div className="order-2 lg:order-1 lg:col-span-7">
               <motion.div
                 className="grid grid-cols-2 gap-8 sm:grid-cols-4"
                 initial="hidden"
@@ -238,7 +238,7 @@ export function FooterSection() {
 
             {/* Contact Form */}
             <motion.div
-              className="lg:col-span-5"
+              className="order-1 lg:order-2 lg:col-span-5"
               initial="hidden"
               whileInView="visible"
               viewport={viewportOptions}

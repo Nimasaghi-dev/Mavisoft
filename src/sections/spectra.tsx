@@ -39,7 +39,7 @@ export function SpectraSection() {
           >
             <Image
               alt="Spectra diagram"
-              src="/2_Spectra_diagram.png"
+              src="/2_Spectra_Diagram.png"
               fill
               className="object-contain"
             />
