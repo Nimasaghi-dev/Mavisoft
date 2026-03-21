@@ -38,7 +38,7 @@ export const standardTransition: Transition = {
 
 {/** Standard viewport options for scroll-triggered animations */}
 export const viewportOptions: UseInViewOptions = {
-  once: false,
+  once: true,
   amount: 0.2,
 }
 
