@@ -112,7 +112,6 @@ export function SolutionSection() {
       className="scroll-mt-20 bg-cover bg-center bg-no-repeat"
       style={{
         backgroundImage: "url('/Night_SkyArtboard 3.png')",
-        backgroundAttachment: 'fixed',
       }}
     >
       <div className="py-16 md:py-24">
