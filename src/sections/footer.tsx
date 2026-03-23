@@ -200,7 +200,7 @@ export function FooterSection() {
                       rel="noopener noreferrer"
                       className="group flex max-w-xs items-start gap-3 text-zinc-400 transition-colors duration-300 hover:text-white"
                     >
-                      <MapPinIcon className="mt-0.5 h-5 w-5 shrink-0 text-zinc-500 transition-colors duration-300 group-hover:text-white" />
+                      <MapPinIcon className="mt-0.5 h-5 w-5 shrink-0 text-zinc-400 transition-colors duration-300 group-hover:text-white" />
                       <span className="leading-relaxed">
                         Veerhaven 14
                         <br />
@@ -217,7 +217,7 @@ export function FooterSection() {
                       href="tel:+31646563735"
                       className="group flex items-center gap-3 text-zinc-400 transition-colors duration-300 hover:text-white"
                     >
-                      <PhoneIcon className="h-5 w-5 text-zinc-500 transition-colors duration-300 group-hover:text-white" />
+                      <PhoneIcon className="h-5 w-5 text-zinc-400 transition-colors duration-300 group-hover:text-white" />
                       <span>+31 (0) 6 46 56 37 35</span>
                     </a>
                   </li>
@@ -228,7 +228,7 @@ export function FooterSection() {
                       href="mailto:sales@mavisoft.com"
                       className="group flex items-center gap-3 text-zinc-400 transition-colors duration-300 hover:text-white"
                     >
-                      <EnvelopeIcon className="h-5 w-5 text-zinc-500 transition-colors duration-300 group-hover:text-white" />
+                      <EnvelopeIcon className="h-5 w-5 text-zinc-400 transition-colors duration-300 group-hover:text-white" />
                       <span>sales@mavisoft.com</span>
                     </a>
                   </li>
@@ -256,17 +256,17 @@ export function FooterSection() {
             viewport={viewportOptions}
             variants={createDelayedFadeUp(0.3)}
           >
-            <p className="text-sm text-zinc-500">© {new Date().getFullYear()} Mavisoft. All rights reserved.</p>
+            <p className="text-sm text-zinc-400">© {new Date().getFullYear()} Mavisoft. All rights reserved.</p>
             <div className="flex gap-6">
               <button
                 onClick={() => setPrivacyOpen(true)}
-                className="text-sm text-zinc-500 transition-colors hover:text-white"
+                className="text-sm text-zinc-400 transition-colors hover:text-white"
               >
                 Privacy Policy
               </button>
               <button
                 onClick={() => setTermsOpen(true)}
-                className="text-sm text-zinc-500 transition-colors hover:text-white"
+                className="text-sm text-zinc-400 transition-colors hover:text-white"
               >
                 Terms of Service
               </button>

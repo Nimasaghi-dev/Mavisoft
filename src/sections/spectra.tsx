@@ -4,9 +4,10 @@ import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { SpectraLogo } from '@/components/SpectraLogo'
 import {
-  fadeUpVariants,
+  slideInLeftVariants,
+  scaleRevealVariants,
+  createDelayedSlideLeft,
   viewportOptions,
-  createDelayedFadeUp,
 } from '@/lib/animations'
 
 export function SpectraSection() {
@@ -20,7 +21,7 @@ export function SpectraSection() {
             initial="hidden"
             whileInView="visible"
             viewport={viewportOptions}
-            variants={fadeUpVariants}
+            variants={slideInLeftVariants}
           >
             Introducing{' '}
             <span className="inline-flex items-center align-baseline">
@@ -35,7 +36,7 @@ export function SpectraSection() {
             initial="hidden"
             whileInView="visible"
             viewport={viewportOptions}
-            variants={createDelayedFadeUp(0.15)}
+            variants={scaleRevealVariants}
           >
             <Image
               alt="Spectra diagram"
@@ -51,9 +52,9 @@ export function SpectraSection() {
             initial="hidden"
             whileInView="visible"
             viewport={viewportOptions}
-            variants={createDelayedFadeUp(0.25)}
+            variants={createDelayedSlideLeft(0.15)}
           >
-            <p className="max-w-2xl text-base text-gray-400">
+            <p className="max-w-2xl text-base text-zinc-400">
               Spectra is a smart brain for the real world. It looks through cameras and maps, understands what it sees,
               and then follows simple rules to do the next right step; either doing it itself or asking another person.
             </p>

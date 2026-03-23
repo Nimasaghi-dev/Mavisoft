@@ -52,19 +52,11 @@ const HeroSection = () => {
 
   //cinematic reveal
   const backgroundRevealVariants: Variants = {
-    hidden: {
-      opacity: 0,
-      scale: 1.1,
-      filter: 'blur(4px)',
-    },
+    hidden: { opacity: 0, scale: 1.04 },
     visible: {
       opacity: 1,
       scale: 1,
-      filter: 'blur(0px)',
-      transition: {
-        duration: 1.6,
-        ease: [0.25, 0.1, 0.25, 1],
-      },
+      transition: { duration: 1.2, ease: [0.22, 1, 0.36, 1] },
     },
   }
 

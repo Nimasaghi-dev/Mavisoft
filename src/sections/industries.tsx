@@ -5,9 +5,9 @@ import { useState, useEffect, useCallback } from 'react'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { motion } from 'framer-motion'
 import {
-  fadeUpVariants,
+  slideInLeftVariants,
+  scaleRevealVariants,
   viewportOptions,
-  createDelayedFadeUp,
 } from '@/lib/animations'
 
 export default function IndustriesSection() {
@@ -77,7 +77,7 @@ export default function IndustriesSection() {
           initial="hidden"
           whileInView="visible"
           viewport={viewportOptions}
-          variants={fadeUpVariants}
+          variants={slideInLeftVariants}
         >
           <h2 className="text-3xl text-white sm:text-4xl lg:text-5xl">Industries We Serve</h2>
           <p className="mt-4 max-w-2xl text-base text-gray-400 sm:text-lg">
@@ -94,7 +94,7 @@ export default function IndustriesSection() {
           initial="hidden"
           whileInView="visible"
           viewport={viewportOptions}
-          variants={createDelayedFadeUp(0.15)}
+          variants={scaleRevealVariants}
         >
           {/* Main Carousel */}
           <div className="overflow-hidden rounded-xl">
