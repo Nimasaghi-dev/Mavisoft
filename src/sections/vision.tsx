@@ -2,11 +2,11 @@
 
 import { motion } from 'framer-motion'
 import {
-  fadeUpVariants,
+  slideInLeftVariants,
   staggerContainerVariants,
   staggerChildVariants,
   viewportOptions,
-  createDelayedFadeUp,
+  createDelayedSlideLeft,
 } from '@/lib/animations'
 
 const VisionSection = () => {
@@ -77,15 +77,15 @@ const VisionSection = () => {
             initial="hidden"
             whileInView="visible"
             viewport={viewportOptions}
-            variants={fadeUpVariants}
+            variants={slideInLeftVariants}
           >
             <h2 className="text-3xl sm:text-4xl lg:text-5xl tracking-tight text-white">
               The World Is{' '}
-              <span className="bg-linear-to-r from-cyan-100 to-cyan-500 text-transparent bg-clip-text">
+              <span className="text-cyan-400">
                 Complex, Dynamic, Interdepended.
               </span>
             </h2>
-            <p className="mt-6 text-base sm:text-lg text-gray-400">
+            <p className="mt-6 text-base sm:text-lg text-zinc-400">
               We build general-purpose perception that binds reality into structure and meaning.
             </p>
           </motion.div>
@@ -102,16 +102,15 @@ const VisionSection = () => {
               <motion.div
                 key={index}
                 variants={staggerChildVariants}
-                className="group border border-gray-800 bg-gray-900/50 p-6 transition-all duration-300 hover:border-gray-700 hover:bg-gray-900/80"
+                className="group border border-zinc-800 bg-zinc-900/50 p-6 transition-all duration-300 hover:border-zinc-700 hover:bg-zinc-900/80"
               >
                 <div className="flex items-center gap-4">
                   <div className="shrink-0">
-                    <img src={card.icon} alt="" className="h-8 w-auto dark:hidden" />
-                    <img src={card.logoDark} alt="" className="hidden h-8 w-auto dark:block" />
+                    <img src={card.icon} alt="" className="h-8 w-auto" />
                   </div>
                   <h3 className="text-lg font-medium text-white">{card.title}</h3>
                 </div>
-                <p className="mt-4 text-sm leading-relaxed text-gray-400">{card.description}</p>
+                <p className="mt-4 text-sm leading-relaxed text-zinc-400">{card.description}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -122,7 +121,7 @@ const VisionSection = () => {
             initial="hidden"
             whileInView="visible"
             viewport={viewportOptions}
-            variants={createDelayedFadeUp(0.2)}
+            variants={createDelayedSlideLeft(0.1)}
           >
             <p className="text-xs font-medium tracking-wider text-gray-500 uppercase">Trusted by</p>
             <motion.div

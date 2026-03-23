@@ -3,12 +3,13 @@
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import {
-  fadeUpVariants,
+  slideInLeftVariants,
+  slideInRightVariants,
   staggerContainerVariants,
   staggerChildVariants,
   scaleFadeVariants,
   viewportOptions,
-  createDelayedFadeUp,
+  createDelayedSlideLeft,
 } from '@/lib/animations'
 
 export function SolutionSection() {
@@ -122,10 +123,10 @@ export function SolutionSection() {
             initial="hidden"
             whileInView="visible"
             viewport={viewportOptions}
-            variants={fadeUpVariants}
+            variants={slideInLeftVariants}
           >
             <h2 className="text-3xl sm:text-4xl lg:text-5xl">The way it works is simple</h2>
-            <p className="mt-4 text-lg text-gray-400">From raw images to intelligent actions</p>
+            <p className="mt-4 text-lg text-zinc-400">From raw images to intelligent actions</p>
           </motion.div>
 
           {/* Main Cards */}
@@ -139,7 +140,7 @@ export function SolutionSection() {
                   initial="hidden"
                   whileInView="visible"
                   viewport={viewportOptions}
-                  variants={scaleFadeVariants}
+                  variants={card.number % 2 === 1 ? slideInRightVariants : slideInLeftVariants}
                   className={`mx-auto max-w-5xl rounded-2xl border border-white/5 bg-zinc-900/30 p-4 shadow-lg shadow-black/20 backdrop-blur-sm transition-all duration-300 ease-in hover:border-white/20 hover:bg-zinc-800/40 hover:shadow-lg hover:shadow-white/20 sm:rounded-3xl sm:p-5 lg:p-6 ${
                     card.number % 2 === 1 ? 'translate-x-15' : '-translate-x-15'
                   }`}
@@ -179,7 +180,7 @@ export function SolutionSection() {
                           {card.number}. {card.title}{' '}
                           <span className="text-red-400">{card.highlight}</span>
                         </h3>
-                        <ul className="mt-4 space-y-2 text-sm text-gray-400 sm:text-base">
+                        <ul className="mt-4 space-y-2 text-sm text-zinc-400 sm:text-base">
                           {card.items.map((item, idx) => (
                             <li key={idx} className="flex items-start gap-2">
                               <span className="mt-0.5 shrink-0 text-red-500">•</span>
@@ -201,7 +202,7 @@ export function SolutionSection() {
             initial="hidden"
             whileInView="visible"
             viewport={viewportOptions}
-            variants={fadeUpVariants}
+            variants={slideInLeftVariants}
           >
             <h2 className="pt-24 text-2xl text-white sm:text-4xl">
               If It Can Be Seen, It Can Be Solved.
@@ -213,7 +214,7 @@ export function SolutionSection() {
             initial="hidden"
             whileInView="visible"
             viewport={viewportOptions}
-            variants={createDelayedFadeUp(0.1)}
+            variants={createDelayedSlideLeft(0.05)}
           >
             <h2 className="mt-2 text-xl text-zinc-300 sm:text-2xl">Proven Use-Cases</h2>
             <h3 className="mt-1 text-lg text-zinc-400">

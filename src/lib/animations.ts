@@ -1,160 +1,87 @@
-/**
- * Animation System 
- * 
- * PATTERN EXPLANATION:
- * --------------------
- * This animation system uses a consistent "fade-up" pattern across all sections.
- * 
- * Why this pattern?
- * 1. SUBTLETY: A small vertical movement (24px) combined with opacity creates
- *    a gentle "reveal" effect that feels natural without being distracting.
- * 
- * 2. CONSISTENCY: Every element uses the same easing curve and base duration,
- *    creating visual harmony as users scroll through the page.
- * 
- * 3. PERFORMANCE: Using `transform` and `opacity` only means animations run
- *    on the compositor thread, ensuring 60fps even on mobile devices.
- * 
- * 4. SCROLL-BASED: Using `whileInView` with `once: false` allows elements to
- *    animate in when entering viewport and reset when leaving, creating an
- *    engaging scroll experience.
- * 
- * Animation Specifications:
- * - Duration: 0.6s (smooth but not sluggish)
- * - Easing: [0.25, 0.1, 0.25, 1] (custom cubic-bezier for natural deceleration)
- * - Y offset: 24px (subtle lift effect)
- * - Stagger: 0.1s between children (creates wave effect)
- * - Viewport threshold: 0.2 (triggers when 20% visible)
- */
-
 import { Variants, Transition, UseInViewOptions } from 'framer-motion'
 
-// CORE ANIMATION CONFIGURATION
-{/**Standard transition used across all animations-The custom easing creates a smooth deceleration that feels natural*/}
-export const standardTransition: Transition = {
-  duration: 0.6,
-  ease: [0.25, 0.1, 0.25, 1], 
+// Fast ease-out — GPU-accelerated, no JS frame-by-frame calculation
+const easeOut: Transition = {
+  duration: 0.45,
+  ease: [0.22, 1, 0.36, 1],
 }
 
-{/** Standard viewport options for scroll-triggered animations */}
+const easeOutSlow: Transition = {
+  duration: 0.55,
+  ease: [0.22, 1, 0.36, 1],
+}
+
+// once: false so animations play in both scroll directions
 export const viewportOptions: UseInViewOptions = {
-  once: true,
-  amount: 0.2,
+  once: false,
+  amount: 0.15,
 }
 
-// ANIMATION VARIANTS
-{/** Primary fade-up animation variant - Use for: headings, paragraphs, standalone elements */}
+// Headings & text — slide in from left
+export const slideInLeftVariants: Variants = {
+  hidden: { opacity: 0, x: -32 },
+  visible: { opacity: 1, x: 0, transition: easeOut },
+}
+
+// Right-side elements — slide in from right
+export const slideInRightVariants: Variants = {
+  hidden: { opacity: 0, x: 32 },
+  visible: { opacity: 1, x: 0, transition: easeOut },
+}
+
+// Images & diagrams — subtle scale up
+export const scaleRevealVariants: Variants = {
+  hidden: { opacity: 0, scale: 0.96 },
+  visible: { opacity: 1, scale: 1, transition: easeOutSlow },
+}
+
+// Simple fade-up for misc elements
 export const fadeUpVariants: Variants = {
-  hidden: {
-    opacity: 0,
-    y: 24,
-  },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: standardTransition,
-  },
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: easeOut },
 }
 
-{/** Container variant with staggered children-Use for: grids, lists, card containers */}
-export const staggerContainerVariants: Variants = {
-  hidden: {
-    opacity: 1,
-  },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.1,
-    },
-  },
-}
-
-{/** Child variant for staggered animations-Use with: staggerContainerVariants as parent */}
-export const staggerChildVariants: Variants = {
-  hidden: {
-    opacity: 0,
-    y: 24,
-  },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: standardTransition,
-  },
-}
-
-{/** Scale fade variant for cards and interactive elements-Use for: cards that should have a subtle scale effect */}
+// Cards — subtle fade-up
 export const scaleFadeVariants: Variants = {
-  hidden: {
-    opacity: 0,
-    y: 24,
-    scale: 0.98,
-  },
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: easeOut },
+}
+
+// Stagger container
+export const staggerContainerVariants: Variants = {
+  hidden: { opacity: 1 },
   visible: {
     opacity: 1,
-    y: 0,
-    scale: 1,
-    transition: standardTransition,
+    transition: {
+      staggerChildren: 0.08,
+      delayChildren: 0.05,
+    },
   },
 }
 
-// UTILITY FUNCTIONS
-/**
- * Creates a delayed version of the fade-up animation
- * @param delay - Delay in seconds before animation starts
- */
+// Stagger children — fast fade-up
+export const staggerChildVariants: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: easeOut },
+}
+
 export const createDelayedFadeUp = (delay: number): Variants => ({
-  hidden: {
-    opacity: 0,
-    y: 24,
-  },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      ...standardTransition,
-      delay,
-    },
-  },
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { ...easeOut, delay } },
 })
 
-/**
- * Creates a stagger container with custom timing
- * @param stagger - Time between each child animation
- * @param delayChildren - Initial delay before first child animates
- */
-export const createStaggerContainer = (
-  stagger: number = 0.1,
-  delayChildren: number = 0.1
-): Variants => ({
-  hidden: {
-    opacity: 1,
-  },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: stagger,
-      delayChildren,
-    },
-  },
+export const createDelayedSlideLeft = (delay: number): Variants => ({
+  hidden: { opacity: 0, x: -32 },
+  visible: { opacity: 1, x: 0, transition: { ...easeOut, delay } },
 })
-
-// MOTION COMPONENT PROPS HELPERS
-/**
- * Standard motion props for animated sections
- * Apply directly to motion.div or motion.section
- */
 
 export const sectionMotionProps = {
   initial: 'hidden' as const,
   whileInView: 'visible' as const,
   viewport: viewportOptions,
-  variants: fadeUpVariants,
+  variants: slideInLeftVariants,
 }
 
-/**
- * Motion props for stagger containers
- */
 export const staggerContainerProps = {
   initial: 'hidden' as const,
   whileInView: 'visible' as const,
@@ -162,19 +89,13 @@ export const staggerContainerProps = {
   variants: staggerContainerVariants,
 }
 
-/**
- * Motion props for stagger children
- */
 export const staggerChildProps = {
   variants: staggerChildVariants,
 }
 
-/**
- * Motion props for scale fade elements
- */
 export const scaleFadeProps = {
   initial: 'hidden' as const,
   whileInView: 'visible' as const,
   viewport: viewportOptions,
-  variants: scaleFadeVariants,
+  variants: scaleRevealVariants,
 }

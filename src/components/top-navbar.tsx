@@ -32,7 +32,7 @@ export function TopNavbar() {
   }
 
   return (
-    <header className="animate-fadeSlide fixed top-0 right-0 left-0 z-50 bg-transparent-md backdrop-blur-md">
+    <header className="animate-fadeSlide fixed top-0 right-0 left-0 z-50 bg-zinc-950/80 backdrop-blur-md">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <Navbar>
           <NavbarSection>
