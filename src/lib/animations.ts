@@ -1,10 +1,12 @@
 import { Variants, Transition, UseInViewOptions } from 'framer-motion'
 
 // Fast ease-out — GPU-accelerated, no JS frame-by-frame calculation
-const easeOut: Transition = {
+export const standardTransition: Transition = {
   duration: 0.45,
   ease: [0.22, 1, 0.36, 1],
 }
+
+const easeOut = standardTransition
 
 const easeOutSlow: Transition = {
   duration: 0.55,
