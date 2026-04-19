@@ -139,13 +139,8 @@ const VisionSection = () => {
                 >
                   <img
                     alt={logo.name}
-                    src={logo.light}
-                    className="h-8 w-auto object-contain opacity-50 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0 dark:hidden"
-                  />
-                  <img
-                    alt={logo.name}
                     src={logo.dark}
-                    className="hidden h-8 w-auto object-contain opacity-50 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0 dark:block"
+                    className="h-8 w-auto object-contain opacity-60 brightness-0 invert transition-all duration-300 hover:opacity-100"
                   />
                 </motion.div>
               ))}
