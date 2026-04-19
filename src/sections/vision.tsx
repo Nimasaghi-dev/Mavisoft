@@ -71,7 +71,6 @@ const VisionSection = () => {
     <section id="vision" className="scroll-mt-20 bg-black">
       <div className="py-16 md:py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          {/* Header */}
           <motion.div
             className="max-w-2xl"
             initial="hidden"
@@ -79,20 +78,19 @@ const VisionSection = () => {
             viewport={viewportOptions}
             variants={slideInLeftVariants}
           >
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl tracking-tight text-white">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl tracking-tight text-white">
               The World Is{' '}
               <span className="text-cyan-400">
                 Complex, Dynamic, Interdepended.
               </span>
             </h2>
-            <p className="mt-6 text-base sm:text-lg text-zinc-400">
+            <p className="mt-6 text-base sm:text-lg md:text-xl text-zinc-400">
               We build general-purpose perception that binds reality into structure and meaning.
             </p>
           </motion.div>
 
-          {/* Cards Grid */}
           <motion.div
-            className="mt-12 md:mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
+            className="mt-12 md:mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3"
             initial="hidden"
             whileInView="visible"
             viewport={viewportOptions}
@@ -115,7 +113,6 @@ const VisionSection = () => {
             ))}
           </motion.div>
 
-          {/* Partner Logos */}
           <motion.div
             className="mt-16 border-t border-gray-800 pt-12"
             initial="hidden"
@@ -123,9 +120,9 @@ const VisionSection = () => {
             viewport={viewportOptions}
             variants={createDelayedSlideLeft(0.1)}
           >
-            <p className="text-xs font-medium tracking-wider text-gray-500 uppercase">Trusted by</p>
+            <p className="text-xs sm:text-sm font-medium tracking-wider text-gray-500 uppercase">Trusted by</p>
             <motion.div
-              className="mt-6 flex flex-wrap items-center gap-x-8 gap-y-4"
+              className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-6 sm:gap-x-10 sm:gap-y-4"
               initial="hidden"
               whileInView="visible"
               viewport={viewportOptions}

@@ -50,7 +50,6 @@ const HeroSection = () => {
     },
   }
 
-  //cinematic reveal
   const backgroundRevealVariants: Variants = {
     hidden: { opacity: 0, scale: 1.04 },
     visible: {
@@ -62,7 +61,6 @@ const HeroSection = () => {
 
   return (
     <section className="relative flex min-h-screen items-center overflow-hidden">
-      {/* Background Image with Cinematic Reveal */}
       <motion.div
         className="absolute inset-0 top-16 bg-cover bg-top bg-no-repeat"
         style={{ backgroundImage: "url('/1_Globe_Image.jpg')" }}
@@ -71,10 +69,8 @@ const HeroSection = () => {
         variants={backgroundRevealVariants}
       />
 
-      {/* Gradient Overlay */}
       <div className="absolute inset-0 bg-linear-to-b from-zinc-950/80 via-zinc-950/40 to-zinc-950/60" />
 
-      {/* Content */}
       <motion.div
         className="relative z-10 mx-auto w-full max-w-7xl px-6 lg:px-8"
         initial="hidden"
@@ -83,7 +79,7 @@ const HeroSection = () => {
       >
         <div className="max-w-4xl">
           <motion.h1
-            className="text-2xl leading-tight tracking-tight sm:text-3xl md:text-4xl lg:text-5xl lg:whitespace-nowrap xl:text-[3.5rem]"
+            className="text-3xl leading-tight tracking-tight sm:text-4xl md:text-5xl lg:text-6xl xl:text-[4rem]"
             variants={heroContentVariants}
           >
             {displayedText}

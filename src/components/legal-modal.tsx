@@ -19,7 +19,6 @@ export function LegalModal({ open, onClose, title, children }: LegalModalProps) 
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
         >
-          {/* Backdrop */}
           <button
             type="button"
             aria-label="Close modal"
@@ -27,7 +26,6 @@ export function LegalModal({ open, onClose, title, children }: LegalModalProps) 
             className="absolute inset-0 bg-black/70 backdrop-blur-sm"
           />
 
-          {/* Modal panel */}
           <motion.div
             role="dialog"
             aria-modal="true"
@@ -39,10 +37,10 @@ export function LegalModal({ open, onClose, title, children }: LegalModalProps) 
             transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Header */}
             <div className="flex items-center justify-between gap-3 border-b border-white/10 px-4 py-3 sm:px-6">
               <h3 className="text-base font-semibold text-white sm:text-lg">{title}</h3>
               <button
+                type="button"
                 onClick={onClose}
                 aria-label="Close"
                 className="rounded-md px-2 py-1 text-zinc-400 transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white/20"
@@ -51,7 +49,6 @@ export function LegalModal({ open, onClose, title, children }: LegalModalProps) 
               </button>
             </div>
 
-            {/* Body (scrollable) */}
             <div
               className="min-h-0 flex-1 overflow-y-auto px-4 py-4 text-sm leading-relaxed text-zinc-300 sm:px-6 [&::-webkit-scrollbar-thumb:hover]:bg-white/20 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-white/10 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar]:w-2"
               style={{

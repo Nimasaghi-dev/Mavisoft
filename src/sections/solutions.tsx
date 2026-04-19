@@ -117,7 +117,6 @@ export function SolutionSection() {
     >
       <div className="py-16 md:py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          {/* Section Header */}
           <motion.div
             className="mx-auto max-w-2xl text-center"
             initial="hidden"
@@ -125,11 +124,10 @@ export function SolutionSection() {
             viewport={viewportOptions}
             variants={slideInLeftVariants}
           >
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl">The way it works is simple</h2>
-            <p className="mt-4 text-lg text-zinc-400">From raw images to intelligent actions</p>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl">The way it works is simple</h2>
+            <p className="mt-4 text-base sm:text-lg text-zinc-400">From raw images to intelligent actions</p>
           </motion.div>
 
-          {/* Main Cards */}
           <div className="mt-12 flex flex-col gap-6 md:mt-16">
             {cards.map((card) => {
               const isOddCard = card.number % 2 === 1
@@ -142,16 +140,14 @@ export function SolutionSection() {
                   viewport={viewportOptions}
                   variants={card.number % 2 === 1 ? slideInRightVariants : slideInLeftVariants}
                   className={`mx-auto max-w-5xl rounded-2xl border border-white/5 bg-zinc-900/30 p-4 shadow-lg shadow-black/20 backdrop-blur-sm transition-all duration-300 ease-in hover:border-white/20 hover:bg-zinc-800/40 hover:shadow-lg hover:shadow-white/20 sm:rounded-3xl sm:p-5 lg:p-6 ${
-                    card.number % 2 === 1 ? 'translate-x-15' : '-translate-x-15'
+                    card.number % 2 === 1 ? 'md:translate-x-10 lg:translate-x-15' : 'md:-translate-x-10 lg:-translate-x-15'
                   }`}
                 >
                   <div className="grid grid-cols-1 items-center gap-2 sm:gap-3 lg:grid-cols-2 lg:gap-4">
-                    {/* Image */}
                     <div
                       className={`flex w-full items-center justify-center ${isOddCard ? 'lg:order-2' : 'lg:order-1'}`}
                     >
-                      <div className="relative h-40 w-full max-w-sm overflow-hidden rounded-lg border border-zinc-700/80 sm:h-44 sm:rounded-xl sm:border-2 lg:h-48">
-                        {/* Icon overlay */}
+                      <div className="relative h-44 w-full max-w-sm overflow-hidden rounded-lg border border-zinc-700/80 sm:h-48 sm:rounded-xl sm:border-2 md:h-52 lg:h-56">
                         <div className="absolute left-2 top-2 z-10 rounded-md bg-black/40 p-1 sm:left-3 sm:top-3 sm:p-1.5">
                           <Image
                             src={card.icon}
@@ -171,7 +167,6 @@ export function SolutionSection() {
                       </div>
                     </div>
 
-                    {/* Text */}
                     <div
                       className={`flex w-full items-center justify-center ${isOddCard ? 'lg:order-1' : 'lg:order-2'}`}
                     >
@@ -196,7 +191,6 @@ export function SolutionSection() {
             })}
           </div>
 
-          {/* Middle Section */}
           <motion.div
             className="mx-auto mt-16 text-center"
             initial="hidden"
@@ -204,7 +198,7 @@ export function SolutionSection() {
             viewport={viewportOptions}
             variants={slideInLeftVariants}
           >
-            <h2 className="pt-24 text-2xl text-white sm:text-4xl">
+            <h2 className="pt-16 text-2xl text-white sm:text-3xl md:text-4xl lg:text-5xl">
               If It Can Be Seen, It Can Be Solved.
             </h2>
           </motion.div>
@@ -216,15 +210,14 @@ export function SolutionSection() {
             viewport={viewportOptions}
             variants={createDelayedSlideLeft(0.05)}
           >
-            <h2 className="mt-2 text-xl text-zinc-300 sm:text-2xl">Proven Use-Cases</h2>
-            <h3 className="mt-1 text-lg text-zinc-400">
+            <h2 className="mt-2 text-xl text-zinc-300 sm:text-2xl md:text-3xl">Proven Use-Cases</h2>
+            <h3 className="mt-1 text-base text-zinc-400 sm:text-lg">
               Proof without case-study fatigue. Domains change. The framework endures.
             </h3>
           </motion.div>
 
-          {/* Mini Cards */}
           <motion.div
-            className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2"
+            className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4"
             initial="hidden"
             whileInView="visible"
             viewport={viewportOptions}
@@ -234,9 +227,8 @@ export function SolutionSection() {
               <motion.div
                 key={c.id}
                 variants={staggerChildVariants}
-                className="group relative min-h-[360px] overflow-hidden rounded-xl border border-white/10 shadow-lg shadow-black/20 transition-all duration-300 ease-out hover:border-red-200/30 hover:shadow-lg hover:shadow-white/20 sm:min-h-[300px]"
+                className="group relative min-h-80 overflow-hidden rounded-xl border border-white/10 shadow-lg shadow-black/20 transition-all duration-300 ease-out hover:border-red-200/30 hover:shadow-lg hover:shadow-white/20 sm:min-h-[300px] lg:min-h-[360px]"
               >
-                {/* Background image */}
                 <div className="pointer-events-none absolute inset-0">
                   <Image
                     src={c.image}
@@ -247,10 +239,8 @@ export function SolutionSection() {
                   />
                 </div>
 
-                {/* Dark gradient overlay for text contrast */}
                 <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/50 to-transparent" />
 
-                {/* Text content*/}
                 <div className="relative z-10 flex h-full flex-col justify-center p-6">
                   <h3 className="text-xl font-bold text-white drop-shadow-lg">{c.title}</h3>
                   <p className="mt-2 text-base font-medium text-white/90 drop-shadow-md">{c.body}</p>

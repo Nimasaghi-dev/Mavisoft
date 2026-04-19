@@ -11,7 +11,6 @@ interface ArticleDetailModalProps {
   modalTitle?: string
 }
 
-// Helper function to render paragraph text with inline links
 function renderParagraphWithLinks(text: string, inlineLinks?: { text: string; url: string }[]) {
   if (!inlineLinks || inlineLinks.length === 0) {
     return text
@@ -30,7 +29,6 @@ function renderParagraphWithLinks(text: string, inlineLinks?: { text: string; ur
           if (part) {
             newResult.push(part)
           }
-          // Add link between parts (but not after the last part)
           if (partIndex < parts.length - 1) {
             newResult.push(
               <a
@@ -77,16 +75,12 @@ export function ArticleDetailModal({
     day: 'numeric',
   })
 
-  // Determine if we should show video or image for the header
   const hasVideo = article.video && article.video.length > 0
-
-  // Use detailImage if available, otherwise fallback to image
   const displayImage = article.detailImage || article.image
 
   return (
     <LegalModal open={open} onClose={onClose} title={modalTitle}>
       <article className="space-y-6">
-        {/* Featured Media: Video or Image */}
         <figure>
           <div className="overflow-hidden rounded-2xl border border-white/10 bg-zinc-900/30">
             <div className="aspect-video w-full">
@@ -97,7 +91,6 @@ export function ArticleDetailModal({
               )}
             </div>
           </div>
-          {/* Image Caption */}
           {article.detailImageCaption && (
             <figcaption className="mt-3 text-center text-sm italic text-zinc-500">
               {article.detailImageCaption}
@@ -105,9 +98,7 @@ export function ArticleDetailModal({
           )}
         </figure>
 
-        {/* Header */}
         <header className="space-y-3">
-          {/* Category & Read Time */}
           {variant === 'rich' ? (
             <div className="flex flex-wrap items-center gap-2">
               {article.category && (
@@ -130,10 +121,8 @@ export function ArticleDetailModal({
             )
           )}
 
-          {/* Title */}
           <h1 className="text-2xl font-bold leading-tight tracking-tight text-white sm:text-3xl">{article.title}</h1>
 
-          {/* Author & Date */}
           {variant === 'rich' ? (
             <div className="flex items-center gap-3 text-sm text-zinc-400">
               {article.author && (
@@ -151,7 +140,6 @@ export function ArticleDetailModal({
           )}
         </header>
 
-        {/* Content */}
         <div className="space-y-6 border-t border-white/5 pt-6">
           {article.content.map((block, idx) => (
             <section key={idx} className="space-y-4">
@@ -173,7 +161,6 @@ export function ArticleDetailModal({
                 </h4>
               )}
 
-              {/* Paragraphs with inline links support */}
               {block.paragraphs && block.paragraphs.length > 0 && (
                 <div className="space-y-4">
                   {block.paragraphs.map((p, pIdx) =>
@@ -186,7 +173,6 @@ export function ArticleDetailModal({
                 </div>
               )}
 
-              {/* List */}
               {block.list && block.list.length > 0 && (
                 <ul className="ml-4 list-disc space-y-2 text-sm leading-7 text-zinc-300">
                   {block.list.map((item, listIdx) => (
@@ -195,7 +181,6 @@ export function ArticleDetailModal({
                 </ul>
               )}
 
-              {/* Link */}
               {block.link && (
                 <p className="text-sm leading-7 text-zinc-300">
                   {block.link.text}{' '}
@@ -210,7 +195,6 @@ export function ArticleDetailModal({
                 </p>
               )}
 
-              {/* Quote/Blockquote */}
               {block.quote && (
                 <blockquote className="my-6 border-l-2 border-cyan-500/50 pl-4">
                   <p className="text-base italic leading-relaxed text-zinc-300">&ldquo;{block.quote.text}&rdquo;</p>
@@ -221,7 +205,6 @@ export function ArticleDetailModal({
                 </blockquote>
               )}
 
-              {/* Content Image */}
               {block.image && (
                 <figure className="my-6">
                   <div className="overflow-hidden rounded-xl border border-white/10 bg-zinc-900/30">
@@ -235,7 +218,6 @@ export function ArticleDetailModal({
                 </figure>
               )}
 
-              {/* Content Video */}
               {block.video && (
                 <figure className="my-6">
                   <div className="overflow-hidden rounded-xl border border-white/10 bg-zinc-900/30">

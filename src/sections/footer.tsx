@@ -12,19 +12,14 @@ import { EnvelopeIcon, MapPinIcon, PhoneIcon } from '@heroicons/react/24/outline
 import { motion } from 'framer-motion'
 import { useState } from 'react'
 
-// Data imports
 import { teamMembers } from '@/data/team-members'
 import { pressItems } from '@/data/press-items'
 import { blogItems } from '@/data/blog-items'
 import { companyLinks, productLinks } from '@/data/footer-links'
-
-// Component imports
 import { ContactForm } from '@/components/contact-form'
 import { ArticleCard } from '@/components/article-card'
 import { LegalModal } from '@/components/legal-modal'
 import { ArticleDetailModal } from '@/components/article-detail-modal'
-
-// Type imports
 import type { ArticleItem } from '@/types/footer'
 
 export function FooterSection() {
@@ -34,11 +29,9 @@ export function FooterSection() {
   type AboutModal = 'mission' | 'team' | 'about' | null
   const [aboutModal, setAboutModal] = useState<AboutModal>(null)
 
-  // Press state
   const [pressOpen, setPressOpen] = useState(false)
   const [selectedPress, setSelectedPress] = useState<ArticleItem | null>(null)
 
-  // Blog state
   const [blogOpen, setBlogOpen] = useState(false)
   const [selectedBlog, setSelectedBlog] = useState<ArticleItem | null>(null)
 
@@ -64,10 +57,8 @@ export function FooterSection() {
     <footer id="contact" className="scroll-mt-20 border-t border-white/10 bg-zinc-950">
       <div className="py-16 md:py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          {/* Main Footer Grid */}
-          <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-8">
-            {/* Left Side - Logo & Links */}
-            <div className="order-2 lg:order-1 lg:col-span-7">
+          <div className="grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-10 lg:grid-cols-12 lg:gap-8">
+            <div className="order-2 md:order-1 lg:order-1 lg:col-span-7">
               <motion.div
                 className="grid grid-cols-2 gap-8 sm:grid-cols-4"
                 initial="hidden"
@@ -75,7 +66,6 @@ export function FooterSection() {
                 viewport={viewportOptions}
                 variants={staggerContainerVariants}
               >
-                {/* Company Links */}
                 <motion.div variants={staggerChildVariants}>
                   <h3 className="text-sm uppercase tracking-wider text-white">Company</h3>
                   <ul className="mt-4 space-y-2">
@@ -140,7 +130,6 @@ export function FooterSection() {
                   </ul>
                 </motion.div>
 
-                {/* Product Links */}
                 <motion.div variants={staggerChildVariants}>
                   <h3 className="text-sm uppercase tracking-wider text-white">Product</h3>
                   <ul className="mt-4 space-y-3">
@@ -154,7 +143,6 @@ export function FooterSection() {
                   </ul>
                 </motion.div>
 
-                {/* Social Links */}
                 <motion.div className="col-span-2 sm:col-span-2" variants={staggerChildVariants}>
                   <h3 className="text-sm uppercase tracking-wider text-white">Connect</h3>
                   <div className="mt-4 flex flex-wrap gap-4">
@@ -174,7 +162,6 @@ export function FooterSection() {
                 </motion.div>
               </motion.div>
 
-              {/* Logo & Tagline */}
               <motion.div
                 className="mt-12 border-t border-white/10 pt-8"
                 initial="hidden"
@@ -192,7 +179,6 @@ export function FooterSection() {
                 </a>
 
                 <ul className="mt-6 space-y-4 text-sm">
-                  {/* Address */}
                   <li>
                     <a
                       href="https://www.google.com/maps/search/?api=1&query=Veerhaven+14+3016+CJ+Rotterdam"
@@ -211,7 +197,6 @@ export function FooterSection() {
                     </a>
                   </li>
 
-                  {/* Phone */}
                   <li>
                     <a
                       href="tel:+31646563735"
@@ -222,7 +207,6 @@ export function FooterSection() {
                     </a>
                   </li>
 
-                  {/* Email */}
                   <li>
                     <a
                       href="mailto:sales@mavisoft.com"
@@ -236,9 +220,8 @@ export function FooterSection() {
               </motion.div>
             </div>
 
-            {/* Contact Form */}
             <motion.div
-              className="order-1 lg:order-2 lg:col-span-5"
+              className="order-1 md:order-2 lg:order-2 lg:col-span-5"
               initial="hidden"
               whileInView="visible"
               viewport={viewportOptions}
@@ -248,7 +231,6 @@ export function FooterSection() {
             </motion.div>
           </div>
 
-          {/* Bottom Bar */}
           <motion.div
             className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 sm:flex-row"
             initial="hidden"
@@ -275,9 +257,6 @@ export function FooterSection() {
         </div>
       </div>
 
-      {/* ==================== MODALS ==================== */}
-
-      {/* About Modal */}
       <LegalModal open={aboutModal === 'about'} onClose={() => setAboutModal(null)} title="About Mavisoft">
         <div className="space-y-4">
           <p className="text-zinc-300">
@@ -301,7 +280,6 @@ export function FooterSection() {
         </div>
       </LegalModal>
 
-      {/* Mission Modal */}
       <LegalModal open={aboutModal === 'mission'} onClose={() => setAboutModal(null)} title="Mission">
         <p>
           At Mavisoft, we&apos;re redefining how critical infrastructure is inspected and managed. By combining advanced
@@ -316,7 +294,6 @@ export function FooterSection() {
         </p>
       </LegalModal>
 
-      {/* Team Modal */}
       <LegalModal open={aboutModal === 'team'} onClose={() => setAboutModal(null)} title="Team Members">
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           {teamMembers.map((m) => (
@@ -353,7 +330,6 @@ export function FooterSection() {
         </div>
       </LegalModal>
 
-      {/* Press List Modal */}
       <LegalModal open={pressOpen} onClose={() => setPressOpen(false)} title="Press & Media">
         <div className="space-y-4">
           <p className="text-sm leading-relaxed text-zinc-400">
@@ -369,7 +345,6 @@ export function FooterSection() {
         </div>
       </LegalModal>
 
-      {/* Press Detail Modal */}
       <ArticleDetailModal
         open={selectedPress !== null}
         onClose={closePressDetail}
@@ -378,7 +353,6 @@ export function FooterSection() {
         modalTitle="Press Release"
       />
 
-      {/* Blog List Modal */}
       <LegalModal open={blogOpen} onClose={() => setBlogOpen(false)} title="Blog & Insights">
         <div className="space-y-4">
           <p className="text-sm leading-relaxed text-zinc-400">
@@ -394,7 +368,6 @@ export function FooterSection() {
         </div>
       </LegalModal>
 
-      {/* Blog Detail Modal */}
       <ArticleDetailModal
         open={selectedBlog !== null}
         onClose={closeBlogDetail}
@@ -403,7 +376,6 @@ export function FooterSection() {
         modalTitle="Blog Article"
       />
 
-      {/* Privacy Policy Modal */}
       <LegalModal open={privacyOpen} onClose={() => setPrivacyOpen(false)} title="Privacy Policy">
         <p>
           At Mavisoft, we value your privacy and are committed to protecting your personal data. This Privacy Policy
@@ -462,7 +434,6 @@ export function FooterSection() {
         </p>
       </LegalModal>
 
-      {/* Terms of Service Modal */}
       <LegalModal open={termsOpen} onClose={() => setTermsOpen(false)} title="Terms of Service">
         <p>
           Welcome to the Mavisoft website. By accessing or using this website, you agree to be bound by these Terms of

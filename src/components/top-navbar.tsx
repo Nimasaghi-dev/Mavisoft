@@ -8,7 +8,6 @@ import { Button } from '@/components/button'
 import { Navbar, NavbarSection, NavbarSpacer } from '@/components/navbar'
 import { useRouter } from 'next/navigation'
 
-// ANCHOR links - use null for label when using custom component
 const menuItems = [
   { label: 'VISION', href: '#vision' },
   { label: 'SPECTRA', href: '#spectra', isSpectra: true },
@@ -21,7 +20,6 @@ export function TopNavbar() {
   const [isOpen, setIsOpen] = useState(false)
   const router = useRouter()
 
-  // Helper functions 
   const toggleMenu = () => setIsOpen(!isOpen)
   const closeMenu = () => setIsOpen(false)
 
@@ -83,14 +81,13 @@ export function TopNavbar() {
             </Button> */}
           </NavbarSection>
 
-          {/* Hamburger Button (Mobile Only) */}
           <button
+            type="button"
             onClick={toggleMenu}
             className="relative z-50 flex h-10 w-10 items-center justify-center rounded-lg text-white transition-colors hover:bg-white/10 md:hidden"
             aria-label={isOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={isOpen}
           >
-            {/* Animated hamburger icon - transforms to X */}
             <div className="flex h-5 w-6 flex-col items-center justify-center gap-1.5">
               <span
                 className={`block h-0.5 w-6 bg-white transition-all duration-300 ease-out ${
@@ -112,11 +109,9 @@ export function TopNavbar() {
         </Navbar>
       </div>
 
-      {/* Mobile Menu Panel */}
       <AnimatePresence>
         {isOpen && (
           <>
-            {/* Backdrop - closes menu when clicked */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -127,7 +122,6 @@ export function TopNavbar() {
               aria-hidden="true"
             />
 
-            {/* Menu Panel */}
             <motion.nav
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
@@ -136,7 +130,6 @@ export function TopNavbar() {
               className="absolute left-0 right-0 top-full z-50 border-b border-white/10 bg-zinc-950/95 backdrop-blur-lg md:hidden"
             >
               <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6">
-                {/* Menu Links */}
                 <ul className="space-y-1">
                   {menuItems.map((item, index) => (
                     <motion.li
@@ -160,10 +153,8 @@ export function TopNavbar() {
                   ))}
                 </ul>
 
-                {/* Divider */}
                 <div className="my-4 border-t border-white/10" />
 
-                {/* Mobile Buttons */}
                 <div className="flex flex-col gap-3 px-4">
                   <a
                     href="/login"

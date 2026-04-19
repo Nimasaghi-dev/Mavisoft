@@ -4,100 +4,67 @@ import { motion } from 'framer-motion'
 import { useState } from 'react'
 import type { ContactFormData, FormStatus } from '@/types/footer'
 
-/**
- * ContactForm Component
- * 
- * A contact form that sends submissions to /api/contact
- * which then emails the message via Resend.
- * 
- * Features:
- * - Client-side validation
- * - Loading states
- * - Success/error feedback
- * - Accessible form controls
- */
 export function ContactForm() {
-  // Form data state
   const [formData, setFormData] = useState<ContactFormData>({
     name: '',
     email: '',
     message: '',
   })
-  
-  // Form status: 'idle' | 'submitting' | 'success' | 'error'
+
   const [status, setStatus] = useState<FormStatus>('idle')
-  
-  // Error message to display
   const [errorMessage, setErrorMessage] = useState<string>('')
 
-  /** Handles form submission - Sends data to the API and handles the response */
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    
-    // Reset error state
     setErrorMessage('')
     setStatus('submitting')
 
     try {
-      // Send POST request to our API route
       const response = await fetch('/api/contact', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
       })
 
-      // Parse the JSON response
       const result = await response.json()
 
       if (!response.ok || !result.success) {
-        // Handle error response from API
         setStatus('error')
         setErrorMessage(result.error || 'Something went wrong. Please try again.')
         return
       }
 
-      // Success! Clear form and show success message
       setStatus('success')
       setFormData({ name: '', email: '', message: '' })
-
-      // Reset to idle state after 5 seconds
       setTimeout(() => setStatus('idle'), 5000)
 
     } catch (error) {
-      // Handle network errors or unexpected issues
       console.error('Form submission error:', error)
       setStatus('error')
       setErrorMessage('Unable to send message. Please check your connection and try again.')
     }
   }
 
-  /** Handles input changes - Updates form data state */
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    // Clear error when user starts typing again
     if (status === 'error') {
       setStatus('idle')
       setErrorMessage('')
     }
-    
     setFormData((prev) => ({
       ...prev,
       [e.target.name]: e.target.value,
     }))
   }
 
-  // Determine if form is currently submitting
   const isSubmitting = status === 'submitting'
 
   return (
-    <div className="rounded-xl border border-white/10 bg-zinc-900/30 p-6 backdrop-blur-sm sm:p-8">
-      <h3 className="text-lg text-white">Contact Us</h3>
-      <p className="mt-2 text-sm text-zinc-400">
+    <div className="rounded-xl border border-white/10 bg-zinc-900/30 p-6 backdrop-blur-sm sm:p-8 lg:p-10">
+      <h3 className="text-lg sm:text-xl text-white">Contact Us</h3>
+      <p className="mt-2 text-sm sm:text-base text-zinc-400">
         Have a project in mind? We&apos;d love to hear from you.
       </p>
 
-      {/* Success State */}
       {status === 'success' ? (
         <motion.div
           initial={{ opacity: 0, y: 10 }}
@@ -110,21 +77,16 @@ export function ContactForm() {
         </motion.div>
       ) : (
         <form onSubmit={handleSubmit} className="mt-6 space-y-4">
-          
-          {/* Error Message */}
           {status === 'error' && errorMessage && (
             <motion.div
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               className="rounded-lg border border-red-400/30 bg-red-400/10 p-4"
             >
-              <p className="text-sm text-red-400">
-                ✕ {errorMessage}
-              </p>
+              <p className="text-sm text-red-400">✕ {errorMessage}</p>
             </motion.div>
           )}
 
-          {/* Name Field */}
           <div>
             <label htmlFor="contact-name" className="block text-sm font-medium text-zinc-300">
               Name
@@ -143,7 +105,6 @@ export function ContactForm() {
             />
           </div>
 
-          {/* Email Field */}
           <div>
             <label htmlFor="contact-email" className="block text-sm font-medium text-zinc-300">
               Email
@@ -161,7 +122,6 @@ export function ContactForm() {
             />
           </div>
 
-          {/* Message Field */}
           <div>
             <label htmlFor="contact-message" className="block text-sm font-medium text-zinc-300">
               Message
@@ -181,7 +141,6 @@ export function ContactForm() {
             />
           </div>
 
-          {/* Submit Button */}
           <button
             type="submit"
             disabled={isSubmitting}
@@ -189,7 +148,6 @@ export function ContactForm() {
           >
             {isSubmitting ? (
               <>
-                {/* Loading Spinner */}
                 <svg className="mr-2 h-4 w-4 animate-spin" viewBox="0 0 24 24">
                   <circle
                     className="opacity-25"

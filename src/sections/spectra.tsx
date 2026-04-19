@@ -17,7 +17,7 @@ export function SpectraSection() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           {/* Heading */}
           <motion.h2
-            className="max-w-4xl text-3xl sm:text-4xl lg:text-5xl"
+            className="max-w-4xl text-3xl sm:text-4xl md:text-5xl"
             initial="hidden"
             whileInView="visible"
             viewport={viewportOptions}
@@ -32,7 +32,7 @@ export function SpectraSection() {
 
           {/* Image */}
           <motion.div
-            className="relative mt-12 h-[250px] w-full sm:h-[350px] md:mt-16 md:h-[450px] lg:h-[500px]"
+            className="relative mt-12 h-[260px] w-full sm:h-[360px] md:mt-16 md:h-[460px] lg:h-[520px] xl:h-[580px]"
             initial="hidden"
             whileInView="visible"
             viewport={viewportOptions}
@@ -54,7 +54,7 @@ export function SpectraSection() {
             viewport={viewportOptions}
             variants={createDelayedSlideLeft(0.15)}
           >
-            <p className="max-w-2xl text-base text-zinc-400">
+            <p className="max-w-2xl text-base sm:text-lg text-zinc-400">
               Spectra is a smart brain for the real world. It looks through cameras and maps, understands what it sees,
               and then follows simple rules to do the next right step; either doing it itself or asking another person.
             </p>

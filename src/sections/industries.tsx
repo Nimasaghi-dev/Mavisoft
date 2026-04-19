@@ -71,7 +71,6 @@ export default function IndustriesSection() {
   return (
     <section id="industries" className="scroll-mt-20 py-16 md:py-24">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        {/* Section Header */}
         <motion.div
           className="mb-12 md:mb-16"
           initial="hidden"
@@ -79,14 +78,13 @@ export default function IndustriesSection() {
           viewport={viewportOptions}
           variants={slideInLeftVariants}
         >
-          <h2 className="text-3xl text-white sm:text-4xl lg:text-5xl">Industries We Serve</h2>
-          <p className="mt-4 max-w-2xl text-base text-gray-400 sm:text-lg">
+          <h2 className="text-3xl text-white sm:text-4xl md:text-5xl">Industries We Serve</h2>
+          <p className="mt-4 max-w-2xl text-base text-gray-400 sm:text-lg md:text-xl">
             Mavisoft has a long standing history in various industries in the industrial sector.
             Our solutions are built to the highest standard to serve your needs.
           </p>
         </motion.div>
 
-        {/* Carousel Container */}
         <motion.div
           className="relative"
           onMouseEnter={() => setIsAutoPlaying(false)}
@@ -96,7 +94,6 @@ export default function IndustriesSection() {
           viewport={viewportOptions}
           variants={scaleRevealVariants}
         >
-          {/* Main Carousel */}
           <div className="overflow-hidden rounded-xl">
             <div
               className="flex transition-transform duration-500 ease-out"
@@ -106,16 +103,16 @@ export default function IndustriesSection() {
                 <div key={ic.id} className="w-full shrink-0">
                   <div
                     className="
-                      relative 
+                      relative
                       min-h-[400px]
-                      overflow-hidden 
-                      border border-white/10 
+                      overflow-hidden
+                      border border-white/10
                       shadow-lg shadow-black/20
                       sm:min-h-[450px]
-                      lg:min-h-[500px]
+                      md:min-h-[480px]
+                      lg:min-h-[520px]
                     "
                   >
-                    {/* Background image */}
                     <div className="pointer-events-none absolute inset-0">
                       <Image
                         src={ic.image}
@@ -127,18 +124,15 @@ export default function IndustriesSection() {
                       />
                     </div>
 
-                    {/* Gradient overlay */}
                     <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent" />
 
-                    {/* Text content */}
-                    <div className="relative z-10 flex h-full min-h-[400px] flex-col justify-end sm:min-h-[450px] lg:min-h-[500px]">
+                    <div className="relative z-10 flex h-full min-h-[400px] flex-col justify-end sm:min-h-[450px] md:min-h-[480px] lg:min-h-[520px]">
                       <div className="p-6 sm:p-8 lg:p-12">
                         <h3 className="text-2xl font-bold text-white sm:text-3xl lg:text-4xl">
                           {ic.title}
                         </h3>
                         <p className="mt-3 max-w-xl text-base text-white/90 sm:text-lg">{ic.body}</p>
 
-                        {/* Subline list */}
                         {ic.subline.filter(Boolean).length > 0 && (
                           <ul className="mt-4 flex flex-wrap gap-3 sm:gap-4">
                             {ic.subline.filter(Boolean).map((item, idx) => (
@@ -160,12 +154,13 @@ export default function IndustriesSection() {
             </div>
           </div>
 
-          {/* Navigation Arrows */}
           <button
+            type="button"
             onClick={prevSlide}
             className="
-              absolute left-4 top-1/2 z-20 -translate-y-1/2 
-              rounded-full p-3 sm:p-4
+              absolute left-2 top-1/2 z-20 -translate-y-1/2
+              sm:left-4
+              rounded-full p-2.5 sm:p-4
               
               bg-white/5
               backdrop-blur-sm
@@ -185,10 +180,12 @@ export default function IndustriesSection() {
             <ChevronLeft className="h-5 w-5 sm:h-6 sm:w-6" />
           </button>
           <button
+            type="button"
             onClick={nextSlide}
             className="
-              absolute right-4 top-1/2 z-20 -translate-y-1/2 
-              rounded-full p-3 sm:p-4
+              absolute right-2 top-1/2 z-20 -translate-y-1/2
+              sm:right-4
+              rounded-full p-2.5 sm:p-4
               
               bg-white/5
               backdrop-blur-sm
@@ -208,10 +205,10 @@ export default function IndustriesSection() {
             <ChevronRight className="h-5 w-5 sm:h-6 sm:w-6" />
           </button>
 
-          {/* Dot Indicators */}
           <div className="mt-6 flex justify-center gap-3">
             {industryCards.map((_, index) => (
               <button
+                type="button"
                 key={index}
                 onClick={() => goToSlide(index)}
                 className={`
